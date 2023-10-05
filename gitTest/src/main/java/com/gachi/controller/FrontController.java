@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.gachi.controller.LoginService;
+
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -27,6 +29,14 @@ public class FrontController extends HttpServlet {
 
 		// 이동하고자 하는 경로를 담을 수 있는 변수 선언
 		String url = "";
+		
+		if (result.equals("LoginService.do")) {
+			// 로그인 기능 구현
+
+			LoginService loginService = new LoginService();
+			url = loginService.execute(request, response);
+
+		}
 
 	}
 

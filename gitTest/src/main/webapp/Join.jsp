@@ -7,6 +7,7 @@
 <title>선물팔레트</title>
 </head>
 <body>
+	<!-- 회원가입 페이지 -->
 	<form action="JoinService.do" method="post">
 		<li>아이디<input type="text" placeholder="ID를 입력하세요" name="id"></li>
 		<li>비밀번호<input type="password" placeholder="PW를 입력하세요" name="pw"></li>
