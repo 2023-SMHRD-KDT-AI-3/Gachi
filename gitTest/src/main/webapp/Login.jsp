@@ -9,7 +9,7 @@
 <body>
 	<!-- 로그인 페이지 -->
 	<form action="LoginService.do" method='post'>
-		ID<input type="text" placeholder="ID를입력하세요" name="id"><br>
+		ID<input type="text" placeholder="ID를 입력하세요" name="id"><br>
 		PW<input type="password" placeholder="PW를 입력하세요" name="pw"><br>
 		<input type="submit" value="LogIn" class="button fit">
 		<button type = "button" onclick = "location.href = 'Join.jsp'" >Join</button>
