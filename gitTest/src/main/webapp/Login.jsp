@@ -275,10 +275,10 @@ footer a {
 }
 </style>
 </head>
+	<link rel="stylesheet" href="로그인_회원가입.css">
 
 <body>
 
-	<link rel="stylesheet" href="로그인_회원가입.css">
 	<h2>
 		<img id="logo" src="./img/로고2.png" alt="">
 	</h2>
@@ -359,9 +359,6 @@ footer a {
                 container.classList.remove("right-panel-active");
             });
         </script>
-</body>
-
-</html>
 </body>
 
 </html>
