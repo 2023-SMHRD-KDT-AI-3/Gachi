@@ -103,6 +103,15 @@ nav:hover {
 
 #userID{
 	align-items: center;}
+	
+.boardList {
+    background-color: white;
+    width: 1100px;
+    height: 50000px;
+    margin-left: 500px;
+    margin-top: 200px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
 
 .bTest {
 	width: 500px;
@@ -174,7 +183,9 @@ nav:hover {
 				loadNewBoard()
 				lastBoardObserver.unobserve(lastBoard.target)
 				lastBoardObserver.observe(document.querySelector(".board:last-child"))
-			}, {})
+			}, {
+				rootMargin:"100px";
+			})
 			
 			lastBoardObserver.observe(document.querySelector(".board:last-child"))
 			
