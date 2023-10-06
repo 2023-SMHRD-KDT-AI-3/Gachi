@@ -17,5 +17,6 @@ public class MemberDTO {
 	private String user_gender;
 	private String user_birth;
 	private String user_pic;
+	private String created_at;
 	
 }

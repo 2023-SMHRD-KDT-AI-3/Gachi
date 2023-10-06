@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>선물팔레트</title>
 <style>
 @import
 	url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap')
@@ -25,7 +26,7 @@ body {
 }
 
 nav {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	bottom: 0;
 	height: 100%;
@@ -98,6 +99,11 @@ nav:hover {
 	position: absolute;
 	bottom: 0;
 }
+
+.bTest {
+	width: 500px;
+	height: 5000px;
+}
 </style>
 </head>
 <body>
@@ -106,17 +112,17 @@ nav:hover {
 		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 	<nav>
 		<ul>
-			<li><a href="Main.jsp" class="logo"> <img src="../img/logo1.png"
-				alt=""> <span class="nav-item">선물팔레트</span>
+			<li><a href="BoardService.do" class="logo"> <img
+					src="./img/logo1.png" alt=""> <span class="nav-item">선물팔레트</span>
 			</a></li>
-			<li><a href="Main.jsp"> <i class="fas fa-home"></i> <span
+			<li><a href="BoardService.do"> <i class="fas fa-home"></i> <span
 					class="nav-item">홈</span>
 			</a></li>
-			<li><a href="Search.jsp"> <i class="fas fa-magnifying-glass"></i> <span
-					class="nav-item">검색</span>
+			<li><a href="Search.jsp"> <i class="fas fa-magnifying-glass"></i>
+					<span class="nav-item">검색</span>
 			</a></li>
-			<li><a href="Write.jsp"> <i class="fas fa-pen-to-square"></i> <span
-					class="nav-item">게시글 작성</span>
+			<li><a href="Write.jsp"> <i class="fas fa-pen-to-square"></i>
+					<span class="nav-item">게시글 작성</span>
 			</a></li>
 			<li><a href="Mypage.jsp"> <i class="fas fa-user"></i> <span
 					class="nav-item">프로필</span>
@@ -126,6 +132,25 @@ nav:hover {
 			</a></li>
 		</ul>
 	</nav>
+	<span>${info.user_id}님 환영합니다.</span>
+	<br>
+	<c:forEach var="board" items="${list}" varStatus="status">
+		<div class="bTest" align="center">
+			<tr class="bTest1">
+				<td>${board.user_id}</td>
+				<br>
+				<td>${board.post_content}</td>
+				<br>
+				<td>${board.post_img}</td>
+				<br>
+			</tr>
+		</div>
+	</c:forEach>
+
+
+	<script>
+
+	</script>
 
 </body>
 </html>
