@@ -4,7 +4,7 @@
 
 	<insert id="join" parameterType="com.gachi.model.MemberDTO">
 		insert into tbl_user
-		values(#{user_id}, #{user_pw}, #{user_name}, #{user_nick}, #{user_email}, #{user_gender}, #{user_birth}, null, sysdate())
+		values(#{user_id}, #{user_pw}, #{user_name}, #{user_nick}, #{user_email}, #{user_gender}, #{user_birthdate}, null, sysdate())
 	</insert>
 
 	<select id="login" parameterType="com.gachi.model.MemberDTO" resultType="com.gachi.model.MemberDTO">
