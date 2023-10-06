@@ -58,7 +58,7 @@ public class FrontController extends HttpServlet {
 			// 회원가입 기능
 			JoinService joinService = new JoinService();
 			url = joinService.execute(request, response);
-		} else if (result.equals("LogoutSevice.do")) {
+		} else if (result.equals("LogoutService.do")) {
 			// 로그아웃 기능
 			LogoutService logoutService = new LogoutService();
 			url = logoutService.execute(request, response);

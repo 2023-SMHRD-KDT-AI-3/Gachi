@@ -23,9 +23,7 @@ public class BoardService implements Command {
 		
 		// web_Board에 있는 모든 내용 가져오기
 		request.setAttribute("list",list);
-		
-		//RequestDispatcher rd = request.getRequestDispatcher("Main.jsp");
-		//rd.forward(request, response);
+
 		return "Main.jsp";
 
 		

@@ -256,7 +256,18 @@ nav:hover {
 	height: 400px;
 	border-radius: 0.5rem;
 	margin-left: 360px;
-	margin-bottom: 80px;
+	margin-bottom: 80px; 
+	}
+	/* 프로필 수정 위한 버튼 생성 */ 
+	.myPage .container .profile .profile_img span a	img { 
+	position : absolute;
+	background-color: white;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	bottom: 0.5px;
+	right: 11px;
+	border: 2px solid #fff;
 }
 </style>
 </head>
@@ -271,8 +282,8 @@ nav:hover {
 			<li><a href="BoardService.do" class="logo headers"> <img
 					src="./img/logo1.png" alt=""> <span class="nav-item">선물팔레트</span>
 			</a></li>
-			<li><a href="BoardService.do" class="headers"> <i class="fas fa-home"></i>
-					<span class="nav-item">홈</span>
+			<li><a href="BoardService.do" class="headers"> <i
+					class="fas fa-home"></i> <span class="nav-item">홈</span>
 			</a></li>
 			<li><a href="Search.jsp" class="headers"> <i
 					class="fas fa-magnifying-glass"></i> <span class="nav-item">검색</span>
@@ -281,8 +292,8 @@ nav:hover {
 					class="fas fa-pen-to-square"></i> <span class="nav-item">게시글
 						작성</span>
 			</a></li>
-			<li><a href="Mypage.jsp" class="headers"> <i class="fas fa-user"></i>
-					<span class="nav-item">프로필</span>
+			<li><a href="Mypage.jsp" class="headers"> <i
+					class="fas fa-user"></i> <span class="nav-item">마이페이지</span>
 			</a></li>
 			<li><a href="LogoutService.do" class="logout headers"> <i
 					class="fas fa-sign-out-alt"></i> <span class="nav-item">로그아웃</span>
@@ -296,7 +307,8 @@ nav:hover {
 			<div class="profile">
 				<!-- 프로필 사진 -->
 				<div class="profile_img">
-					<img src="./img/앵무새.jpg" alt="profile">
+					<img src="./img/앵무새.jpg" alt="profile"> <span><a
+						href="#"><img src="./img/plus.png" alt=""></a></span>
 				</div>
 				<!-- 이름 -->
 				<h2>앵무새</h2>
@@ -324,10 +336,9 @@ nav:hover {
 					<div>
 						<div>
 							<div>
-								<a href="#" class="board"><img src="./img/앵무새.jpg"
-									alt="게시글"></a> <a href="#" class="board"><img
-									src="./img/앵무새.jpg" alt="게시글"></a> <a href="#"
-									class="board"><img src="./img/앵무새.jpg" alt="게시글"></a>
+								<a href="#" class="board"><img src="./img/앵무새.jpg" alt="게시글"></a>
+								<a href="#" class="board"><img src="./img/앵무새.jpg" alt="게시글"></a>
+								<a href="#" class="board"><img src="./img/앵무새.jpg" alt="게시글"></a>
 							</div>
 						</div>
 					</div>
