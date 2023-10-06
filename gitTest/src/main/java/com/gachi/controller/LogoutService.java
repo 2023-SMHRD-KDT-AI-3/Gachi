@@ -14,6 +14,7 @@ public class LogoutService implements Command {
 			
 			// session의 데이터 삭제하기
 			session.invalidate();
+
 			
 			String url = "Login.jsp";
 			return url;

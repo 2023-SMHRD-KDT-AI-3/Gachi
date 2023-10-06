@@ -40,14 +40,6 @@ public class JoinService implements Command {
          m.setUser_birthdate(birth);
          
          dao.join(m);
-         /*
-         int info = dao.join(dto);
-         
-         // info의 결과에 따라 페이지 이동
-         if(info > 0) {
-            HttpSession session = request.getSession();
-            session.setAttribute("login", info);
-         }*/
 
       } catch (UnsupportedEncodingException e) {
          e.printStackTrace();

@@ -14,7 +14,7 @@ public class MemberDAO {
 		
 		// 받아온 데이터를 연결
 		int cnt = sqlSession.insert("join",m);
-		
+		sqlSession.close();
 		return cnt;
 	}
 	

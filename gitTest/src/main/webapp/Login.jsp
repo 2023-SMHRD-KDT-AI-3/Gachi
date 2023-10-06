@@ -7,6 +7,7 @@
 
 <head>
 <meta charset="UTF-8">
+
 <title>선물팔레트 로그인</title>
 <style>
 @import
@@ -277,6 +278,7 @@ footer a {
 </head>
 	<link rel="stylesheet" href="로그인_회원가입.css">
 
+	<link rel="stylesheet" href="로그인_회원가입.css">
 <body>
 
 	<h2>

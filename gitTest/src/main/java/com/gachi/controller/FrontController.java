@@ -43,7 +43,7 @@ public class FrontController extends HttpServlet {
 			GoMainController goMainController = new GoMainController();
 			url = goMainController.execute(request, response);
 		} else if (result.equals("goLogin.do")) {
-			// 로그인페이지로 이동하는 기능
+			// 로그인 페이지로 이동하는 기능
 			GoLoginController goLoginController = new GoLoginController();
 			url = goLoginController.execute(request, response);
 		} else if (result.equals("goLoginFail.do")) {
