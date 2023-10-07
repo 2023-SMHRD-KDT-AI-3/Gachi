@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>선물팔레트 로그인 실패</title>
+<title>로그인 실패</title>
 </head>
 <body>
 	<script>

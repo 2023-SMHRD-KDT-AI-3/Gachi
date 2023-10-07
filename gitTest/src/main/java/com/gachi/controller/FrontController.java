@@ -62,8 +62,32 @@ public class FrontController extends HttpServlet {
 			// 로그아웃 기능
 			LogoutService logoutService = new LogoutService();
 			url = logoutService.execute(request, response);
+		} else if (result.equals("LikeUpdate.do")) {
+			// 좋아요 기능
+			LikeUpdate likeUpdate = new LikeUpdate();
+			url = likeUpdate.execute(request, response);
+		} else if (result.equals("BoardWrite.do")) {
+			// 게시글 작성 기능
+			BoardWrite boardWrite = new BoardWrite();
+			url = boardWrite.execute(request, response);
+		} else if (result.equals("CmtWrite.do")) {
+			// 댓글 작성 기능
+			CmtWrite cmtWrite = new CmtWrite();
+			url = cmtWrite.execute(request, response);
+		}else if (result.equals("RecService.do")) {
+			// 댓글 작성 기능
+			RecService recService = new RecService();
+			url = recService.execute(request, response);
 		}
-		RequestDispatcher rd = request.getRequestDispatcher(url);
-		rd.forward(request, response);
+		if (url != null) {
+			if (url.indexOf(".do") != -1) {
+				// url이 .do -> response.sendRedirect
+				response.sendRedirect(url);
+			} else {
+				// url이 .do가 아니면 -> forward
+				RequestDispatcher rd = request.getRequestDispatcher(url);
+				rd.forward(request, response);
+			}
+		}
 	}
 }

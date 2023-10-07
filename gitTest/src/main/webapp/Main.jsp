@@ -101,23 +101,22 @@ nav:hover {
 	bottom: 0;
 }
 
-#userID{
-	align-items: center;}
-	
+#userID {
+	align-items: center;
+}
+
 .boardList {
-    background-color: white;
-    width: 1100px;
-    height: 50000px;
-    margin-left: 500px;
-    margin-top: 200px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+	background-color: white;
+	width: 1100px;
+	height: 50000px;
+	margin-left: 500px;
+	margin-top: 200px;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 .bTest {
 	width: 500px;
-	height: 5000px;
 }
-
 </style>
 </head>
 
@@ -125,6 +124,10 @@ nav:hover {
 	<!-- 로고 아이콘 링크 -->
 	<link rel="stylesheet"
 		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+	<!-- 제이쿼리 로드 -->
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+		integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+		crossorigin="anonymous"></script>
 	<nav>
 		<ul>
 			<li><a href="BoardService.do" class="logo"> <img
@@ -147,63 +150,104 @@ nav:hover {
 			</a></li>
 		</ul>
 	</nav>
-	<div align="center"><span id = "userID">${info.user_id}님 환영합니다.</span></div>
+	<div align="center">
+		<span id="userID">${info.user_id}님 환영합니다.</span>
+	</div>
 	<br>
 	<div class="boardList" align=center>
 		<c:forEach var="board" items="${list}" varStatus="status">
 			<div class="bTest">
 				<div>${board.user_id}</div>
 				<br>
+				<div>
+					<img src="${board.post_img}">
+				</div>
+				<br>
 				<div>${board.post_content}</div>
 				<br>
-				<div>${board.post_img}</div>
+				<div>${board.post_id}</div>
+				<br>
+				<div>
+					<!-- 좋아요 버튼 -->
+					<button type="button" id="BtnLike"
+						onclick="goLove('${board.post_id}','${info.user_id}')">
+						좋아요
+					<!--<c:if test="${resultLike==1}">
+						좋아요X
+					</c:if>
+					<c:if test="${resultLike==0}">
+						좋아요O
+					</c:if>-->
+					</button>
+					<!-- 추천 버튼 -->
+				<button type="button" id="btn2" onclick="goRec('${board.goods_id}','${info.user_id}')">추천</button>
+				</div>
+				<div>
+					<!-- 댓글 입력, 입력버튼 -->
+					<input type="text" name="cmt_content" placeholder="댓글 입력 test">
+					<button type="button"
+						onclick="commentWrite('${board.post_id}','${cmt_content}.val()','${info.user_id}')">입력</button>
+				</div>
+				<!-- 댓글 출력 반복문 -->
+				<c:forEach var="cmt" items="${cmtList}" varStatus="status">
+					<div>${cmt.cmt_content}</div>
+				</c:forEach>
 				<br>
 			</div>
 		</c:forEach>
 	</div>
 
 
-	<script>
-			const boards = document.querySelectorAll('.bTest')
-			
-			const observer = new IntersectionObserver(entries =>{
-				entries.forEach(entry=>{
-					entry.target.classList.toggle("show",entry.isIntersecting)
-					if(entry.isIntersecting) observer.unobserver(entry.target)
-				})
-			}, 
-			{
-				threshold: 1, 
-			
-			})
-			
-			const lastBoardObserver = new IntersectionObserver(entries =>{
-				const lastBoard = entries[0]
-				if(!lastBoard.isInteresting) return
-				loadNewBoard()
-				lastBoardObserver.unobserve(lastBoard.target)
-				lastBoardObserver.observe(document.querySelector(".board:last-child"))
-			}, {
-				rootMargin:"100px";
-			})
-			
-			lastBoardObserver.observe(document.querySelector(".board:last-child"))
-			
-			boards.forEach(board=>{
-			observer.observe(board)
-			})
-			
-			function loadNewBoard() {
-				for(let i = 0;i<10;i++){
-					const board= document.createElement("div")
-					board.textContent = "New Board"
-					board.classList.add("board")
-					observer.observe(board)
-					boardContainer.append(board)
+	<script type="text/javascript">
+		// 좋아요 ajax
+		function goLove(post_id, user_id) {
+			//alert(post_id+":"+user_id);
+			$.ajax({
+				url : "LikeUpdate.do",
+				type : "post",
+				dataType : "text",
+				data : {
+					post_id : post_id,
+					user_id : user_id
+				},
+				success : function(resultLike) {
+					if (resultLike == 1) {
+						console.log("좋아요X"); //1:좋아요삭제 ,0:좋아요추가
+						$('#BtnLike').html("좋아요O");
+					} else if (resultLike == 0) {
+						console.log("좋아요O");
+						$('#BtnLike').html("좋아요X");
+					}
+				},
+				error : function() {
+					console.log('요청실패 ㅜㅜ');
 				}
-				
-			}
-			</script>
+			})
+		}
+		
+		
+		// 추천 ajax
+		function goRec(goods_id,user_id) {
+			 // alert("goods_id: "+goods_id+" / user_id: "+user_id);
+				$.ajax({
+					url:"RecService.do",
+					type:"post",
+					dataType : "text",
+					data:{
+						goods_id : goods_id,
+						user_id : user_id
+					},
+					success: function (result) {
+						console.log(result);	//1:추천삭제 ,0:추천추가
+					},
+					error: function(){
+						console.log('요청실패 ..');
+					}
+				})
+			 
+		  }
+	</script>
+
 
 </body>
 

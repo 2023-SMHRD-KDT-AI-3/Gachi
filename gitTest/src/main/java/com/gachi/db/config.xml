@@ -19,5 +19,8 @@
 	<mappers>
 		<mapper resource="com/gachi/model/MemberMapper.xml" />
 		<mapper resource="com/gachi/model/BoardMapper.xml" />
+		<mapper resource="com/gachi/model/LikeMapper.xml" />
+		<mapper resource="com/gachi/model/CmtMapper.xml" />
+		<mapper resource="com/gachi/model/RecMapper.xml" />
 	</mappers>
 </configuration>

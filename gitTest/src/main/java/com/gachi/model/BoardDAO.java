@@ -23,7 +23,7 @@ public class BoardDAO {
 
 		return list;
 	}
-	
+
 	// 게시글 하나만 내용을 확인 할 수 있는 기능
 	public BoardDTO detail(String num) {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
@@ -33,5 +33,16 @@ public class BoardDAO {
 		sqlSession.close();
 
 		return board;
+	}
+	// 게시글 작성 기능
+	public int write(BoardDTO board) {
+		SqlSession sqlsession = sqlSessionFactory.openSession(true);
+
+		int cnt = sqlsession.insert("write", board);
+
+		sqlsession.close();
+
+		return cnt;
+
 	}
 }
