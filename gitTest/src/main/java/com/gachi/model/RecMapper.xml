@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gachi.model.RecMapper">
+
+	<!-- 동일 게시글 추천 여부 검색 -->
+	<select id="RecCheck" parameterType="com.gachi.controller.RecService" resultType="int">
+		select count(*) from tbl_rec where goods_id=#{goods_id} and user_id=#{user_id}
+	</select>
+	
+	<!-- 게시글 추천 -->
+	<insert id="RecUpdate" parameterType="com.gachi.controller.RecService">
+		insert into tbl_rec(goods_id, user_id, created_at) values(#{goods_id}, #{user_id}, now())
+	</insert>
+
+	<!-- 게시글 추천 취소 -->
+	<delete id="RecDelete" parameterType="com.gachi.controller.RecService">
+		delete from tbl_rec where goods_id=#{goods_id} and user_id=#{user_id}
+	</delete>
+
+</mapper>

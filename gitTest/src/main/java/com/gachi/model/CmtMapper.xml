@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gachi.model.CmtMapper">
+
+	<!-- 댓글 작성 sql문장 -->
+	<insert id="write" parameterType="com.gachi.model.CmtDTO">
+		INSERT INTO tbl_comment(post_id, cmt_content, createdE_at, user_id)
+		VALUES(${post_id}, ${cmt_content}, NOW(), ${user_id});
+	</insert>
+
+</mapper>
