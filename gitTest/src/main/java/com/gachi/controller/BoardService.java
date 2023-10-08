@@ -21,7 +21,7 @@ public class BoardService implements Command {
 		BoardDAO dao = new BoardDAO();
 		ArrayList<BoardDTO> list = dao.AllList();
 		
-		// web_Board에 있는 모든 내용 가져오기
+
 		request.setAttribute("list",list);
 
 		return "Main.jsp";

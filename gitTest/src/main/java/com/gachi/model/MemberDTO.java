@@ -18,5 +18,6 @@ public class MemberDTO {
 	private String user_birthdate;
 	private String user_pic;
 	private String created_at;
+	private String user_introduction;
 	
 }

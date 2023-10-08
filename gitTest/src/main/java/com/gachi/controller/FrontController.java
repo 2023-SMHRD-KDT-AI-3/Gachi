@@ -74,11 +74,26 @@ public class FrontController extends HttpServlet {
 			// 댓글 작성 기능
 			CmtWrite cmtWrite = new CmtWrite();
 			url = cmtWrite.execute(request, response);
-		}else if (result.equals("RecService.do")) {
-			// 댓글 작성 기능
+		} else if (result.equals("CmtService.do")) {
+			// 댓글 호출 기능
+			CmtService cmtService = new CmtService();
+			url = cmtService.execute(request, response);
+		} else if (result.equals("RecService.do")) {
+			// 추천 기능
 			RecService recService = new RecService();
 			url = recService.execute(request, response);
+		} else if (result.equals("FixProfile.do")) {
+			// 프로필 수정 기능
+			FixProfile fixProfile = new FixProfile();
+			url = fixProfile.execute(request, response);
+		} else if (result.equals("GetSearch.do")) {
+			// 검색 기능
+			GetSearch getSearch = new GetSearch();
+			url = getSearch.execute(request, response);
 		}
+		
+		
+		
 		if (url != null) {
 			if (url.indexOf(".do") != -1) {
 				// url이 .do -> response.sendRedirect

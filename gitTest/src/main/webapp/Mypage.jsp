@@ -257,11 +257,11 @@ nav:hover {
 	height: 400px;
 	border-radius: 0.5rem;
 	margin-left: 360px;
-	margin-bottom: 80px; 
-	}
-	/* 프로필 수정 위한 버튼 생성 */ 
-	.myPage .container .profile .profile_img span a	img { 
-	position : absolute;
+	margin-bottom: 80px;
+}
+/* 프로필 수정 위한 버튼 생성 */
+.myPage .container .profile .profile_img span button img {
+	position: absolute;
 	background-color: white;
 	width: 30px;
 	height: 30px;
@@ -269,6 +269,81 @@ nav:hover {
 	bottom: 0.5px;
 	right: 11px;
 	border: 2px solid #fff;
+}
+
+/* 프로필 사진 수정 모달창 위치*/
+#modalPic {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba(0, 0, 0, 0.5);
+}
+/* 프로필 사진 수정 모달창 속성*/
+#fix_userPic {
+	position: absolute;
+	background-color: #ffffff;
+	width: 900px;
+	height: 450px;
+	padding: 15px;
+}
+
+#modalPic.hidden {
+	display: none;
+}
+
+/* 소개글 수정 모달창 위치*/
+#modalIntrod {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba(0, 0, 0, 0.5);
+}
+/* 소개글 수정 모달창 속성*/
+#fix_userIntrod {
+	position: absolute;
+	background-color: #ffffff;
+	width: 900px;
+	height: 450px;
+	padding: 15px;
+}
+
+#modalIntrod.hidden {
+	display: none;
+}
+
+/* pw, nick, email 수정 모달창 위치*/
+#modalPNE {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba(0, 0, 0, 0.5);
+}
+/* pw, nick, email 수정 모달창 속성*/
+#fix_userPNE {
+	position: absolute;
+	background-color: #ffffff;
+	width: 900px;
+	height: 450px;
+	padding: 15px;
+}
+
+#modalPNE.hidden {
+	display: none;
 }
 </style>
 </head>
@@ -308,13 +383,51 @@ nav:hover {
 			<div class="profile">
 				<!-- 프로필 사진 -->
 				<div class="profile_img">
-					<img src="./img/앵무새.jpg" alt="profile"> <span><a
-						href="#"><img src="./img/plus.png" alt=""></a></span>
+					<img src="${info.user_pic}" alt="profile"> <span><button
+							type="button" id="modalPicOpen">
+							<img src="./img/plus.png" alt="">
+						</button></span>
+				</div>
+				<div id="modalPic" class="hidden">
+					<!-- 프로필사진 수정 모달창(test) -->
+					<div id="fix_userPic">
+						<form action="FixProfile.do" method="post">
+							<span> 
+							<input type="hidden" name="user_id" value="${info.user_id}"> 
+							<input type="hidden" name="user_pw" value="${info.user_pw}"> 
+							<input type="hidden" name="user_nick" value="${info.user_nick}">
+							<input type="hidden" name="user_email" value="${info.user_email}">
+							<input type="hidden" name="user_introduction" value="${info.user_introduction}"> 
+							<input type="text" name="user_pic" autocomplete="off"> <input type="submit" value="프로필 사진 수정">
+							</span>
+						</form>
+						<button id="modalPicClose">닫기</button>
+					</div>
 				</div>
 				<!-- 이름 -->
-				<h2>앵무새</h2>
+				<h2>${info.user_name}</h2>
 				<!-- 인사말/소개 -->
-				<p>조류</p>
+				<div>
+					${info.user_introduction}
+					<button type="button" id="modalIntrodOpen">소개글수정</button>
+				</div>
+				<div id="modalIntrod" class="hidden">
+					<!-- 소개글 수정 모달창(test) -->
+					<div id="fix_userIntrod">
+						<form action="FixProfile.do" method="post">
+							<span> 
+							<input type="hidden" name="user_id"	value="${info.user_id}"> 
+							<input type="hidden" name="user_pw" value="${info.user_pw}"> 
+							<input type="hidden" name="user_nick" value="${info.user_nick}">
+							<input type="hidden" name="user_email" value="${info.user_email}">
+							<input type="hidden" name="user_pic" value="${info.user_pic}"> 
+							<textarea name="user_introduction" cols="55" rows="5" autocomplete="off"></textarea> 
+							<input type="submit" value="소개글 수정">
+							</span>
+						</form>
+						<button id="modalIntrodClose">닫기</button>
+					</div>
+				</div>
 
 				<!-- 팔로우 및 게시글 -->
 				<ul class="follows">
@@ -325,11 +438,33 @@ nav:hover {
 			</div>
 
 			<div class="container_cols">
-				
+
 				<div class="container_followBtn">
 					<!-- 팔로우 버튼 -->
 					<div class="follow">
 						<button>팔로우</button>
+					</div>
+				</div>
+				
+				<!-- 회원정보 수정 -->
+				<span>
+					<button type="button" id="modalPNEOpen">회원정보수정</button>
+				</span>
+				<div id="modalPNE" class="hidden">
+					<!-- 소개글 수정 모달창(test) -->
+					<div id="fix_userPNE">
+						<form action="FixProfile.do" method="post">
+							<span> 
+							<input type="hidden" name="user_id"	value="${info.user_id}"> 
+							<input type="text" name="user_pw"  placeholder="수정할 비밀번호 입력"> 
+							<input type="text" name="user_nick"  placeholder="수정할 닉네임 입력">
+							<input type="text" name="user_email"  placeholder="수정할 email 입력">
+							<input type="hidden" name="user_pic" value="${info.user_pic}"> 
+							<input type="hidden" name="user_introduction" value="${info.user_introduction}"> 							
+							<input type="submit" value="회원정보 수정">
+							</span>
+						</form>
+						<button id="modalPNEClose">닫기</button>
 					</div>
 				</div>
 
@@ -367,6 +502,44 @@ nav:hover {
 			} else if ($(this).text() == "팔로잉") {
 				$(this).addClass('unfollow');
 			}
+		});
+		// 프로필사진 변경 모달창 버튼
+		const modalPicOpen = document.getElementById('modalPicOpen');
+		const modalPicClose = document.getElementById('modalPicClose');
+		const modalPic = document.getElementById('modalPic');
+
+		modalPicOpen.addEventListener('click', () => {
+		  modalPic.classList.remove('hidden');
+		});
+
+		modalPicClose.addEventListener('click', () => {
+		  modalPic.classList.add('hidden');
+		});
+		
+		// 소개글 변경 모달창 버튼
+		const modalIntrodOpen = document.getElementById('modalIntrodOpen');
+		const modalIntrodClose = document.getElementById('modalIntrodClose');
+		const modalIntord = document.getElementById('modalIntrod');
+
+		modalIntrodOpen.addEventListener('click', () => {
+		  modalIntrod.classList.remove('hidden');
+		});
+
+		modalIntrodClose.addEventListener('click', () => {
+		  modalIntrod.classList.add('hidden');
+		});
+		
+		// pw, nick, email 변경 모달창 버튼
+		const modalPNEOpen = document.getElementById('modalPNEOpen');
+		const modalPNEClose = document.getElementById('modalPNEClose');
+		const modalPNE = document.getElementById('modalPNE');
+
+		modalPNEOpen.addEventListener('click', () => {
+		  modalPNE.classList.remove('hidden');
+		});
+
+		modalPNEClose.addEventListener('click', () => {
+		  modalPNE.classList.add('hidden');
 		});
 	</script>
 

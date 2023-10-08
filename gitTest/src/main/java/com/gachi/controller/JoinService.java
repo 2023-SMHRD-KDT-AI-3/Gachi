@@ -42,7 +42,8 @@ public class JoinService implements Command {
 
 			dao.join(m);
 			url = "Login.jsp";
-		} catch (UnsupportedEncodingException e) {
+		} catch (Exception e) {
+			url = "JoinFail.jsp";
 			e.printStackTrace();
 		}
 

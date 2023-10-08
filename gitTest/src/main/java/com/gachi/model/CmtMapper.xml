@@ -3,9 +3,14 @@
 <mapper namespace="com.gachi.model.CmtMapper">
 
 	<!-- 댓글 작성 sql문장 -->
-	<insert id="write" parameterType="com.gachi.model.CmtDTO">
-		INSERT INTO tbl_comment(post_id, cmt_content, createdE_at, user_id)
-		VALUES(${post_id}, ${cmt_content}, NOW(), ${user_id});
+	<insert id="writeCmt" parameterType="com.gachi.model.CmtDTO">
+		INSERT INTO
+		tbl_comment(post_id, cmt_content, created_at, user_id)
+		VALUES(#{post_id}, #{cmt_content}, NOW(), #{user_id});
 	</insert>
 
+	<!-- 해당 게시글의 댓글들을 가져오는 sql문장 -->
+	<select id="CmtList" parameterType="com.gachi.model.CmtDTO" resultType="com.gachi.model.CmtDTO">
+		SELECT * FROM tbl_comment WHERE post_id = #{post_id}
+	</select>
 </mapper>

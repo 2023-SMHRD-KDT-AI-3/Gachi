@@ -27,4 +27,12 @@ public class MemberDAO {
 		
 	}
 
+	public int fixProfile(MemberDTO member) {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		
+		int resultProfile = sqlSession.update("updateProfile", member);
+		return resultProfile;
+	}
+
+
 }

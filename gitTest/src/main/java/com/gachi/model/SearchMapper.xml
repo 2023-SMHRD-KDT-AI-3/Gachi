@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gachi.model.SearchMapper">
+
+<!-- 닉네임 검색 -->
+<select id="SearchNick" parameterType="com.gachi.model.SearchDTO" resultType="com.gachi.model.MemberDTO">
+	SELECT * FROM tbl_user WHERE user_nick LIKE '%' || #{keyword} || '%'
+</select>
+
+<!-- 게시글 검색 -->
+<select id="SearchBoard" parameterType="com.gachi.model.SearchDTO" resultType="com.gachi.model.BoardDTO">
+	SELECT * FROM tbl_post WHERE post_content LIKE '%' || #{keyword} || '%'
+</select>
+
+</mapper>

@@ -288,11 +288,11 @@ footer a {
 		<div class="form-container sign-up-container">
 			<form action="JoinService.do" method="post">
 				<h1>회원가입</h1>
-				<input type="text" placeholder="아이디를 입력하세요" name="id"> <input
-					type="password" placeholder="비밀번호를 입력하세요" name="pw"> <input
-					type="text" placeholder="이름을 입력하세요" name="name"> <input
-					type="text" placeholder="닉네임을 입력하세요" name="nick"> <input
-					type="text" placeholder="이메일을 입력하세요" name="email"> <span>
+				<input type="text" placeholder="아이디를 입력하세요" autocomplete="off" name="id"> <input
+					type="password" placeholder="비밀번호를 입력하세요" autocomplete="off" name="pw"> <input
+					type="text" placeholder="이름을 입력하세요" autocomplete="off" name="name"> <input
+					type="text" placeholder="닉네임을 입력하세요" autocomplete="off" name="nick"> <input
+					type="text" placeholder="이메일을 입력하세요" autocomplete="off" name="email"> <span>
 					<select name="gender">
 						<option value="gender">성별</option>
 						<option value="male">남</option>
@@ -310,8 +310,8 @@ footer a {
 			<c:if test="${empty info}">
 				<form action="LoginService.do" method="post">
 					<h1>로그인</h1>
-					<input type="text" name="id" placeholder="아이디를 입력해주세요" /> <input
-						type="password" name="pw" placeholder="비밀번호를 입력해주세요" /> <a
+					<input type="text" name="id" placeholder="아이디를 입력해주세요" autocomplete="off"/> <input
+						type="password" name="pw" placeholder="비밀번호를 입력해주세요" autocomplete="off"/> <a
 						href="#">비밀번호찾기</a>
 					<button>로그인</button>
 				</form>

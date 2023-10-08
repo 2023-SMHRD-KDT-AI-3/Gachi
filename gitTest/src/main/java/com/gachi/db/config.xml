@@ -22,5 +22,6 @@
 		<mapper resource="com/gachi/model/LikeMapper.xml" />
 		<mapper resource="com/gachi/model/CmtMapper.xml" />
 		<mapper resource="com/gachi/model/RecMapper.xml" />
+		<mapper resource="com/gachi/model/SearchMapper.xml" />
 	</mappers>
 </configuration>
