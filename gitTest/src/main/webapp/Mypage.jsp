@@ -28,7 +28,6 @@ body {
 	background: #dfe9f5;
 }
 
-/* 왼쪽 바 */
 .myPage .container ul {
 	list-style-type: none;
 	margin: 0;
@@ -66,7 +65,6 @@ body {
 	width: 35px;
 	height: 35px;
 }
-
 /* 선물팔레트 글자 조정 */
 .logo span {
 	padding-left: 15px;
@@ -84,7 +82,6 @@ body {
 	width: 300px;
 	padding: 10px;
 }
-
 /* 왼쪽 바 로고들 조정 */
 .fas {
 	position: relative;
@@ -96,7 +93,6 @@ body {
 	margin-top: 1rem;
 	margin-bottom: 1rem;
 }
-
 /* 왼쪽 바 글자들만 조정 */
 .nav-item {
 	position: relative;
@@ -104,11 +100,19 @@ body {
 	margin-left: 10px;
 }
 
-/* 커서를 올리면 나타나게 하기 */
+a {
+	position: relative;
+	color: black;
+	font-size: 14px;
+	display: table;
+	width: 300px;
+	padding: 10px;
+}
+
+* 커서를 올리면 나타나게 하기 * /
 .headers:hover {
 	background: #eee;
 }
-
 /* 왼쪽 바 나타나게 하기 */
 nav:hover {
 	width: 280px;
@@ -121,13 +125,17 @@ nav:hover {
 	bottom: 0;
 }
 
+#userID {
+	align-items: right;
+}
+
 /* 프로필 흰바탕 */
 .myPage {
 	background-color: white;
 	width: 1100px;
 	height: 5000px;
-	margin-left: 500px;
-	margin-top: 200px;
+	margin-left: 450px; 
+	margin-top: 40px;
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
@@ -352,31 +360,50 @@ nav:hover {
 	<link rel="stylesheet"
 		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-	<!-- 옆에 바 코드 -->
+	<!-- 사이드 바 코드 -->
 	<nav class="heads">
 		<ul>
-			<li><a href="BoardService.do" class="logo headers"> <img
-					src="./img/logo1.png" alt=""> <span class="nav-item">선물팔레트</span>
-			</a></li>
-			<li><a href="BoardService.do" class="headers"> <i
-					class="fas fa-home"></i> <span class="nav-item">홈</span>
-			</a></li>
-			<li><a href="Search.jsp" class="headers"> <i
-					class="fas fa-magnifying-glass"></i> <span class="nav-item">검색</span>
-			</a></li>
-			<li><a href="Write.jsp" class="headers"> <i
-					class="fas fa-pen-to-square"></i> <span class="nav-item">게시글
-						작성</span>
-			</a></li>
-			<li><a href="Mypage.jsp" class="headers"> <i
-					class="fas fa-user"></i> <span class="nav-item">마이페이지</span>
-			</a></li>
-			<li><a href="LogoutService.do" class="logout headers"> <i
-					class="fas fa-sign-out-alt"></i> <span class="nav-item">로그아웃</span>
-			</a></li>
+			<li>
+				<a href="BoardService.do" class="logo headers"> 
+					<img src="./img/logo1.png" alt=""> 
+					<span class="nav-item">선물팔레트</span>
+				</a>
+			</li>
+			<li>
+				<a href="BoardService.do" class="headers"> 
+					<i class="fas fa-home"></i> 
+					<span class="nav-item">홈</span>
+				</a>
+			</li>
+			<li>
+				<a href="Search.jsp" class="headers"> 
+					<i class="fas fa-magnifying-glass"></i> 
+					<span class="nav-item">검색</span>
+				</a>
+			</li>
+			<li>
+				<a href="Write.jsp" class="headers"> 
+					<i class="fas fa-pen-to-square"></i> 
+					<span class="nav-item">게시글작성</span>
+				</a>
+			</li>
+			<li>
+				<a href="Mypage.jsp" class="headers"> 
+					<i class="fas fa-user"></i> 
+					<span class="nav-item">프로필</span>
+				</a>
+			</li>
+			<li>
+				<a href="LogoutService.do" class="logout headers"> 
+					<i class="fas fa-sign-out-alt"></i>
+					<span class="nav-item">로그아웃</span>
+				</a>
+			</li>
 		</ul>
 	</nav>
-
+	<div align="right">
+		<span id="userID">${info.user_id}님 환영합니다.</span>
+	</div>
 	<!-- 마이페이지 코드 -->
 	<div class="myPage">
 		<div class="container">

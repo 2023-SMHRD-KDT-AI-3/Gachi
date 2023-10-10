@@ -14,5 +14,6 @@ public class BoardDTO {
 	private int goods_id;
 	private String created_at;
 	private String user_id;
+	private String user_pic;
 
 }

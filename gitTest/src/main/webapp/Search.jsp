@@ -26,7 +26,16 @@ body {
 	background: #dfe9f5;
 }
 
-nav {
+.myPage .container ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	align-items: center;
+}
+
+/* 왼쪽 바 */
+.heads {
 	position: fixed;
 	top: 0;
 	bottom: 0;
@@ -39,26 +48,54 @@ nav {
 	box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
 }
 
+/* 선물팔레트 모양 예쁘게 만들기 */
 .logo {
-	text-align: center;
 	display: flex;
 	transition: all 0.5s ease;
 	margin-top: 1rem;
 	margin-bottom: 1rem;
 	margin-left: 20px;
+	padding-bottom: 20px;
 }
 
+/* 선물팔레트 로고 크기 조정 */
 .logo img {
 	width: 35px;
 	height: 35px;
 }
-
+/* 선물팔레트 글자 조정 */
 .logo span {
-	text-align: center;
-	font-weight: bold;
 	padding-left: 15px;
-	font-size: 18px;
-	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 20px;
+	position: absolute;
+}
+
+/* 왼쪽 바 로고랑 글자 조정 */
+.headers {
+	position: relative;
+	color: black;
+	font-size: 14px;
+	display: table;
+	width: 300px;
+	padding: 10px;
+}
+/* 왼쪽 바 로고들 조정 */
+.fas {
+	position: relative;
+	width: 70px;
+	height: 40px;
+	top: 14px;
+	font-size: 20px;
+	text-align: center;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+/* 왼쪽 바 글자들만 조정 */
+.nav-item {
+	position: relative;
+	top: 12px;
+	margin-left: 10px;
 }
 
 a {
@@ -70,43 +107,33 @@ a {
 	padding: 10px;
 }
 
-.fas {
-	position: relative;
-	width: 70px;
-	height: 40px;
-	top: 14px;
-	font-size: 20px;
-	text-align: center;
-	margin-top: 1rem;
-	margin-bottom: 1rem;
-}
-
-.nav-item {
-	position: relative;
-	top: 12px;
-	margin-left: 10px;
-}
-
-a:hover {
+* 커서를 올리면 나타나게 하기 * /
+.headers:hover {
 	background: #eee;
 }
-
+/* 왼쪽 바 나타나게 하기 */
 nav:hover {
 	width: 280px;
 	transition: all 0.5s ease;
 }
 
+/* 로그아웃을 맨 밑으로 옮기기 */
 .logout {
 	position: absolute;
 	bottom: 0;
 }
 
-.boardList {
+#userID {
+	align-items: right;
+}
+
+/* 프로필 흰바탕 */
+.myPage {
 	background-color: white;
 	width: 1100px;
-	height: 50000px;
-	margin-left: 500px;
-	margin-top: 200px;
+	height: 5000px;
+	margin-left: 450px; 
+	margin-top: 40px;
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 </style>
@@ -120,30 +147,50 @@ nav:hover {
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
 		integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
 		crossorigin="anonymous"></script>
-	<nav>
+	<nav class="heads">
 		<ul>
-			<li><a href="BoardService.do" class="logo"> <img
-					src="./img/logo1.png" alt=""> <span class="nav-item">선물팔레트</span>
-			</a></li>
-			<li><a href="BoardService.do"> <i class="fas fa-home"></i> <span
-					class="nav-item">홈</span>
-			</a></li>
-			<li><a href="Search.jsp"> <i class="fas fa-magnifying-glass"></i>
+			<li>
+				<a href="BoardService.do" class="logo headers"> 
+					<img src="./img/logo1.png" alt=""> 
+					<span class="nav-item">선물팔레트</span>
+				</a>
+			</li>
+			<li>
+				<a href="BoardService.do" class="headers"> 
+					<i class="fas fa-home"></i> 
+					<span class="nav-item">홈</span>
+				</a>
+			</li>
+			<li>
+				<a href="Search.jsp" class="headers"> 
+					<i class="fas fa-magnifying-glass"></i> 
 					<span class="nav-item">검색</span>
-			</a></li>
-			<li><a href="Write.jsp"> <i class="fas fa-pen-to-square"></i>
-					<span class="nav-item">게시글 작성</span>
-			</a></li>
-			<li><a href="Mypage.jsp"> <i class="fas fa-user"></i> <span
-					class="nav-item">마이페이지</span>
-			</a></li>
-			<li><a href="LogoutService.do" class="logout"> <i
-					class="fas fa-sign-out-alt"></i> <span class="nav-item">로그아웃</span>
-			</a></li>
+				</a>
+			</li>
+			<li>
+				<a href="Write.jsp" class="headers"> 
+					<i class="fas fa-pen-to-square"></i> 
+					<span class="nav-item">게시글작성</span>
+				</a>
+			</li>
+			<li>
+				<a href="Mypage.jsp" class="headers"> 
+					<i class="fas fa-user"></i> 
+					<span class="nav-item">프로필</span>
+				</a>
+			</li>
+			<li>
+				<a href="LogoutService.do" class="logout headers"> 
+					<i class="fas fa-sign-out-alt"></i>
+					<span class="nav-item">로그아웃</span>
+				</a>
+			</li>
 		</ul>
 	</nav>
+	<div align="right">
+		<span id="userID">${info.user_id}님 환영합니다.</span>
+	</div>
 	<div align="center">
-		<span id="userID">${info.user_id}님 환영합니다.</span><br>
 		<!-- 검색창 -->
 		<form action="GetSearch.do" autocomplete="" method="post">
 			<select name="type" id="searchType">
@@ -158,7 +205,7 @@ nav:hover {
 
 	</div>
 	<br>
-	<div class="boardList" align=center>
+	<div class="myPage" align=center>
 		<c:if test="${searchType == 'content'}">
 			<c:forEach var="boardRes" items="${SearchResult}" varStatus="status">
 				<ul>

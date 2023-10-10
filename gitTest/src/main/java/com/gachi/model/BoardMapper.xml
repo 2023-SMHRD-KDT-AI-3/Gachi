@@ -4,7 +4,8 @@
 
 	<!-- 게시판 전체 내용 조회할 수 있는 SQL문장 -->
 	<select id="AllList" resultType="com.gachi.model.BoardDTO">
-		select * from tbl_post
+		select 	p.post_id, p.post_content, p.post_img, p.goods_id, p.created_at, p.user_id,	u.user_pic 
+		from tbl_post p inner join tbl_user u on p.user_id=u.user_id
 	</select>
 
 	<!-- 게시글 하나만 조회하는 sql문장 -->
