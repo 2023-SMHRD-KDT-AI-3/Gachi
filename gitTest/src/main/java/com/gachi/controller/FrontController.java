@@ -34,7 +34,6 @@ public class FrontController extends HttpServlet {
 
 		if (result.equals("LoginService.do")) {
 			// 로그인 기능 구현
-
 			LoginService loginService = new LoginService();
 			url = loginService.execute(request, response);// BoardService.do
 
@@ -90,6 +89,18 @@ public class FrontController extends HttpServlet {
 			// 검색 기능
 			GetSearch getSearch = new GetSearch();
 			url = getSearch.execute(request, response);
+		} else if (result.equals("GoodsService.do")) {
+			// 상품리스트 출력 기능
+			GoodsService goodsService = new GoodsService();
+			url = goodsService.execute(request, response);
+		} else if (result.equals("MyBoard.do")) {
+			// 내 피드 출력 기능
+			MyBoard myBoard = new MyBoard();
+			url = myBoard.execute(request, response);
+		} else if (result.equals("UserBoard.do")) {
+			// 유저 피드 출력 기능
+			UserBoard userBoard = new UserBoard();
+			url = userBoard.execute(request, response);
 		}
 		
 		

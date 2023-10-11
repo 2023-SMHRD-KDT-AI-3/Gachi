@@ -10,7 +10,7 @@
 	</insert>
 
 	<!-- 해당 게시글의 댓글들을 가져오는 sql문장 -->
-	<select id="CmtList" parameterType="com.gachi.model.CmtDTO" resultType="com.gachi.model.CmtDTO">
+	<select id="CmtList" parameterType="int" resultType="com.gachi.model.CmtDTO">
 		SELECT * FROM tbl_comment WHERE post_id = #{post_id}
 	</select>
 </mapper>

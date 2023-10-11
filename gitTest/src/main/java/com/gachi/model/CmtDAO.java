@@ -24,10 +24,10 @@ public class CmtDAO {
 	// 댓글 전체 조회
 	ArrayList<CmtDTO> cmtList = new ArrayList<CmtDTO>();
 
-	public ArrayList<CmtDTO> CmtList(CmtDTO cmt) {
+	public ArrayList<CmtDTO> CmtList(int post_id) {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
-		cmtList = (ArrayList) sqlSession.selectList("CmtList",cmt);
+		cmtList = (ArrayList) sqlSession.selectList("CmtList",post_id);
 
 		sqlSession.close();
 

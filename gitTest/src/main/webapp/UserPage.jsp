@@ -438,7 +438,7 @@ nav:hover {
                   </button></span>
             </div>
             <!-- 이름 -->
-            <h2>${info.user_name}</h2>
+            <h2>dsfsdfdfds${board.user_name}</h2>
             <!-- 인사말/소개 -->
             <div>
                ${info.user_introduction}

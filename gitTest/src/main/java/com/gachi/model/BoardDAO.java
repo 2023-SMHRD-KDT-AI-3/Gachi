@@ -43,6 +43,22 @@ public class BoardDAO {
 		sqlsession.close();
 
 		return cnt;
+	}
+
+	ArrayList<BoardDTO> myList = new ArrayList<BoardDTO>();
+	
+	public ArrayList<BoardDTO> MyList(String user_id) {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+
+		myList = (ArrayList) sqlSession.selectList("MyList",user_id);
+
+		sqlSession.close();
+
+		return myList;
+
 
 	}
+	
+	// 내가 작성한 게시물 가져오기
+	
 }

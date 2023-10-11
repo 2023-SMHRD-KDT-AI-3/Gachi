@@ -1,6 +1,7 @@
 package com.gachi.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -13,12 +14,12 @@ public class SearchDAO {
 	SearchDTO search = new SearchDTO();
 
 	// 게시글 검색
-	ArrayList<BoardDTO> boardResult = new ArrayList<BoardDTO>();
+	List<BoardDTO> boardResult;// = new ArrayList<BoardDTO>();
 
-	public ArrayList<BoardDTO> searchBoard(SearchDTO search) {
+	public List<BoardDTO> searchBoard(SearchDTO search) {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
-		boardResult = (ArrayList) sqlSession.selectList("SearchBoard",search);
+		boardResult = (List) sqlSession.selectList("SearchBoard",search);
 
 		sqlSession.close();
 
@@ -26,12 +27,12 @@ public class SearchDAO {
 	}
 
 	// 닉네임 검색
-	ArrayList<MemberDTO> nickResult = new ArrayList<MemberDTO>();
+	List<MemberDTO> nickResult;
 
-	public ArrayList<MemberDTO> searchNick(SearchDTO search) {
+	public List<MemberDTO> searchNick(SearchDTO search) {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
-		nickResult = (ArrayList) sqlSession.selectList("SearchNick",search);
+		nickResult = (List) sqlSession.selectList("SearchNick",search);
 
 		sqlSession.close();
 

@@ -9,7 +9,7 @@
 
 <!-- 게시글 검색 -->
 <select id="SearchBoard" parameterType="com.gachi.model.SearchDTO" resultType="com.gachi.model.BoardDTO">
-	SELECT * FROM tbl_post WHERE post_content LIKE '%' || #{keyword} || '%'
+	SELECT * FROM tbl_post WHERE post_content LIKE '%' || #{keyword} || '%' 
 </select>
 
 </mapper>

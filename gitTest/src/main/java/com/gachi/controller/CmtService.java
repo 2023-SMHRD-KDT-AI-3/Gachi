@@ -1,5 +1,6 @@
 package com.gachi.controller;
 
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
@@ -7,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.gachi.model.CmtDTO;
+import com.google.gson.Gson;
 import com.gachi.model.CmtDAO;
 
 public class CmtService implements Command {
@@ -22,13 +24,19 @@ public class CmtService implements Command {
 			CmtDAO dao = new CmtDAO();
 			CmtDTO cmt = new CmtDTO();
 
-			cmt.setPost_id(post_id);
-			ArrayList<CmtDTO> cmtList = dao.CmtList(cmt);
-
-			request.setAttribute("cmtList", cmtList);
-		} catch (UnsupportedEncodingException e) {
+			
+			ArrayList<CmtDTO> cmtList = dao.CmtList(post_id);
+            Gson g=new Gson();
+            String json=g.toJson(cmtList);
+            
+			//request.setAttribute("cmtList", cmtList);
+            response.setContentType("text/json;charset=euc-kr");            
+            PrintWriter out=response.getWriter();
+            out.println(json);
+            
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "BoardService.do";
+		return null;//"Main.jsp";
 	}
 }

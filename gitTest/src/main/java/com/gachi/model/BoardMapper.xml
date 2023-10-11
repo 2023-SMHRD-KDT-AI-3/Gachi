@@ -19,4 +19,9 @@
 		INSERT INTO tbl_post(post_content, post_img, goods_id, created_at, user_id)
 		VALUES (#{post_content},#{post_img}, #{goods_id}, NOW(), #{user_id});
 	</insert>
+	
+	<!-- 개인피드 가져오는 sql문장 -->
+	<select id="MyList" parameterType="string" resultType="com.gachi.model.BoardDTO">
+		select* from tbl_post where user_id=#{user_id}
+	</select>
 </mapper>

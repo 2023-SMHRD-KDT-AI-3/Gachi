@@ -294,7 +294,7 @@ nav:hover {
 				</a>
 			</li>
 			<li>
-				<a href="Search.jsp" class="headers"> 
+				<a href="GoodsService.do" class="headers"> 
 					<i class="fas fa-magnifying-glass"></i> 
 					<span class="nav-item">검색</span>
 				</a>
@@ -306,11 +306,14 @@ nav:hover {
 				</a>
 			</li>
 			<li>
-				<a href="Mypage.jsp" class="headers"> 
-					<i class="fas fa-user"></i> 
-					<span class="nav-item">프로필</span>
-				</a>
-			</li>
+            	<a href="#" id="myFeed1" class="headers"> 
+               		<i class="fas fa-user"></i> 
+               		<span class="nav-item">프로필</span>
+            	</a>
+            	<form id="myForm" action="MyBoard.do" method="post">
+            		<input id="myFeed2" type="hidden" name = "user_id" value="${info.user_id}">
+            	</form>
+         	</li>
 			<li>
 				<a href="LogoutService.do" class="logout headers"> 
 					<i class="fas fa-sign-out-alt"></i>
@@ -484,8 +487,11 @@ nav:hover {
 							<!-- 프로필 사진 -->
 							<img src="${board.user_pic}" alt="postprofile">
 						</div>
-						<!-- 사용자 아이디 -->							
-						<h3>${board.user_id}</h3>
+						<!-- 사용자 아이디 -->	
+						<form action = "UserBoard.do" method="post">
+						<input type = "hidden" name="user_id" value = "${board.user_id}">					
+						<input type = "submit" value = "${board.user_id}">					
+						</form>
 					</div>
 					<br>
 					<img src="${board.post_img}" alt="postbox">
@@ -521,17 +527,18 @@ nav:hover {
 				<div class="detgul">
 					<!-- 댓글 입력, 입력버튼 -->
 					<div>
-						<textarea id="comment" name="comment" cols="35" rows="1"
+						<textarea id="comment${board.post_id}" name="comment" cols="35" rows="1"
 							placeholder="댓글 내용" autocomplete="off"></textarea>
 						<button type="button"
-							onclick="writeCmt('${board.post_id}', '${comment}', '${info.user_id}')">입력</button>
+							onclick="writeCmt('${board.post_id}', '${info.user_id}')">입력</button>
 					</div>
 					<!-- 댓글 출력 반복문 -->
 					<button type="button" onclick="goCmt('${board.post_id}')">댓글보기</button>
-					<c:forEach var="CMT" items="${cmtList}" varStatus="status">
+					<div id="reply${board.post_id}"></div>
+					<%-- <c:forEach var="CMT" items="${cmtList}" varStatus="status">
 						<span>${board.user_id}</span>
 						<span>${CMT.cmt_content}</span>
-					</c:forEach>
+					</c:forEach> --%>
 					<br>
 				</div>
 			</c:forEach>
@@ -589,12 +596,27 @@ nav:hover {
 				// alert("goods_id: "+goods_id+" / user_id: "+user_id);
 				$.ajax({
 					url : "CmtService.do",
-					type : "post",
+					type : "post",				
 					data : {
 						post_id : post_id
 					},
-					success : function() {
+					dataType : "json",
+					success : function(data) {
 						console.log("요청성공"); //1:추천삭제 ,0:추천추가
+						// 댓글 출력
+						var html="<table>";
+						html+="<tr>";
+						html+="<td>아이디</td>";
+						html+="<td>내용</td>";
+						html+="</tr>";
+						$.each(data, function(index, obj){
+							html+="<tr>";
+							html+="<td>"+obj.user_id+"</td>";
+							html+="<td>"+obj.cmt_content+"</td>";
+							html+="</tr>";						
+						});
+						html+="</table>";
+						$("#reply"+post_id).html(html);
 					},
 					error : function() {
 						console.log('요청실패 ..');
@@ -602,9 +624,11 @@ nav:hover {
 				})
 			}
 
-			//				var cmtContent = document.getElementById("cmt_content").value();
+
 			//  댓글작성 ajax
-			function writeCmt(post_id, cmt_content, user_id) {
+			function writeCmt(post_id, user_id) {
+				var cmt_content=$("#comment"+post_id).val();
+				alert(cmt_content);
 				$.ajax({
 					url : "CmtWrite.do",
 					type : "post",
@@ -613,14 +637,20 @@ nav:hover {
 						cmt_content : cmt_content,
 						user_id : user_id
 					},
-					success : function() {
-						alert("댓글 성공");
+					success : function(data) {
+						colsole.log(data);
 					},
 					error : function() {
 						console.log('요청실패 ㅜㅜ');
 					}
 				});
 			}
+			
+			// myPage 이동시 개인피드 출력
+		      document.getElementById('myFeed1').addEventListener('click', function(e) {	
+		    	  e.preventDefault();
+		   	  document.getElementById('myForm').submit();
+		  });
 		</script>
 </body>
 

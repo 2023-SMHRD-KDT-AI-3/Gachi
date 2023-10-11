@@ -2,6 +2,7 @@ package com.gachi.controller;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,6 +20,7 @@ public class GetSearch implements Command {
 			request.setCharacterEncoding("utf-8");
 			
 		String keyword=request.getParameter("keyword");
+		String type=request.getParameter("type");
 		
 		
 		// SearchDAO에 접근할 수 있는 객체생성
@@ -27,16 +29,21 @@ public class GetSearch implements Command {
 		SearchDTO search = new SearchDTO();
 		search.setKeyword(keyword);
 		
+		
+		List<BoardDTO> searchResult = dao.searchBoard(search);
+		request.setAttribute("SearchResult", searchResult);
+		
+		
 		// 닉네임검색
-		if(keyword.equals("nick")) {
-		ArrayList<MemberDTO> searchResult = dao.searchNick(search);
-		request.setAttribute("SearchResult", searchResult);
-		}
-		// 게시글 검색
-		else if(keyword.equals("content")) {
-		ArrayList<BoardDTO> searchResult = dao.searchBoard(search);
-		request.setAttribute("SearchResult", searchResult);
-		}
+//		if(type.equals("nick")) {
+//		ArrayList<MemberDTO> searchResult = dao.searchNick(search);
+//		request.setAttribute("SearchResult", searchResult);
+//		}
+//		// 게시글 검색
+//		else if(type.equals("content")) {
+//		ArrayList<BoardDTO> searchResult = dao.searchBoard(search);
+//		request.setAttribute("SearchResult", searchResult);
+//		}
 		
 
 	} catch (UnsupportedEncodingException e) {
@@ -44,7 +51,7 @@ public class GetSearch implements Command {
 		e.printStackTrace();
 	}
 
-		return "Search.jsp";
+		return "SearchResult.jsp";
 
 	}
 
