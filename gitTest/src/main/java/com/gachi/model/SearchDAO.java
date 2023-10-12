@@ -38,4 +38,17 @@ public class SearchDAO {
 
 		return nickResult;
 	}
+
+	// 상품 검색
+	List<GoodsDTO> goodsResult;
+	
+	public List<GoodsDTO> searchGoods(SearchDTO search) {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+
+		goodsResult = (List) sqlSession.selectList("SearchGoods",search);
+
+		sqlSession.close();
+
+		return goodsResult;
+	}
 }

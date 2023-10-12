@@ -186,11 +186,11 @@ nav:hover {
 .info textarea {
     display: block;
     width: 700px;
-    height: 300px;
+    height: 350px;
     padding: 15px;
     box-sizing: border-box;
     border: 0px;
-    resize: vertical;
+    resize: none;
 }
 
 /* 상품 사진, 상품 등록 위치 조정 및 글자 크기 */
@@ -277,7 +277,33 @@ nav:hover {
     color: #3F51B5;
     background-color: #eee;
 }
+/* 사진등록 모달창 위치*/
+#modalPic {
+   width: 100%;
+   height: 100%;
+   position: fixed;
+   top: 0;
+   left: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: rgba(0, 0, 0, 0.5);
+}
+/* 소개글 수정 모달창 속성*/
+#fix_pic {
+   position: absolute;
+   background-color: #ffffff;
+   width: 900px;
+   height: 450px;
+   padding: 15px;
+   z-index : 100;
+   margin-left: 100px;
+}
 
+/* 팝업창 */
+#modalPic.hidden {
+   display: none;
+}
 </style>
 </head>
 
@@ -360,19 +386,33 @@ nav:hover {
                     <div class="item">
                         <dl>
                             <dt>
-                                <dd><input type="text" placeholder="상품아이디 입력" name="goods_id"></dd>
-                                <a href="#" class="item-btn" id="modalOpenButton" style="float: right;">상품등록</a>
+                                <dd><input type="text" placeholder="상품검색" name="goods_id"></dd>
+                                <button class="item-btn" style="float: right;">상품등록</button>
                             </dt>
                         </dl>
                     </div>
-                    <!-- 상품등록 모달창(test) -->
-                    <div id="modal" class="hidden">
-                  <div id="goodsSearch">
-                     <div>
-                        <input type="text" name="goods">
-                     </div>
-                     <div>상품 리스트 공간</div>
-                     <button id="modalCloseButton">닫기</button>
+                    <div>
+                            <button type="button" id="modalOpenButton">사진등록하기</button> 
+      			  <div id="modalPic" class="hidden">
+              		 <!-- 사진등록 모달창(test) -->
+            	   <div id="fix_userPic">
+              	 <p>사진 등록</p>
+              	    <form action="GetSearch.do" method="post">
+						<input type="hidden" name="type" value="goods">
+						<input type="text" name="keyword" placeholder="상품이름 검색">
+						<input type="submit" value="검색">
+              	    </form>
+                  <c:forEach var="goodsRes" items="${goodsResult}" varStatus="status">
+					<p>상품 이름 : ${goodsRes.goods_name}</p>
+					<p>상품사진 :<img src=" ${goodsRes.goods_img}"></p>
+					<p>브랜드 : ${goodsRes.goods_brand}</p>
+					<p>가격 : ${goodsRes.goods_price}</p>
+					<br>
+		       	</c:forEach>
+                  <button id="modalPicClose">닫기</button>
+               </div>
+            </div>
+                    </div>
                   </div>
                </div>
                     <!-- 사진등록(test) -->
@@ -395,14 +435,14 @@ nav:hover {
    <script>
    const modalOpenButton = document.getElementById('modalOpenButton');
    const modalCloseButton = document.getElementById('modalCloseButton');
-   const modal = document.getElementById('modal');
+   const modalPic = document.getElementById('modalPic');
 
    modalOpenButton.addEventListener('click', () => {
-     modal.classList.remove('hidden');
+     modalPic.classList.remove('hidden');
    });
 
    modalCloseButton.addEventListener('click', () => {
-     modal.classList.add('hidden');
+     modalPic.classList.add('hidden');
    });
 
 	// myPage 이동시 개인피드 출력

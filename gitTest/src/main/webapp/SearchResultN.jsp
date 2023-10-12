@@ -186,12 +186,11 @@ nav:hover {
 	</div>
 	<br>
 	<div class="myPage" align=center>
-		<c:forEach var="boardRes" items="${contentResult}" varStatus="status">
+		<c:forEach var="nickRes" items="${nickResult}" varStatus="status">
 			
-				<p>아이디 : ${boardRes.user_id}</p>
-				<p>글 번호 : ${boardRes.post_id}</p>
-				<p>이미지 : ${boardRes.post_img}</p>
-				<p>게시글 내용 : ${boardRes.post_content}</p>
+				<p>아이디 : ${nickRes.user_id}</p>
+				<p>프로필사진 :<img src=" ${nickRes.user_pic}"></p>
+				<p>닉네임 : ${nickRes.user_nick}</p>
 				<br>
 		</c:forEach>
 	</div>

@@ -41,6 +41,6 @@
 	
 	<!-- 내가 좋아요 누른 게시물을 가져오는 sql문장 -->
 	<select id="MyLikeList" parameterType="string" resultType="com.gachi.model.BoardDTO">
-		select * from tbl_post p inner join tbl_likes k on p.post_id = k.post_idx where k.user_id=#{user_id}
+		select * from tbl_post p inner join tbl_likes k on p.post_id = k.post_idx where k.kuser_id=#{user_id}
 	</select>
 </mapper>

@@ -12,4 +12,9 @@
 	SELECT * FROM tbl_post WHERE post_content LIKE CONCAT('%',#{keyword},'%')
 </select>
 
+<!-- 상품검색 -->
+<select id="SearchGoods" parameterType="com.gachi.model.SearchDTO" resultType="com.gachi.model.GoodsDTO">
+	SELECT * FROM tbl_goods WHERE goods_name LIKE CONCAT('%',#{keyword},'%')
+</select>
+
 </mapper>

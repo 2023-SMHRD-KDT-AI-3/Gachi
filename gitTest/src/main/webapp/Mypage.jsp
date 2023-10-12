@@ -424,7 +424,7 @@ nav:hover {
     padding: 15px;
     box-sizing: border-box;
     border: 1px solid #ddd;
-    resize: vertical;
+    resize: none;
     margin-left: 70px;
     border-radius: 10px;
     margin-top: 1rem;
