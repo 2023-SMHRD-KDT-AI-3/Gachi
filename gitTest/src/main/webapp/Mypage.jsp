@@ -669,7 +669,7 @@ nav:hover {
                      <span>게시물</span>
                   </div>
                </a>
-               <a href="Mypage2.jsp" class="likeFeed-link">
+               <a href="MyLikeBoard.do" class="likeFeed-link">
                   <div class="likeFeed-btn">
                      <i class="fas fa-heart"></i>
                      <span>좋아요 게시물</span>

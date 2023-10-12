@@ -287,9 +287,14 @@ nav:hover {
 }
 
 .lines {
+   border: 1px solid #eee;
    border-bottom: 1px solid #ddd;
+   border-radius: 10px;
    width: 550px;
-    margin-top: 30px;
+   margin-top: 30px;
+   position: relative;
+   padding: 1.0em;
+   box-shadow: 2px 5px 8px 0px #777;
 }
 
 .fa-home,

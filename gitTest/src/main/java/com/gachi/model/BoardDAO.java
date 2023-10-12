@@ -58,6 +58,17 @@ public class BoardDAO {
 
 
 	}
+	ArrayList<BoardDTO> myLikeList = new ArrayList<BoardDTO>();
+	
+	public ArrayList<BoardDTO> MyLikeList(String user_id) {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+
+		myLikeList = (ArrayList) sqlSession.selectList("MyLikeList",user_id);
+
+		sqlSession.close();
+
+		return myLikeList;
+	}
 	
 	// 내가 작성한 게시물 가져오기
 	

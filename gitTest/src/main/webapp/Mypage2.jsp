@@ -663,13 +663,19 @@ nav:hover {
          <div class="container_cols">
             <!-- 본인 게시물 및 좋아요한 게시물 버튼 -->
             <div class="col-btn">
-               <a href="Mypage.jsp" class="myFeed-link">
+            
+            <a href="#" id="myFeed1" class="myFeed-link"> 
                   <div class="myFeed-btn">
                      <i class="fa-solid fa-table-cells"></i>
                      <span>게시물</span>
                   </div>
-               </a>
-               <a href="#" class="likeFeed-link">
+            </a>
+            <form id="myForm" action="MyBoard.do" method="post">
+            	<input id="myFeed2" type="hidden" name = "user_id" value="${info.user_id}">
+            </form>
+
+               
+               <a href="MyLikeBoard.do" class="likeFeed-link">
                   <div class="likeFeed-btn">
                      <i class="fas fa-heart"></i>
                      <span>좋아요 게시물</span>
@@ -682,7 +688,7 @@ nav:hover {
                <article class="container_board">
                   <div>
                      <div class="myFeed-row">
-                        <c:forEach var="myFeed" items="${myList}" varStatus="status">
+                        <c:forEach var="myFeed" items="${myLikeList}" varStatus="status">
                            <div class="myFeeds"><img src="${myFeed.post_img}" alt="postbox"></div>
                         </c:forEach>
                      </div>

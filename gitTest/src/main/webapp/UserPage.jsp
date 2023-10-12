@@ -205,68 +205,14 @@ nav:hover {
    font-weight: 600;
 }
 
-/* 팔로우 버튼 */
-.myPage .container .profile .follows::after {
-   position: absolute;
-   content: "";
-   bottom: -16px;
-   display: block;
-   background: #ccc;
-   height: 1px;
-   width: 100%;
-}
-
-/* 팔로우 버튼 크기 조정 */
-.myPage .container .container_cols button {
-    margin-left: 510px;
-    margin-bottom: 40px;
-   padding: 1px;
-   background: #bbb;
-   color: #000;
-   border-radius: 2px;
-   display: flex;
-}
-
-/* 팔로우 버튼을 누르기전 */
-.myPage .container .container_cols .container_followBtn button {
-   background: blue;
-   color: white;
-   border: none;
-   width: 120px;
-   padding: 10px 25px;
-   border-radius: 7px;
-   transition: all 0.3s ease-in;
-}
-
-/* 버튼 아웃라인 없애기 */
-.myPage .container .container_cols .container_followBtn button:active {
-   outline: none;
-}
-
-/* 버튼 아웃라인 없애기 */
-.myPage .container .container_cols .container_followBtn button:visited {
-   outline: none;
-}
-
-/* 팔로우 버튼을 누룬 후 */
-.myPage .container .container_cols .container_followBtn .unfollow {
-   background: whitesmoke;
-   color: black;
-   border: none;
-   width: 120px;
-   padding: 10px 25px;
-   border-radius: 7px;
-   transition: all 0.3s ease-in;
-}
-
-/* 자기 게시글 크기 제한 조정 */
+/* 상대 게시글 크기 제한 조정 */
 .myPage .container .container_cols .container_board {
    display: grid;
    grid-template-columns: repeat(auto-fill, minmax(400px, auto));
    gap: 30px;
 }
 
-/* 자기 게시글 크기 조정 */
+/* 상대 게시글 크기 조정 */
 .myPage .container .container_board .board img {
    object-fit: cover;
    width: 400px;
@@ -275,174 +221,8 @@ nav:hover {
    margin-left: 340px;
    margin-bottom: 80px;
 }
-/* 프로필 수정 위한 버튼 생성 */
-.myPage .container .profile .profile_img span button img {
-   position: absolute;
-   background-color: white;
-   width: 30px;
-   height: 30px;
-   border-radius: 50%;
-   bottom: 0.5px;
-   right: 11px;
-   border: 2px solid #fff;
-   margin-bottom: 20px;
-}
 
-/* 프로필 사진 수정 모달창 위치*/
-#modalPic {
-   width: 100%;
-   height: 100%;
-   position: fixed;
-   top: 0;
-   left: 0;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   background: rgba(0, 0, 0, 0.5);
-}
-/* 프로필 사진 수정 모달창 속성*/
-#fix_userPic {
-   z-index:1050;
-   position: absolute;
-   background-color: #ffffff;
-   width: 900px;
-   height: 450px;
-   padding: 15px;
-   margin-left: 100px;
-}
-
-/* 팝업창 */
-#modalPic.hidden {
-   display: none;
-}
-
-/* 소개글 수정 모달창 위치*/
-#modalIntrod {
-   width: 100%;
-   height: 100%;
-   position: fixed;
-   top: 0;
-   left: 0;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   background: rgba(0, 0, 0, 0.5);
-}
-/* 소개글 수정 모달창 속성*/
-#fix_userIntrod {
-   position: absolute;
-   background-color: #ffffff;
-   width: 900px;
-   height: 450px;
-   padding: 15px;
-   z-index : 100;
-   margin-left: 100px;
-}
-
-/* 팝업창 */
-#modalIntrod.hidden {
-   display: none;
-}
-
-/* pw, nick, email 수정 모달창 위치*/
-#modalPNE {
-   width: 100%;
-   height: 100%;
-   position: fixed;
-   top: 0;
-   left: 0;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   background: rgba(0, 0, 0, 0.5);
-}
-/* pw, nick, email 수정 모달창 속성*/
-#fix_userPNE {
-   position: absolute;
-   background-color: #ffffff;
-   width: 900px;
-   height: 450px;
-   padding: 15px;
-   margin-left: 100px;
-}
-
-/* 팝업창 */
-#modalPNE.hidden {
-   display: none;
-}
-
-/* 프로필사진 팝업창 제목 크기 */
-#fix_userPic p {
-   font-size: 30px;
-   margin-left: 70px;
-   border-bottom: 2px solid black;
-   width: 720px;
-}
-
-/* 수정버튼 디테일 */
-.btn-update {
-   position: absolute;
-    margin-top: 1rem;
-}
-
-/* 수정버튼 디테일 */
-.btn-update input {
-   background: #000;
-   color: #fff;
-   padding: 8px;
-   font-size: 1rem;
-   border-radius: 2px;
-   position: fixed;
-    margin-left: 330px;
-    border: 1px solid black;
-}
-
-/* 닫기버튼 */
-.btn-update #modalIntrodClose {
-   background: #fff;
-   border: 1px solid black;
-   color: #000;
-   padding: 8px;
-   font-size: 1rem;
-   border-radius: 2px;
-   margin-left: 460px;
-}
-
-/* 소개글 제목 크기 */
-#fix_userIntrod p {
-   font-size: 30px;
-   margin-left: 70px;
-   border-bottom: 2px solid black;
-   width: 720px;
-}
-
-/* 소개글 창 */
-#text-update {
-   display: block;
-    width: 720px;
-    height: 300px;
-    padding: 15px;
-    box-sizing: border-box;
-    border: 1px solid #ddd;
-    resize: vertical;
-    margin-left: 70px;
-    border-radius: 10px;
-    margin-top: 1rem;
-}
-
-/* 파일 창 */
-.url {
-    padding: 15px;
-}
-
-/* 로고 디테일 */
-.fa-user,
-.home {
-    color: #3F51B5;
-    background-color: #eee;
-}
-
-/* 자기 메인 피드 전체 */
+/* 상대 메인 피드 전체 */
 .main-Feed {
    flex-direction: column;
    display: flex;
@@ -454,7 +234,7 @@ nav:hover {
    align-items: stretch;
 }
 
-/* 자기 피드 크기 */
+/* 상대 피드 크기 */
 .myFeed-row {
    display: flex; 
    flex-wrap: wrap;
@@ -466,7 +246,7 @@ nav:hover {
    width: 1100px;
 }
 
-/* 자기 피드 위치 */
+/* 상대 피드 위치 */
 .myFeeds {
    align-items: stretch;
    box-sizing: border-box;
@@ -480,7 +260,7 @@ nav:hover {
    margin-left: 42px;
 }
 
-/* 자기 피드 이미지 크기 */
+/* 상대 피드 이미지 크기 */
 .myFeeds img {
    position: absolute;
    object-fit: cover;
@@ -506,73 +286,31 @@ nav:hover {
    font-size: .75rem;
    border-top-width: 1px;
    margin-bottom: 33px;
+   margin-top: 35px;
 }
 
-/* 좋아요 게시물 버튼 */
-.likeFeed-btn {
-   align-items: center;
-   display: flex;
-   border-bottom: 2px solid #3F51B5;
+/* 팔로우 버튼 크기 및 색깔 */
+.follow-button {
+   background: #3F51B5;
+   border-radius: 16px;
+   color: #fff;
+   padding: 6px 16px;
+   outline: none;
+   margin-left: 506px;
+   width: 90px;
+   height: 35px;
+}
+
+/* 언팔로우 버튼 크기 및 색깔 */
+.followed {
+   background: #fff;
    color: #3F51B5;
+   border: 1px solid #3F51B5;
+   margin-left: 506px;
+   width: 90px;
+   height: 35px;
 }
 
-/* 자기 게시물 버튼 */
-.myFeed-btn {
-   align-items: center;
-   display: flex;
-   color: #818181;
-}
-
-/* 자기 게시물 및 좋아요 게시물 로고 위치 */
-.container_cols .col-btn .likeFeed-link .likeFeed-btn i {
-   display: flex;
-   width: 20px;
-   height: 20px;
-   margin-top: 0;
-   margin-bottom: 0;
-}
-
-/* 자기 게시물 및 좋아요 게시물 a태그 크기 */
-.container_cols .col-btn a {
-   display: flex;
-   width: 75px;
-   height: 53px;
-   padding: 0px;
-   margin-right: 60px;
-}
-
-/* 좋아요 게시물 버튼 위치 */
-.likeFeed-link .likeFeed-btn {
-   align-items: center;
-   display: flex;
-}
-
-/* 자기 게시물 버튼 커서 올리면 글자 색깔 바뀜 */
-.myFeed-link .myFeed-btn:hover {
-   color: #3F51B5;
-   filter: opacity(0.5) drop-shadow(#3F51B5);
-   border-bottom: 2px solid #3F51B5;
-}
-
-/* 자기 및 좋아요 게시물 로고 위치 */
-.col-btn i {
-   margin-right: 8px;
-   position: inherit;
-   margin-left: 5px;
-}
-
-/* 좋아요 게시물 글자 위치 */
-.likeFeed-link .likeFeed-btn span {
-   align-items: center;
-   display: flex;
-   width: 86px;
-}
-
-/* 자기 게시물 로고 크기 */
-.fa-table-cells {
-    font-size: 20px;
-    text-align: center;
-}
 
 </style>
 </head>
@@ -609,9 +347,9 @@ nav:hover {
             </a>
          </li>
          <li>
-            <a href="MyBoard.do" id="myFeed1" class="headers home"> 
+            <a href="MyBoard.do" id="myFeed1" class="headers"> 
                <i class="fas fa-user"></i> 
-               <span class="nav-item home">프로필</span>
+               <span class="nav-item">프로필</span>
             </a>
             <form id="myForm" action="MyBoard.do" method="post">
                <input id="myFeed2" type="hidden" name = "user_id" value="${info.user_id}">
@@ -649,15 +387,14 @@ nav:hover {
                <li><span>10</span>게시글</li>
             </ul>
          </div>
-         <br>
-
 
          <div class="container_cols">
+            <!-- 팔로우 버튼 -->
+            <button class="follow-button">팔로우</button>
             <!-- 본인 게시물 및 좋아요한 게시물 버튼 -->
             <div class="col-btn">
 
             </div>
-
             <!-- 마이페이지 본인 게시글 -->
             <div class="main-Feed">
                <article class="container_board">
@@ -670,73 +407,6 @@ nav:hover {
                   </div>
                </article>
             </div>
-            
-            <div id="modalPic" class="hidden">
-               <!-- 프로필사진 수정 모달창(test) -->
-               <div id="fix_userPic">
-               <p>프로필사진 수정</p>
-                  <form action="FixProfile.do" method="post">
-                     <span> 
-                     <input type="hidden" name="user_id" value="${info.user_id}"> 
-                     <input type="hidden" name="user_pw" value="${info.user_pw}"> 
-                     <input type="hidden" name="user_nick" value="${info.user_nick}">
-                     <input type="hidden" name="user_email" value="${info.user_email}">
-                     <input type="hidden" name="user_introduction" value="${info.user_introduction}"> 
-                     <input type="text" name="user_pic" autocomplete="off"> 
-                     <input type="submit" value="프로필 사진 수정">
-                     <div class="url">
-                        <dl>
-                            <dt>
-                                <dd><input type="text" placeholder="사진 등록" id="pic" name="post_img"></dd>
-                                <dd class="url-btn"><input type="file" name="filename" style="float: right;"></dd>
-                            </dt>
-                        </dl>
-                    </div>
-                     </span>
-                     
-                  </form>
-                  <button id="modalPicClose">닫기</button>
-               </div>
-            </div>
-            
-            <div id="modalIntrod" class="hidden">
-               <!-- 소개글 수정 모달창(test) -->
-               <div id="fix_userIntrod">
-               <p>소개글 수정</p>
-                  <form action="FixProfile.do" method="post">
-                     <span> 
-                     <input type="hidden" name="user_id"   value="${info.user_id}"> 
-                     <input type="hidden" name="user_pw" value="${info.user_pw}"> 
-                     <input type="hidden" name="user_nick" value="${info.user_nick}">
-                     <input type="hidden" name="user_email" value="${info.user_email}">
-                     <input type="hidden" name="user_pic" value="${info.user_pic}"> 
-                     <textarea name="user_introduction" cols="55" rows="5" autocomplete="off" id="text-update" placeholder="소개글 입력"></textarea> 
-                     </span>
-                     <div class="btn-update">
-                       <input type="submit" value="소개글 수정">
-                        <button id="modalIntrodClose">닫기</button>
-                     </div>
-                  </form>
-               </div>
-            </div>
-            
-            <div id="modalPNE" class="hidden">
-               <!-- 회원정보 수정 모달창(test) -->
-               <div id="fix_userPNE">
-                  <form action="FixProfile.do" method="post">
-                     <span> 
-                     <div><input type="hidden" name="user_id"   value="${info.user_id}"></div> 
-                     <div><input type="text" name="user_pw"  placeholder="수정할 비밀번호 입력"></div><br> 
-                     <div><input type="text" name="user_nick"  placeholder="수정할 닉네임 입력"></div><br>
-                     <div><input type="text" name="user_email"  placeholder="수정할 email 입력"></div><br>
-                     <input type="hidden" name="user_pic" value="${info.user_pic}"> 
-                     <input type="hidden" name="user_introduction" value="${info.user_introduction}">                      
-                     <input type="submit" value="회원정보 수정">
-                     </span>
-                  </form>
-                  <button id="modalPNEClose">닫기</button>
-               </div>
-            </div>      
          </div>
       </div>
    </div>
@@ -747,50 +417,25 @@ nav:hover {
       crossorigin="anonymous"></script>
 
    <script>
-      // 프로필사진 변경 모달창 버튼
-      const modalPicOpen = document.getElementById('modalPicOpen');
-      const modalPicClose = document.getElementById('modalPicClose');
-      const modalPic = document.getElementById('modalPic');
-
-      modalPicOpen.addEventListener('click', () => {
-        modalPic.classList.remove('hidden');
-      });
-
-      modalPicClose.addEventListener('click', () => {
-        modalPic.classList.add('hidden');
-      });
-      
-      // 소개글 변경 모달창 버튼
-      const modalIntrodOpen = document.getElementById('modalIntrodOpen');
-      const modalIntrodClose = document.getElementById('modalIntrodClose');
-      const modalIntord = document.getElementById('modalIntrod');
-
-      modalIntrodOpen.addEventListener('click', () => {
-        modalIntrod.classList.remove('hidden');
-      });
-
-      modalIntrodClose.addEventListener('click', () => {
-        modalIntrod.classList.add('hidden');
-      });
-      
-      // pw, nick, email 변경 모달창 버튼
-      const modalPNEOpen = document.getElementById('modalPNEOpen');
-      const modalPNEClose = document.getElementById('modalPNEClose');
-      const modalPNE = document.getElementById('modalPNE');
-
-      modalPNEOpen.addEventListener('click', () => {
-        modalPNE.classList.remove('hidden');
-      });
-
-      modalPNEClose.addEventListener('click', () => {
-        modalPNE.classList.add('hidden');
-      });
-      
-      // myPage 이동시 개인피드 출력
-      document.getElementById('myFeed1').addEventListener('click', function(e) {   
-         e.preventDefault();
-        document.getElementById('myForm').submit();
-  });
+   		<!-- 팔로우 버튼 기능 -->
+         const followBtn = document.querySelectorAll('.follow-button')
+         
+         followBtn.forEach((btn) => {
+            btn.addEventListener('click', (e) => followUnFollow(e.target));
+         });
+         
+         function followUnFollow(button) {
+            button.classList.toggle('followed')
+            if (button.innerText == '팔로우') button.innerText = '언팔로우';
+            else button.innerText = '팔로우';
+         }
+         
+         
+         
+         
+         
+         
+   
    </script>
 
 </body>

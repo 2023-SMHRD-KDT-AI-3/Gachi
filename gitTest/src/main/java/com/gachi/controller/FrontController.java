@@ -105,7 +105,12 @@ public class FrontController extends HttpServlet {
 			// 업로드 기능
 			UploadService uploadService= new UploadService();
 			url = uploadService.execute(request, response);
+		} else if (result.equals("MyLikeBoard.do")) {
+			// 업로드 기능
+			MyLikeBoard myLikeBoard= new MyLikeBoard();
+			url = myLikeBoard.execute(request, response);
 		}
+		
 		
 		
 		
