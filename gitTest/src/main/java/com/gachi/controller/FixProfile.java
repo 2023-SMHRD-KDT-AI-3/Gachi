@@ -38,7 +38,7 @@ public class FixProfile implements Command {
 			
 			int resultProfile = dao.fixProfile(member);
 			
-			url = "Mypage.jsp";
+			url = "MyBoard.do";
 			
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();

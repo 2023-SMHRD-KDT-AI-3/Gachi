@@ -8,119 +8,122 @@
 <meta charset="UTF-8">
 <title>검색페이지</title>
 <style>
-@import
-   url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap')
-   ;
+/* 글씨 크기나 모양 */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
+/* 전체 */
 * {
-   margin: 0;
-   padding: 0;
-   outline: none;
-   border: none;
-   text-decoration: none;
-   box-sizing: border-box;
-   font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
 
+/* 전체 */
 body {
-   background: #dfe9f5;
+    background: #dfe9f5;
 }
 
+/* 왼쪽 바 */
 .myPage .container ul {
-   list-style-type: none;
-   margin: 0;
-   padding: 0;
-   display: flex;
-   align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
 }
 
 /* 왼쪽 바 */
 .heads {
-   position: fixed;
-   top: 0;
-   bottom: 0;
-   height: 100%;
-   left: 0;
-   background: #fff;
-   width: 90px;
-   overflow: hidden;
-   transition: width 0.2s linear;
-   box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    background: #fff;
+    width: 90px;
+    overflow: hidden;
+    transition: width 0.2s linear;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
 }
 
 /* 선물팔레트 모양 예쁘게 만들기 */
 .logo {
-   display: flex;
-   transition: all 0.5s ease;
-   margin-top: 1rem;
-   margin-bottom: 1rem;
-   margin-left: 20px;
-   padding-bottom: 20px;
+    display: flex;
+    transition: all 0.5s ease;
+    padding-bottom: 20px;
 }
 
 /* 선물팔레트 로고 크기 조정 */
 .logo img {
-   width: 35px;
-   height: 35px;
+    width: 35px;
+    height: 35px;
+    margin-left: 20px;
+    margin-top: 10px;
 }
+
 /* 선물팔레트 글자 조정 */
 .logo span {
-   padding-left: 15px;
-   font-weight: bold;
-   font-size: 20px;
-   position: absolute;
+    padding-left: 15px;
+    font-weight: bold;
+    font-size: 20px;
+    position: absolute;
+    margin-top: 12px;
 }
 
 /* 왼쪽 바 로고랑 글자 조정 */
 .headers {
-   position: relative;
-   color: black;
-   font-size: 14px;
-   display: table;
-   width: 300px;
-   padding: 10px;
+    position: relative;
+    color: black;
+    font-size: 14px;
+    display: table;
+    width: 300px;
+    padding: 10px;
 }
+
 /* 왼쪽 바 로고들 조정 */
 .fas {
-   position: relative;
-   width: 70px;
-   height: 40px;
-   top: 14px;
-   font-size: 20px;
-   text-align: center;
-   margin-top: 1rem;
-   margin-bottom: 1rem;
+    position: relative;
+    width: 70px;
+    height: 40px;
+    top: 14px;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
+
 /* 왼쪽 바 글자들만 조정 */
 .nav-item {
-   position: relative;
-   top: 12px;
-   margin-left: 10px;
+    position: relative;
+    top: 12px;
+    margin-left: 10px;
 }
 
-a {
-   position: relative;
-   color: black;
-   font-size: 14px;
-   display: table;
-   width: 300px;
-   padding: 10px;
-}
-
-* 커서를 올리면 나타나게 하기 * /
+/* 커서를 올리면 나타나게 하기 */
 .headers:hover {
    background: #eee;
+   color: #3F51B5;
+   filter: opacity(0.5) drop-shadow(#3F51B5);
 }
+
+.logo img:hover {
+   filter: invert(26%) sepia(32%) saturate(3440%) hue-rotate(215deg) brightness(97%) contrast(86%);
+}
+
 /* 왼쪽 바 나타나게 하기 */
 nav:hover {
-   width: 280px;
-   transition: all 0.5s ease;
+    width: 280px;
+    transition: all 0.5s ease;
 }
 
 /* 로그아웃을 맨 밑으로 옮기기 */
 .logout {
-   position: absolute;
-   bottom: 0;
+    position: absolute;
+    bottom: 0;
 }
 
 #userID {
@@ -161,6 +164,11 @@ input[type="submit"] {
     border: 1px solid #bbb;
 }
 
+.fa-magnifying-glass,
+.home {
+    color: #3F51B5;
+    background-color: #eee;
+}
 </style>
 </head>
 
@@ -187,9 +195,9 @@ input[type="submit"] {
             </a>
          </li>
          <li>
-            <a href="GoodsService.do" class="headers"> 
+            <a href="GoodsService.do" class="headers home"> 
                <i class="fas fa-magnifying-glass"></i> 
-               <span class="nav-item">검색</span>
+               <span class="nav-item home">검색</span>
             </a>
          </li>
          <li>

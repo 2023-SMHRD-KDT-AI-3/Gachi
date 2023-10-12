@@ -101,6 +101,10 @@ public class FrontController extends HttpServlet {
 			// 유저 피드 출력 기능
 			UserBoard userBoard = new UserBoard();
 			url = userBoard.execute(request, response);
+		} else if (result.equals("UploadService.do")) {
+			// 업로드 기능
+			UploadService uploadService= new UploadService();
+			url = uploadService.execute(request, response);
 		}
 		
 		

@@ -7,10 +7,10 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.gachi.db.SqlSessionManager;
 import com.gachi.model.BoardDTO;
+import com.gachi.model.LikeBoardDTO;
 
 public class BoardDAO {
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
-
 	// 게시글 전체 조회 메소드
 	ArrayList<BoardDTO> list = new ArrayList<BoardDTO>();
 

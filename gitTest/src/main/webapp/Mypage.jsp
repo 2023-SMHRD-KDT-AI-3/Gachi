@@ -8,121 +8,121 @@
 <title>선물팔레트 마이페이지</title>
 <style>
 /* 글씨 크기나 모양 */
-@import
-   url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap')
-   ;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 /* 전체 */
 * {
-   margin: 0;
-   padding: 0;
-   outline: none;
-   border: none;
-   text-decoration: none;
-   box-sizing: border-box;
-   font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
 
 /* 전체 */
 body {
-   background: #dfe9f5;
+    background: #dfe9f5;
 }
 
+/* 왼쪽 바 */
 .myPage .container ul {
-   list-style-type: none;
-   margin: 0;
-   padding: 0;
-   display: flex;
-   align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
 }
 
 /* 왼쪽 바 */
 .heads {
-   position: fixed;
-   top: 0;
-   bottom: 0;
-   height: 100%;
-   left: 0;
-   background: #fff;
-   width: 90px;
-   overflow: hidden;
-   transition: width 0.2s linear;
-   box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    background: #fff;
+    width: 90px;
+    overflow: hidden;
+    transition: width 0.2s linear;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
 }
 
 /* 선물팔레트 모양 예쁘게 만들기 */
 .logo {
-   display: flex;
-   transition: all 0.5s ease;
-   margin-top: 1rem;
-   margin-bottom: 1rem;
-   margin-left: 20px;
-   padding-bottom: 20px;
+    display: flex;
+    transition: all 0.5s ease;
+    padding-bottom: 20px;
 }
 
 /* 선물팔레트 로고 크기 조정 */
 .logo img {
-   width: 35px;
-   height: 35px;
+    width: 35px;
+    height: 35px;
+    margin-left: 20px;
+    margin-top: 10px;
 }
+
 /* 선물팔레트 글자 조정 */
 .logo span {
-   padding-left: 15px;
-   font-weight: bold;
-   font-size: 20px;
-   position: absolute;
+    padding-left: 15px;
+    font-weight: bold;
+    font-size: 20px;
+    position: absolute;
+    margin-top: 12px;
 }
 
 /* 왼쪽 바 로고랑 글자 조정 */
 .headers {
-   position: relative;
-   color: black;
-   font-size: 14px;
-   display: table;
-   width: 300px;
-   padding: 10px;
+    position: relative;
+    color: black;
+    font-size: 14px;
+    display: table;
+    width: 300px;
+    padding: 10px;
 }
+
 /* 왼쪽 바 로고들 조정 */
 .fas {
-   position: relative;
-   width: 70px;
-   height: 40px;
-   top: 14px;
-   font-size: 20px;
-   text-align: center;
-   margin-top: 1rem;
-   margin-bottom: 1rem;
+    position: relative;
+    width: 70px;
+    height: 40px;
+    top: 14px;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
+
 /* 왼쪽 바 글자들만 조정 */
 .nav-item {
-   position: relative;
-   top: 12px;
-   margin-left: 10px;
+    position: relative;
+    top: 12px;
+    margin-left: 10px;
 }
 
-a {
-   position: relative;
-   color: black;
-   font-size: 14px;
-   display: table;
-   width: 300px;
-   padding: 10px;
-}
-
-* 커서를 올리면 나타나게 하기 * /
+/* 커서를 올리면 나타나게 하기 */
 .headers:hover {
    background: #eee;
+   color: #3F51B5;
+   filter: opacity(0.5) drop-shadow(#3F51B5);
 }
+
+.logo img:hover {
+   filter: invert(26%) sepia(32%) saturate(3440%) hue-rotate(215deg) brightness(97%) contrast(86%);
+}
+
 /* 왼쪽 바 나타나게 하기 */
 nav:hover {
-   width: 280px;
-   transition: all 0.5s ease;
+    width: 280px;
+    transition: all 0.5s ease;
 }
 
 /* 로그아웃을 맨 밑으로 옮기기 */
 .logout {
-   position: absolute;
-   bottom: 0;
+    position: absolute;
+    bottom: 0;
 }
 
 #userID {
@@ -305,6 +305,7 @@ nav:hover {
    width: 900px;
    height: 450px;
    padding: 15px;
+   margin-left: 100px;
 }
 
 #modalPic.hidden {
@@ -331,6 +332,7 @@ nav:hover {
    height: 450px;
    padding: 15px;
    z-index : 100;
+   margin-left: 100px;
 }
 
 #modalIntrod.hidden {
@@ -356,19 +358,74 @@ nav:hover {
    width: 900px;
    height: 450px;
    padding: 15px;
+   margin-left: 100px;
 }
 
 #modalPNE.hidden {
    display: none;
 }
 
-#modalIntrodOpen {
-   padding: 1px;
-   background: #bbb;
-   color: #000;
+#fix_userPic p {
+   font-size: 30px;
+   margin-left: 70px;
+   border-bottom: 2px solid black;
+   width: 720px;
+}
+
+.btn-update {
+   position: absolute;
+    margin-top: 1rem;
+}
+
+.btn-update input {
+   background: #000;
+   color: #fff;
+   padding: 8px;
+   font-size: 1rem;
    border-radius: 2px;
-   display: flex;
-    margin-left: 120px;
+   position: fixed;
+    margin-left: 330px;
+    border: 1px solid black;
+}
+
+.btn-update #modalIntrodClose {
+   background: #fff;
+   border: 1px solid black;
+   color: #000;
+   padding: 8px;
+   font-size: 1rem;
+   border-radius: 2px;
+   margin-left: 460px;
+}
+
+#fix_userIntrod p {
+   font-size: 30px;
+   margin-left: 70px;
+   border-bottom: 2px solid black;
+   width: 720px;
+}
+
+#text-update {
+   display: block;
+    width: 720px;
+    height: 300px;
+    padding: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    resize: vertical;
+    margin-left: 70px;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
+.url {
+    padding: 15px;
+}
+
+.fa-user,
+.home {
+    color: #3F51B5;
+    background-color: #eee;
 }
 
 </style>
@@ -406,9 +463,9 @@ nav:hover {
             </a>
          </li>
          <li>
-            <a href="#" id="myFeed1" class="headers"> 
+            <a href="#" id="myFeed1" class="headers home"> 
                <i class="fas fa-user"></i> 
-               <span class="nav-item">프로필</span>
+               <span class="nav-item home">프로필</span>
             </a>
             <form id="myForm" action="MyBoard.do" method="post">
             	<input id="myFeed2" type="hidden" name = "user_id" value="${info.user_id}">
@@ -474,6 +531,7 @@ nav:hover {
             <div id="modalPic" class="hidden">
                <!-- 프로필사진 수정 모달창(test) -->
                <div id="fix_userPic">
+         	   <p>프로필사진 수정</p>
                   <form action="FixProfile.do" method="post">
                      <span> 
                      <input type="hidden" name="user_id" value="${info.user_id}"> 
@@ -481,8 +539,18 @@ nav:hover {
                      <input type="hidden" name="user_nick" value="${info.user_nick}">
                      <input type="hidden" name="user_email" value="${info.user_email}">
                      <input type="hidden" name="user_introduction" value="${info.user_introduction}"> 
-                     <input type="text" name="user_pic" autocomplete="off"> <input type="submit" value="프로필 사진 수정">
+                     <input type="text" name="user_pic" autocomplete="off"> 
+                     <input type="submit" value="프로필 사진 수정">
+                     <div class="url">
+                        <dl>
+                            <dt>
+                                <dd><input type="text" placeholder="사진 등록" id="pic" name="post_img"></dd>
+                                <dd class="url-btn"><input type="file" name="filename" style="float: right;"></dd>
+                            </dt>
+                        </dl>
+                    </div>
                      </span>
+                     
                   </form>
                   <button id="modalPicClose">닫기</button>
                </div>
@@ -491,6 +559,7 @@ nav:hover {
             <div id="modalIntrod" class="hidden">
                <!-- 소개글 수정 모달창(test) -->
                <div id="fix_userIntrod">
+               <p>소개글 수정</p>
                   <form action="FixProfile.do" method="post">
                      <span> 
                      <input type="hidden" name="user_id"   value="${info.user_id}"> 
@@ -498,11 +567,13 @@ nav:hover {
                      <input type="hidden" name="user_nick" value="${info.user_nick}">
                      <input type="hidden" name="user_email" value="${info.user_email}">
                      <input type="hidden" name="user_pic" value="${info.user_pic}"> 
-                     <textarea name="user_introduction" cols="55" rows="5" autocomplete="off"></textarea> 
-                     <input type="submit" value="소개글 수정">
+                     <textarea name="user_introduction" cols="55" rows="5" autocomplete="off" id="text-update" placeholder="소개글 입력"></textarea> 
                      </span>
+                     <div class="btn-update">
+                       <input type="submit" value="소개글 수정">
+                        <button id="modalIntrodClose">닫기</button>
+                     </div>
                   </form>
-                  <button id="modalIntrodClose">닫기</button>
                </div>
             </div>
             

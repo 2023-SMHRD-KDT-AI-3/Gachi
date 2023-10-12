@@ -54,9 +54,6 @@ body {
 .logo {
     display: flex;
     transition: all 0.5s ease;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    margin-left: 20px;
     padding-bottom: 20px;
 }
 
@@ -64,6 +61,8 @@ body {
 .logo img {
     width: 35px;
     height: 35px;
+    margin-left: 20px;
+    margin-top: 10px;
 }
 
 /* 선물팔레트 글자 조정 */
@@ -72,6 +71,7 @@ body {
     font-weight: bold;
     font-size: 20px;
     position: absolute;
+    margin-top: 12px;
 }
 
 /* 왼쪽 바 로고랑 글자 조정 */
@@ -105,7 +105,13 @@ body {
 
 /* 커서를 올리면 나타나게 하기 */
 .headers:hover {
-    background: #eee;
+   background: #eee;
+   color: #3F51B5;
+   filter: opacity(0.5) drop-shadow(#3F51B5);
+}
+
+.logo img:hover {
+   filter: invert(26%) sepia(32%) saturate(3440%) hue-rotate(215deg) brightness(97%) contrast(86%);
 }
 
 /* 왼쪽 바 나타나게 하기 */
@@ -125,7 +131,7 @@ nav:hover {
     background-color: white;
     width: 1100px;
     height: 800px;
-    margin-left: 500px;
+    margin-left: 450px;
     margin-top: 100px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
@@ -266,6 +272,12 @@ nav:hover {
     color: #fff;
 }
 
+.fa-pen-to-square,
+.home {
+    color: #3F51B5;
+    background-color: #eee;
+}
+
 </style>
 </head>
 
@@ -299,9 +311,9 @@ nav:hover {
          	</a>
          </li>
          <li>
-         	<a href="Write.jsp" class="headers"> 
+         	<a href="Write.jsp" class="headers home"> 
          		<i class="fas fa-pen-to-square"></i> 
-         		<span class="nav-item">게시글작성</span>
+         		<span class="nav-item home">게시글작성</span>
          	</a>
          </li>
 		 <li>
@@ -329,7 +341,7 @@ nav:hover {
         <div class="space">
 
         </div>
-        <form action="BoardWrite.do" method="post">
+        <form action="BoardWrite.do" method="post" enctype="multipart/form-data">
            <div>
            <input type="hidden" name="user_id" value="${info.user_id}">
            </div>
@@ -367,15 +379,14 @@ nav:hover {
                     <div class="url">
                         <dl>
                             <dt>
-                                <dd><input type="text" placeholder="사진 등록" id="pic" name="post_img"></dd>
-                                <dd class="url-btn"><input type="file" name="filename" style="float: right;"></dd>
+                                <dd class="url-btn"><input type="file" name="post_img" style="float: right;"></dd>
                             </dt>
                         </dl>
                     </div>
                 </div>
                 <div class="btn-wrap">
                     <input type="submit" value="등록" class="on">
-                    <a href="#">취소</a>
+                    <a href="BoardService.do">취소</a>
                 </div>
             </div>
         </form>

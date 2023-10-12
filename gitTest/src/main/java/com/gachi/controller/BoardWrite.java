@@ -16,13 +16,25 @@ public class BoardWrite implements Command {
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		String url = "";
 		try {
-			request.setCharacterEncoding("utf-8");
+			String path = request.getServletContext().getRealPath("upload");
+			
+			int maxSize = 50*1024*1024;  // (1024*1024=1MB)
+			
+			String encoding = "utf-8";
+			
+			MultipartRequest multi = new MultipartRequest(
+					request, 
+					path,
+					maxSize,
+					encoding,
+					new DefaultFileRenamePolicy()
+					  );
 
-			String user_id = request.getParameter("user_id");
-			String post_content = request.getParameter("post_content");
-			int goods_id = Integer.parseInt(request.getParameter("goods_id"));
-			String post_img = request.getParameter("post_img");
-
+			String user_id = multi.getParameter("user_id");
+			String post_content = multi.getParameter("post_content");
+			int goods_id = Integer.parseInt(multi.getParameter("goods_id"));
+			String post_img = multi.getFilesystemName("post_img");
+	        
 			BoardDAO dao = new BoardDAO();
 
 			BoardDTO board = new BoardDTO();

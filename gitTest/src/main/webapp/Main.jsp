@@ -7,542 +7,585 @@
 <meta charset="UTF-8">
 <title>선물팔레트</title>
 <style>
-@import
-	url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap')
-	;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
+/* 전체 */
 * {
-	margin: 0;
-	padding: 0;
-	outline: none;
-	border: none;
-	text-decoration: none;
-	box-sizing: border-box;
-	font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
 
+/* 전체 */
 body {
-	background: #dfe9f5;
+    background: #dfe9f5;
 }
 
 /* 왼쪽 바 */
 .myPage .container ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	display: flex;
-	align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
 }
 
 /* 왼쪽 바 */
 .heads {
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	height: 100%;
-	left: 0;
-	background: #fff;
-	width: 90px;
-	overflow: hidden;
-	transition: width 0.2s linear;
-	box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    background: #fff;
+    width: 90px;
+    overflow: hidden;
+    transition: width 0.2s linear;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
 }
 
 /* 선물팔레트 모양 예쁘게 만들기 */
 .logo {
-	display: flex;
-	transition: all 0.5s ease;
-	margin-top: 1rem;
-	margin-bottom: 1rem;
-	margin-left: 20px;
-	padding-bottom: 20px;
+    display: flex;
+    transition: all 0.5s ease;
+    padding-bottom: 20px;
 }
 
 /* 선물팔레트 로고 크기 조정 */
 .logo img {
-	width: 35px;
-	height: 35px;
+    width: 35px;
+    height: 35px;
+    margin-left: 20px;
+    margin-top: 10px;
 }
+
 /* 선물팔레트 글자 조정 */
 .logo span {
-	padding-left: 15px;
-	font-weight: bold;
-	font-size: 20px;
-	position: absolute;
+    padding-left: 15px;
+    font-weight: bold;
+    font-size: 20px;
+    position: absolute;
+    margin-top: 12px;
 }
 
 /* 왼쪽 바 로고랑 글자 조정 */
 .headers {
-	position: relative;
-	color: black;
-	font-size: 14px;
-	display: table;
-	width: 300px;
-	padding: 10px;
+    position: relative;
+    color: black;
+    font-size: 14px;
+    display: table;
+    width: 300px;
+    padding: 10px;
 }
+
 /* 왼쪽 바 로고들 조정 */
 .fas {
-	position: relative;
-	width: 70px;
-	height: 40px;
-	top: 14px;
-	font-size: 20px;
-	text-align: center;
-	margin-top: 1rem;
-	margin-bottom: 1rem;
+    position: relative;
+    width: 70px;
+    height: 40px;
+    top: 14px;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
+
 /* 왼쪽 바 글자들만 조정 */
 .nav-item {
-	position: relative;
-	top: 12px;
-	margin-left: 10px;
+    position: relative;
+    top: 12px;
+    margin-left: 10px;
 }
 
 .list-category a {
-	position: relative;
-	color: black;
-	font-size: 14px;
-	display: table;
-	margin-left: 25px;
-	margin-right: 25px;
-	padding: 10px;
+   position: relative;
+   color: black;
+   font-size: 14px;
+   display: table;
+   margin-left: 25px;
+   margin-right: 25px;
+    height: 50px;
 }
 
 /* 커서를 올리면 나타나게 하기 */
 .headers:hover {
-	background: #eee;
+   background: #eee;
+   color: #3F51B5;
+   filter: opacity(0.5) drop-shadow(#3F51B5);
 }
+
+.logo img:hover {
+   filter: invert(26%) sepia(32%) saturate(3440%) hue-rotate(215deg) brightness(97%) contrast(86%);
+}
+
 /* 왼쪽 바 나타나게 하기 */
 nav:hover {
-	width: 280px;
-	transition: all 0.5s ease;
+    width: 280px;
+    transition: all 0.5s ease;
 }
 
 /* 로그아웃을 맨 밑으로 옮기기 */
 .logout {
-	position: absolute;
-	bottom: 0;
+    position: absolute;
+    bottom: 0;
 }
 
 #userID {
-	align-items: right;
+   align-items: right;
 }
 
 /* 프로필 흰바탕 */
 .myPage {
-	background-color: white;
-	width: 1100px;
-	height: 5000px;
-	margin-left: 450px; 
-	margin-top: 40px;
-	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+   background-color: white;
+   width: 1100px;
+   height: 5000px;
+   margin-left: 450px; 
+   margin-top: 40px;
+   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 /* 카테고리 전체 */
 .wrap-category {
-	display: flex;
-	align-items: center;
-	margin-left: 550px;
+   display: flex;
+   align-items: center;
+   margin-left: 465px;
 }
 /* 카테고리 전체 */
 .wrap-category .list-category {
-	display: flex;
-	align-items: center;
-	flex-wrap: wrap;
-	list-style: none;
-	margin-block-start: 1rem;
-	margin-inline-start: 0px;
-	margin-inline-end: 0px;
+   display: flex;
+   align-items: center;
+   flex-wrap: wrap;
+   list-style: none;
+   margin-block-start: 1rem;
+   margin-inline-start: 0px;
+   margin-inline-end: 0px;
 }
 /* 카테고리 사진 */
 .wrap-thumb {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 100px;
-	height: 100px;
-	border-radius: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 50px;
 }
 /* 카테고리 간격 */
 .wrap-category .list-category .area-thumb {
-	margin-left: 50px;
-	text-align:center;
+   text-align:center;
 }
 /* 카테고리 사진 */
 .wrap-thumb img {
-	width: 100px;
-	height: 100px;
-	border-radius: 50%;
-	object-position: center;
+   height: 50px;
+   object-position: center;
 }
 /* 카테고리 글자 */
 .text-category .text-cate {
-	font-size: 16px;
-	letter-spacing: -.038em;
+   font-size: 12px;
+   letter-spacing: -.038em;
 }
 
 /* 게시글 전체 */
 .main-posts {
-	grid-template-columns: repeat(auto-fit, minmax(300px, auto));
-	gap: 11px;
-	margin-top: 50px;
+   margin-top: 30px;
 }
 
 /* 게시글 박스 크기 */
 .post-box {
-	width: 480px;
+   width: 480px;
 }
 /* 게시글 사진 */
 .post-box img {
-	width: 500px;
-	height: 500px;
-	object-fit: cover;
-	border-radius: 0.5rem;
-	margin-right: 10px;
+   width: 500px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 1rem;
+    margin-right: 10px;
+    border: 1px solid #ddd;
 }
 
 /* 프로필이랑 좋아요 댓글 간격 */
 .post-info {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	height: 50px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   height: 50px;
 }
 
 /* 프로필 위치 */
 .post-img {
-	height: 50px;
-	margin-bottom: 150px;
+   height: 50px;
+   margin-bottom: 150px;
 }
 
 /* 프로필 사진 크기 */
 .post-img img {
-	margin-top: 80px;
-	width: 45px;
-	height: 45px;
-	border-radius: 50%;
-	object-position: center;
+   margin-top: 80px;
+   width: 45px;
+   height: 45px;
+   border-radius: 50%;
+   object-position: center;
 }
 
 /* 프로필 사진 위치 */
 .post-profile {
-	display: flex;
-	align-items: center;
-	margin-left: 20px;
-	height: 50px;
+   display: flex;
+   align-items: center;
+   margin-left: 20px;
+   height: 50px;
 }
 
 /* 사용자 글자 위치 */
 .post-profile h3 {
-	font-size: 14px;
-	font-weight: 600px;
-	margin-left: 5px;
+   font-size: 14px;
+   font-weight: 600px;
+   margin-left: 5px;
 }
 
 /* 좋아요, 댓글 조정 */
 .likes {
-	display: flex;
-	align-items: center;
+   display: flex;
+   align-items: center;
 }
 
 /* 좋아요, 댓글 아이콘 조정 */
 .likes i {
-	font-size: 20px;
-	margin-left: 10px;
+   font-size: 20px;
+   margin-left: 10px;
 }
 
 /* 좋아요, 댓글 숫자 크기 */
 .likes span {
-	font-size: 14px;
-	margin-left: 7px;
+   font-size: 14px;
+   margin-left: 7px;
 }
 
 /* 게시글 댓글 */
 .detgul {
-	margin-top: 10px;
+   margin-top: 10px;
 }
 
 /* 카테고리 글자들 설정 */
 .text-cate {
-	color: black;
+   color: black;
 }
 
 .link-item {
-	text-align:center
+   text-align:center
+}
+
+.lines {
+   border-bottom: 1px solid #ddd;
+   width: 550px;
+    margin-top: 30px;
+}
+
+.fa-home,
+.home {
+    color: #3F51B5;
+    background-color: #eee;
+}
+
+/* 내용 입력 크기 */
+.info textarea {
+    display: block;
+    width: 450px;
+    height: 40px;
+    box-sizing: border-box;
+    border: 0px;
+    resize: none;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-left: 310px;
+}
+
+.info button {
+   width: 50px;
+   height: 40px;
+   background: #3F51B5;
+   color: #fff;
+   border-radius: 10px;
+}
+
+.info {
+   display: flex;
+}
+
+.more-detgul button {
+   width: 70px;
+   height: 20px;
+   background: #3F51B5;
+   color: #fff;
+   border-radius: 10px;
+   margin-right: 390px;
 }
 </style>
 </head>
 
 <body>
 	<!-- 로고 아이콘 링크 -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-	<!-- 제이쿼리 로드 -->
-	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
-		integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-		crossorigin="anonymous"></script>
-	<nav class="heads">
-		<ul>
-			<li>
-				<a href="BoardService.do" class="logo headers"> 
-					<img src="./img/logo1.png" alt=""> 
-					<span class="nav-item">선물팔레트</span>
-				</a>
-			</li>
-			<li>
-				<a href="BoardService.do" class="headers"> 
-					<i class="fas fa-home"></i> 
-					<span class="nav-item">홈</span>
-				</a>
-			</li>
-			<li>
-				<a href="GoodsService.do" class="headers"> 
-					<i class="fas fa-magnifying-glass"></i> 
-					<span class="nav-item">검색</span>
-				</a>
-			</li>
-			<li>
-				<a href="Write.jsp" class="headers"> 
-					<i class="fas fa-pen-to-square"></i> 
-					<span class="nav-item">게시글작성</span>
-				</a>
-			</li>
-			<li>
-            	<a href="#" id="myFeed1" class="headers"> 
-               		<i class="fas fa-user"></i> 
-               		<span class="nav-item">프로필</span>
-            	</a>
-            	<form id="myForm" action="MyBoard.do" method="post">
-            		<input id="myFeed2" type="hidden" name = "user_id" value="${info.user_id}">
-            	</form>
-         	</li>
-			<li>
-				<a href="LogoutService.do" class="logout headers"> 
-					<i class="fas fa-sign-out-alt"></i>
-					<span class="nav-item">로그아웃</span>
-				</a>
-			</li>
-		</ul>
-	</nav>
-	<div align="right">
-		<span id="userID">${info.user_id}님 환영합니다.</span>
-	</div>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+   <!-- 제이쿼리 로드 -->
+   <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"></script>
+   <nav class="heads">
+      <ul>
+         <li>
+            <a href="BoardService.do" class="logo headers"> 
+               <img src="./img/logo1.png" alt=""> 
+               <span class="nav-item">선물팔레트</span>
+            </a>
+         </li>
+         <li>
+            <a href="BoardService.do" class="headers home"> 
+               <i class="fas fa-home"></i> 
+               <span class="nav-item home">홈</span>
+            </a>
+         </li>
+         <li>
+            <a href="GoodsService.do" class="headers"> 
+               <i class="fas fa-magnifying-glass"></i> 
+               <span class="nav-item">검색</span>
+            </a>
+         </li>
+         <li>
+            <a href="Write.jsp" class="headers"> 
+               <i class="fas fa-pen-to-square"></i> 
+               <span class="nav-item">게시글작성</span>
+            </a>
+         </li>
+         <li>
+               <a href="#" id="myFeed1" class="headers"> 
+                     <i class="fas fa-user"></i> 
+                     <span class="nav-item">프로필</span>
+               </a>
+               <form id="myForm" action="MyBoard.do" method="post">
+                  <input id="myFeed2" type="hidden" name = "user_id" value="${info.user_id}">
+               </form>
+            </li>
+         <li>
+            <a href="LogoutService.do" class="logout headers"> 
+               <i class="fas fa-sign-out-alt"></i>
+               <span class="nav-item">로그아웃</span>
+            </a>
+         </li>
+      </ul>
+   </nav>
+   <div align="right">
+      <span id="userID">${info.user_id}님 환영합니다.</span>
+   </div>
 	<!-- 카테고리들 -->
-	<div class="wrap-category">
-		<ul class="list-category">
-			<!-- 첫번째 줄 1.카테고리 -->
-			<li>
-				<a href="#" class="link-item"> 
-					<span class="area-thumb">
-						<span class="wrap-thumb"> 
-							<img src="./img/생일.png" alt="">
-						</span>
-					</span> 
-					<span class="text-category"> 
-						<span class="text-cate">생일선물</span>
-					</span>
-				</a>
-			</li>
+   <div class="wrap-category">
+      <ul class="list-category">
+         <!-- 첫번째 줄 1.카테고리 -->
+         <li>
+            <a href="#" class="link-item"> 
+               <span class="area-thumb">
+                  <span class="wrap-thumb"> 
+                     <img src="./img/생일.png" alt="">
+                  </span>
+               </span> 
+               <span class="text-category"> 
+                  <span class="text-cate">생일선물</span>
+               </span>
+            </a>
+         </li>
 
-			<!-- 첫번째 줄 2.카테고리 -->
-			<li>
-				<a href="#" class="link-item"> 
-					<span class="area-thumb">
-						<span class="wrap-thumb"> 
-							<img src="./img/부모님.png" alt="">
-						</span>
-					</span> 
-					<span class="text-category"> 
-						<span class="text-cate">부모님 선물</span>
-					</span>
-				</a>
-			</li>
+         <!-- 첫번째 줄 2.카테고리 -->
+         <li>
+            <a href="#" class="link-item"> 
+               <span class="area-thumb">
+                  <span class="wrap-thumb"> 
+                     <img src="./img/부모님.png" alt="">
+                  </span>
+               </span> 
+               <span class="text-category"> 
+                  <span class="text-cate">부모님 선물</span>
+               </span>
+            </a>
+         </li>
 
-			<!-- 첫번째 줄 3.카테고리 -->
-			<li>
-				<a href="#" class="link-item"> 
-					<span class="area-thumb">
-						<span class="wrap-thumb"> 
-							<img src="./img/명품.png" alt="">
-						</span>
-					</span> 
-					<span class="text-category"> 
-						<span class="text-cate">명품선물</span>
-					</span>
-				</a>
-			</li>
+         <!-- 첫번째 줄 3.카테고리 -->
+         <li>
+            <a href="#" class="link-item"> 
+               <span class="area-thumb">
+                  <span class="wrap-thumb"> 
+                     <img src="./img/명품.png" alt="">
+                  </span>
+               </span> 
+               <span class="text-category"> 
+                  <span class="text-cate">명품선물</span>
+               </span>
+            </a>
+         </li>
 
-			<!-- 첫번째 줄 4.카테고리 -->
-			<li>
-				<a href="#" class="link-item"> 
-					<span class="area-thumb">
-						<span class="wrap-thumb">
-							<img src="./img/추석.png" alt="">
-						</span>
-					</span> 
-					<span class="text-category"> 
-						<span class="text-cate">추석 선물</span>
-					</span>
-				</a>
-			</li>
+         <!-- 첫번째 줄 4.카테고리 -->
+         <li>
+            <a href="#" class="link-item"> 
+               <span class="area-thumb">
+                  <span class="wrap-thumb">
+                     <img src="./img/추석.png" alt="">
+                  </span>
+               </span> 
+               <span class="text-category"> 
+                  <span class="text-cate">추석 선물</span>
+               </span>
+            </a>
+         </li>
 
-			<!-- 첫번째 줄 5.카테고리 -->
-			<li>
-				<a href="#" class="link-item"> 
-					<span class="area-thumb">
-						<span class="wrap-thumb"> 
-							<img src="./img/크리스마스.png" alt="">
-						</span>
-					</span> 
-					<span class="text-category"> 
-						<span class="text-cate">크리스마스 선물</span>
-					</span>
-				</a>
-			</li>
-		</ul>
-	</div>
+         <!-- 첫번째 줄 5.카테고리 -->
+         <li>
+            <a href="#" class="link-item"> 
+               <span class="area-thumb">
+                  <span class="wrap-thumb"> 
+                     <img src="./img/크리스마스.png" alt="">
+                  </span>
+               </span> 
+               <span class="text-category"> 
+                  <span class="text-cate">크리스마스 선물</span>
+               </span>
+            </a>
+         </li>
+         
+         <!-- 첫번째 줄 6.카테고리 -->
+         <li>
+            <a href="#" class="link-item"> 
+               <span class="area-thumb">
+                  <span class="wrap-thumb"> 
+                     <img src="./img/의류.png" alt="">
+                  </span>
+               </span> 
+               <span class="text-category"> 
+                  <span class="text-cate">의류 선물</span>
+               </span>
+            </a>
+         </li>
+         
+         <!-- 첫번째 줄 7.카테고리 -->
+         <li>
+            <a href="#" class="link-item"> 
+               <span class="area-thumb">
+                  <span class="wrap-thumb"> 
+                     <img src="./img/전자기기.png" alt="">
+                  </span>
+               </span> 
+               <span class="text-category"> 
+                  <span class="text-cate">전자기기 선물</span>
+               </span>
+            </a>
+         </li>
 
-	<!-- 두번째 줄 1.카테고리 -->
-	<div class="wrap-category">
-		<ul class="list-category">
-			<li>
-				<a href="#" class="link-item"> 
-					<span class="area-thumb">
-						<span class="wrap-thumb"> 
-							<img src="./img/의류.png" alt="">
-						</span>
-					</span> 
-					<span class="text-category"> 
-						<span class="text-cate">의류 선물</span>
-					</span>
-				</a>
-			</li>
+         <!-- 첫번째 줄 8.카테고리 -->
+         <li>
+            <a href="#" class="link-item"> 
+               <span class="area-thumb">
+                  <span class="wrap-thumb"> 
+                     <img src="./img/주류.png" alt="">
+                  </span>
+               </span> 
+               <span class="text-category"> 
+                  <span class="text-cate">주류 선물</span>
+               </span>
+            </a>
+         </li>
 
-			<!-- 두번째 줄 2.카테고리 -->
-			<li>
-				<a href="#" class="link-item"> 
-					<span class="area-thumb">
-						<span class="wrap-thumb"> 
-							<img src="./img/전자기기.png" alt="">
-						</span>
-					</span> 
-					<span class="text-category"> 
-						<span class="text-cate">전자기기 선물</span>
-					</span>
-				</a>
-			</li>
+         <!-- 첫번째 줄 9.카테고리 -->
+         <li>
+            <a href="#" class="link-item"> 
+               <span class="area-thumb">
+                  <span class="wrap-thumb"> 
+                     <img src="./img/커플.png" alt="">
+                  </span>
+               </span> 
+               <span class="text-category"> 
+                  <span class="text-cate">커플 선물</span>
+            </span>
+         </a></li>
 
-			<!-- 두번째 줄 3.카테고리 -->
-			<li>
-				<a href="#" class="link-item"> 
-					<span class="area-thumb">
-						<span class="wrap-thumb"> 
-							<img src="./img/주류.png" alt="">
-						</span>
-					</span> 
-					<span class="text-category"> 
-						<span class="text-cate">주류 선물</span>
-					</span>
-				</a>
-			</li>
+         <!-- 첫번째 줄 10.카테고리 -->
+         <li>
+            <a href="#" class="link-item"> 
+               <span class="area-thumb">
+                  <span class="wrap-thumb"> 
+                     <img src="./img/유아.png" alt="">
+                  </span>
+               </span> 
+               <span class="text-category"> 
+                  <span class="text-cate">유아 선물</span>
+               </span>
+            </a>
+         </li>
+      </ul>
+   </div>	
 
-			<!-- 두번째 줄 4.카테고리 -->
-			<li>
-				<a href="#" class="link-item"> 
-					<span class="area-thumb">
-						<span class="wrap-thumb"> 
-							<img src="./img/커플.png" alt="">
-						</span>
-					</span> 
-					<span class="text-category"> 
-						<span class="text-cate">커플 선물</span>
-				</span>
-			</a></li>
-
-			<!-- 두번째 줄 5.카테고리 -->
-			<li>
-				<a href="#" class="link-item"> 
-					<span class="area-thumb">
-						<span class="wrap-thumb"> 
-							<img src="./img/유아.png" alt="">
-						</span>
-					</span> 
-					<span class="text-category"> 
-						<span class="text-cate">유아 선물</span>
-					</span>
-				</a>
-			</li>
-		</ul>
-	</div>
-
-	<div class="myPage" align=center>
-		<!-- 게시글 전체 -->
-		<div class="main-posts">
-			<c:forEach var="board" items="${list}" varStatus="status">
-				<br>
-				<br>
-				<br>
-				<div class="post-box">
-					<!-- 게시글 사진 -->
-					<div class="post-profile">
-						<div class="post-img">
-							<!-- 프로필 사진 -->
-							<img src="${board.user_pic}" alt="postprofile">
-						</div>
-						<!-- 사용자 아이디 -->	
-						<form action = "UserBoard.do" method="post">
-						<input type = "hidden" name="user_id" value = "${board.user_id}">					
-						<input type = "submit" value = "${board.user_id}">					
-						</form>
-					</div>
-					<br>
-					<img src="${board.post_img}" alt="postbox">
-					<div align=left>${board.post_content}</div>
-					<div class="post-info">
-						<div class="likes">
+   <div class="myPage" align=center>
+      <!-- 게시글 전체 -->
+      <div class="main-posts">
+         <c:forEach var="board" items="${list}" varStatus="status">
+            <br>
+            <div class="post-box">
+               <!-- 게시글 사진 -->
+               <div class="post-profile">
+                  <div class="post-img">
+                     <!-- 프로필 사진 -->
+                     <img src="${board.user_pic}" alt="postprofile">
+                  </div>
+                  <c:choose>
+                     <c:when test="${info.user_id != board.user_id}">
+                        <form action="UserBoard.do" method="post">
+                           <!-- 사용자 아이디 -->
+                           <input type="hidden" name="user_id" value="${board.user_id}">
+                           <input type="submit" value="${board.user_id}">
+                        </form>
+                     </c:when>
+                     <c:otherwise>
+                         <form action="MyBoard.do" method="post">
+                           <!-- 사용자 아이디 -->
+                           <input type="hidden" name="user_id" value="${board.user_id}">
+                           <input type="submit" value="${board.user_id}">
+                        </form>
+                     </c:otherwise>
+                  </c:choose>
+               </div>
+               <br>
+               <img src="${board.post_img}" alt="postbox">
+               <div align=left>${board.post_content}</div>
+               <div class="post-info">
+                  <div class="likes">
 							<!-- 좋아요 -->
 							<i class="fa-regular fa-heart"></i>
-							<!-- 좋아요 버튼 -->
-							<button type="button" id="BtnLike"
-								onclick="goLove('${board.post_id}','${info.user_id}')">
-								좋아요
-							</button>
-							<!--<c:if test="${resultLike==1}">
-								좋아요X
-							</c:if>
-							<c:if test="${resultLike==0}">
-								좋아요O
-							</c:if>-->
-							<!-- 좋아요 숫자 -->
-							<span>1.1k</span>
-							<!-- 추천 버튼 -->
-							<button type="button" id="btn2"
-								onclick="goRec('${board.goods_id}','${info.user_id}')">추천</button>
-						</div>
-						<!-- 댓글 -->
-						<i class="fa-regular fa-message"></i>
-						<!-- 댓글 숫자 -->
-						<span>10</span>
-					</div>
-				</div>
+                    <!-- 좋아요 버튼 -->
+                     <button type="button" id="BtnLike"	onclick="goLove('${board.post_id}','${info.user_id}')">
+						좋아요</button>
+                     <!-- 추천 이미지 -->
+					 <i class="fa-regular fa-thumbs-up"></i>
+                     <!-- 추천 버튼 -->
+					 <button type="button" id="btn2" onclick="goRec('${board.goods_id}','${info.user_id}')">
+						추천</button>
+                  </div>
+               </div>
+            </div>
 				<!-- 게시글 글 -->
-				<div class="detgul">
-					<!-- 댓글 입력, 입력버튼 -->
-					<div>
-						<textarea id="comment${board.post_id}" name="comment" cols="35" rows="1"
-							placeholder="댓글 내용" autocomplete="off"></textarea>
-						<button type="button"
-							onclick="writeCmt('${board.post_id}', '${info.user_id}')">입력</button>
-					</div>
-					<!-- 댓글 출력 반복문 -->
-					<button type="button" onclick="goCmt('${board.post_id}')">댓글보기</button>
-					<div id="reply${board.post_id}"></div>
-					<%-- <c:forEach var="CMT" items="${cmtList}" varStatus="status">
-						<span>${board.user_id}</span>
-						<span>${CMT.cmt_content}</span>
-					</c:forEach> --%>
-					<br>
-				</div>
-			</c:forEach>
-		</div>
+            <div class="detgul">
+               <!-- 댓글 입력, 입력버튼 -->
+               <div class="info">
+                  <textarea id="comment${board.post_id}" name="comment" cols="35" rows="1"
+                     placeholder="댓글 내용" autocomplete="off"></textarea>
+                  <button type="button" onclick="writeCmt('${board.post_id}', '${info.user_id}')">입력</button>
+               </div>
+               <div class="more-detgul">
+	               <!-- 댓글 출력 반복문 -->
+	               <button type="button" onclick="goCmt('${board.post_id}')">댓글보기</button>
+               </div>
+               <div id="reply${board.post_id}" class="lines"></div>
+               <c:forEach var="CMT" items="${cmtList}" varStatus="status">
+                  <span>${board.user_id}</span>
+                  <span>${CMT.cmt_content}</span>
+               </c:forEach>
+            </div>
+         </c:forEach>
+      </div>
 		
 		<script type="text/javascript">
 			// 좋아요 ajax
