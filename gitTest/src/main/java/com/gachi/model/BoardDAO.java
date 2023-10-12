@@ -14,10 +14,10 @@ public class BoardDAO {
 	// 게시글 전체 조회 메소드
 	ArrayList<BoardDTO> list = new ArrayList<BoardDTO>();
 
-	public ArrayList<BoardDTO> AllList() {
+	public ArrayList<LikeBoardDTO> AllList() {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
-		list = (ArrayList) sqlSession.selectList("AllList");
+		ArrayList<LikeBoardDTO> list = (ArrayList) sqlSession.selectList("AllList");
 
 		sqlSession.close();
 

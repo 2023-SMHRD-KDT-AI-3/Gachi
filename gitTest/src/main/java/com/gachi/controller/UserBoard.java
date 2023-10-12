@@ -20,9 +20,9 @@ public class UserBoard implements Command {
 			
 			// BoardDAO에 접근할 수 있는 객체생성
 			BoardDAO dao = new BoardDAO();
-			ArrayList<BoardDTO> myList = dao.MyList(user_id);
+			ArrayList<BoardDTO> userList = dao.MyList(user_id);
 
-			request.setAttribute("myList", myList);
+			request.setAttribute("userList", userList);
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}

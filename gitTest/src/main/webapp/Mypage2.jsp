@@ -508,16 +508,16 @@ nav:hover {
    margin-bottom: 33px;
 }
 
-/* 자기 게시물 버튼 */
-.myFeed-btn {
+/* 좋아요 게시물 버튼 */
+.likeFeed-btn {
    align-items: center;
    display: flex;
    border-bottom: 2px solid #3F51B5;
    color: #3F51B5;
 }
 
-/* 좋아요 게시물 버튼 */
-.likeFeed-btn {
+/* 자기 게시물 버튼 */
+.myFeed-btn {
    align-items: center;
    display: flex;
    color: #818181;
@@ -547,8 +547,8 @@ nav:hover {
    display: flex;
 }
 
-/* 좋아요 게시물 버튼 커서 올리면 글자 색깔 바뀜 */
-.likeFeed-link .likeFeed-btn:hover {
+/* 자기 게시물 버튼 커서 올리면 글자 색깔 바뀜 */
+.myFeed-link .myFeed-btn:hover {
    color: #3F51B5;
    filter: opacity(0.5) drop-shadow(#3F51B5);
    border-bottom: 2px solid #3F51B5;
@@ -663,13 +663,13 @@ nav:hover {
          <div class="container_cols">
             <!-- 본인 게시물 및 좋아요한 게시물 버튼 -->
             <div class="col-btn">
-               <a href="#" class="myFeed-link">
+               <a href="Mypage.jsp" class="myFeed-link">
                   <div class="myFeed-btn">
                      <i class="fa-solid fa-table-cells"></i>
                      <span>게시물</span>
                   </div>
                </a>
-               <a href="Mypage2.jsp" class="likeFeed-link">
+               <a href="#" class="likeFeed-link">
                   <div class="likeFeed-btn">
                      <i class="fas fa-heart"></i>
                      <span>좋아요 게시물</span>

@@ -20,7 +20,7 @@ public class BoardService implements Command {
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// BoardDAO에 접근할 수 있는 객체생성
 		BoardDAO dao = new BoardDAO();
-		ArrayList<BoardDTO> list = dao.AllList(); // BoardDTO -> LikeBoardDTO
+		ArrayList<LikeBoardDTO> list = dao.AllList(); // BoardDTO -> LikeBoardDTO
         
 		
 		request.setAttribute("list",list);

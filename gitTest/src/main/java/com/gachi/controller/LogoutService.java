@@ -11,7 +11,6 @@ public class LogoutService implements Command {
 
 	
 			HttpSession session = request.getSession();
-			
 			// session의 데이터 삭제하기
 			session.invalidate();
 

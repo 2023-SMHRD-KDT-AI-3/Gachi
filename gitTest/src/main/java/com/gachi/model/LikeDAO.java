@@ -25,7 +25,7 @@ public class LikeDAO {
 		
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		
-		sqlSession.insert("likeUpdate", m);
+		sqlSession.insert("likeUpdate", m	);
 		sqlSession.close();
 	}
 	

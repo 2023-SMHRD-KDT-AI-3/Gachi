@@ -4,12 +4,12 @@
 
 <!-- 닉네임 검색 -->
 <select id="SearchNick" parameterType="com.gachi.model.SearchDTO" resultType="com.gachi.model.MemberDTO">
-	SELECT * FROM tbl_user WHERE user_nick LIKE '%' || #{keyword} || '%'
+	SELECT * FROM tbl_user WHERE user_nick LIKE CONCAT('%',#{keyword},'%')
 </select>
 
 <!-- 게시글 검색 -->
 <select id="SearchBoard" parameterType="com.gachi.model.SearchDTO" resultType="com.gachi.model.BoardDTO">
-	SELECT * FROM tbl_post WHERE post_content LIKE '%' || #{keyword} || '%' 
+	SELECT * FROM tbl_post WHERE post_content LIKE CONCAT('%',#{keyword},'%')
 </select>
 
 </mapper>

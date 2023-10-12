@@ -3,6 +3,7 @@ import java.io.UnsupportedEncodingException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.javassist.compiler.ast.Member;
 
@@ -24,6 +25,11 @@ public class FixProfile implements Command {
 			String user_email = request.getParameter("user_email");
 			String user_pic = request.getParameter("user_pic");
 			String user_introduction = request.getParameter("user_introduction");
+			System.out.println(user_id);
+			System.out.println(user_pw);
+			System.out.println(user_nick);
+			System.out.println(user_pic);
+			System.out.println("wewerwe");
 			
 			MemberDAO dao = new MemberDAO();
 			
@@ -38,7 +44,25 @@ public class FixProfile implements Command {
 			
 			int resultProfile = dao.fixProfile(member);
 			
-			url = "MyBoard.do";
+			HttpSession session = request.getSession();
+			// session의 데이터 삭제하기
+			session.invalidate();
+			
+	         MemberDTO m = new MemberDTO();
+	         m.setUser_id(user_id);
+	         m.setUser_pw(user_pw);
+	         
+	         MemberDTO info = dao.login(m);
+
+	         if (info != null) {
+	            // 로그인 성공
+	 			HttpSession session2 = request.getSession();
+	            session2.setAttribute("info", info);
+	            url = "MyBoard.do";
+	         } else {
+	        	 //로그인 실패
+	             url = "goLoginFail.do";
+	         }
 			
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();

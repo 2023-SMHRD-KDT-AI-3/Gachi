@@ -260,6 +260,18 @@ nav:hover {
    margin-left: 7px;
 }
 
+/* 좋아요 아이콘 크기 설정 ----------------------- 내가 함 */
+.likeimg>.likeimg {
+	width: 20px;
+	height: 20px;
+}
+
+/* 추천 아이콘 크기 설정 ----------------------- 내가 함 */
+.recimg>.recimg {
+	width: 20px;
+	height: 20px;
+}
+
 /* 게시글 댓글 */
 .detgul {
    margin-top: 10px;
@@ -317,7 +329,8 @@ nav:hover {
    background: #3F51B5;
    color: #fff;
    border-radius: 10px;
-   margin-right: 390px;
+   margin-right: -447px;
+   margin-top: 10px;
 }
 </style>
 </head>
@@ -532,15 +545,15 @@ nav:hover {
                      <img src="${board.user_pic}" alt="postprofile">
                   </div>
                   <c:choose>
-                     <c:when test="${info.user_id != board.user_id}">
-                        <form action="UserBoard.do" method="post">
+                     <c:when test="${info.user_id == board.user_id}">
+                        <form action="MyBoard.do" method="post">
                            <!-- 사용자 아이디 -->
                            <input type="hidden" name="user_id" value="${board.user_id}">
                            <input type="submit" value="${board.user_id}">
                         </form>
                      </c:when>
                      <c:otherwise>
-                         <form action="MyBoard.do" method="post">
+                         <form action="UserBoard.do" method="post">
                            <!-- 사용자 아이디 -->
                            <input type="hidden" name="user_id" value="${board.user_id}">
                            <input type="submit" value="${board.user_id}">
@@ -548,13 +561,21 @@ nav:hover {
                      </c:otherwise>
                   </c:choose>
                </div>
+                                 <div>글번호:${board.post_id}</div>
                <br>
                <img src="${board.post_img}" alt="postbox">
                <div align=left>${board.post_content}</div>
                <div class="post-info">
                   <div class="likes">
 							<!-- 좋아요 -->
-							<i class="fa-regular fa-heart"></i>
+						    <c:choose>
+							    <c:when test="${board.user_id eq info.user_id and board.post_id eq board.post_idx}">
+							        <i class="likeimg"> <img id="likeimg${board.post_id}" class="likeimg" src="./img/likeO.png"></i>
+							    </c:when>
+							    <c:otherwise>
+							        <i class="likeimg"> <img id="likeimg${board.post_id}" class="likeimg" src="./img/likeX.png"></i>
+							    </c:otherwise>						      
+						     </c:choose>
                     <!-- 좋아요 버튼 -->
                      <button type="button" id="BtnLike"	onclick="goLove('${board.post_id}','${info.user_id}')">
 						좋아요</button>
@@ -588,32 +609,31 @@ nav:hover {
       </div>
 		
 		<script type="text/javascript">
-			// 좋아요 ajax
-			function goLove(post_id, user_id) {
-				//alert(post_id+":"+user_id);
-				$.ajax({
-					url : "LikeUpdate.do",
-					type : "post",
-					dataType : "text",
-					data : {
-						post_id : post_id,
-						user_id : user_id
-					},
-					success : function(resultLike) {
-						if (resultLike == 1) {
-							console.log("좋아요X"); //1:좋아요삭제 ,0:좋아요추가
-							$('#BtnLike').html("좋아요O");
-						} else if (resultLike == 0) {
-							console.log("좋아요O");
-							$('#BtnLike').html("좋아요X");
-						}
-					},
-					error : function() {
-						console.log('요청실패 ㅜㅜ');
+		// 좋아요 ajax
+		function goLove(post_id, user_id) {
+			//alert(post_id+":"+user_id);
+			$.ajax({
+				url : "LikeUpdate.do",
+				type : "post",
+				dataType : "text",
+				data : {
+					post_id : post_id,
+					user_id : user_id
+				},
+				success : function(resultLike) {
+					if (resultLike == 0) {
+						$("#likeimg"+post_id).attr("src", "./img/likeO.png");
+						console.log("좋아요O");
+					} else{
+						$("#likeimg"+post_id).attr("src", "./img/likeX.png");
+						console.log("좋아요X");
 					}
-				})
-			}
-
+				},
+				error : function() {
+					console.log('요청실패 ㅜㅜ');
+				}
+			})
+		}
 			// 추천 ajax
 			function goRec(goods_id, user_id) {
 				// alert("goods_id: "+goods_id+" / user_id: "+user_id);

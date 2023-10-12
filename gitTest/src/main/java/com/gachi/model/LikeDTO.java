@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 public class LikeDTO {
 
 	private int like_id;
-	private int post_id;
+	private int post_idx;
 	private String user_id;
 }
