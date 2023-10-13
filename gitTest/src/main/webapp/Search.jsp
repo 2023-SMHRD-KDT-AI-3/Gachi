@@ -148,20 +148,30 @@ nav:hover {
 }
 
 .search .bar {
-   border: 1px solid #bbb;
-   width: 500px;
+    border-top: 1px solid #3F51B5;
+    border-bottom: 1px solid #3F51B5;
+    width: 560px;
 }
 
 #searchType {
-   border: 1px solid #bbb;
+   border: 1px solid #3F51B5;
    text-align: center;
    margin-left: 40px;
+   border-bottom-left-radius: 25px;
+   border-top-left-radius: 25px;
+   color: #3F51B5;
 }
 
 input[type="submit"] {
     font-family: FontAwesome;
     width: 45px;
-    border: 1px solid #bbb;
+    border-bottom-right-radius: 25px;
+    border-top-right-radius: 25px;
+    background: #fff;
+    border-top: 1px solid #3F51B5;
+    border-bottom: 1px solid #3F51B5;
+    border-right: 1px solid #3F51B5;
+    color: #3F51B5;
 }
 
 .fa-magnifying-glass,
@@ -169,6 +179,74 @@ input[type="submit"] {
     color: #3F51B5;
     background-color: #eee;
 }
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/* 자기 메인 피드 전체 */
+.container {
+   flex-direction: column;
+   display: flex;
+   box-sizing: border-box;
+   overflow-y: visible;
+   min-width: 0;
+   min-height: 0;
+   border-bottom-right-radius: 0;
+   align-items: stretch;
+}
+
+/* 자기 피드 크기 */
+.rank-row {
+   display: flex; 
+   flex-wrap: wrap;
+   padding-bottom: 0px; 
+   padding-top: 0px; 
+   position: relative;
+   height: 309px;
+   margin-bottom: 9px;
+   width: 1100px;
+}
+
+/* 자기 피드 위치 */
+.rank-board {
+   width: 340px;
+   height: 362px;
+   margin: 135px 0 0 20px;
+   padding-bottom: 0;
+}
+
+/* 자기 피드 이미지 크기 */
+.rank-board img {
+   width: 100%;
+   height: 100%;
+   border: 1px solid #eee;
+   border-radius: 5px;
+}
+
+.goods-info {
+   display: grid;
+}
+
+.goods-price{
+   display: flex;
+    font-weight: 700;
+    color: #222;
+    font-size: 20px;
+    line-height: 30px;
+    padding-top: 8px;
+}
+
+.myPage p {
+   text-align: center;
+    font-size: 50px;
+    color: #3F51B5
+}
+
+
+
 </style>
 </head>
 
@@ -212,7 +290,7 @@ input[type="submit"] {
                <span class="nav-item">프로필</span>
             </a>
             <form id="myForm" action="MyBoard.do" method="post">
-            	<input id="myFeed2" type="hidden" name = "user_id" value="${info.user_id}">
+               <input id="myFeed2" type="hidden" name = "user_id" value="${info.user_id}">
             </form>
          </li>
          <li>
@@ -238,22 +316,36 @@ input[type="submit"] {
          <input type="text" name="keyword" class="bar" placeholder="  상품 이름 입력"> 
          <input type="submit" value="&#xf002;">
       </form>
-
    </div>
    <br>
-   <div class="myPage" align=center>
-      <c:forEach var="Goods" items="${goodsList}" varStatus="status">
-         <div><img src="${Goods.goods_img}"></div>
-         <div>상품:${Goods.goods_name} 브랜드:${Goods.goods_name} 가격:${Goods.goods_price}</div>
-      </c:forEach>
-
-   </div>
+   
+   <div class="myPage">
+      <p>랭킹 순위</p>
+      <div class="container">
+         <!-- 랭킹 상품 -->
+         <ul class="rank-row">
+            <c:forEach var="Goods" items="${goodsList}" varStatus="status">
+               <li class="rank-board">
+                  <span><img src="${Goods.goods_img}"></span>
+                  <span class="goods-info">
+                     <span>${Goods.goods_brand}</span>
+                     <strong>${Goods.goods_name}</strong>
+                     <span class="goods-price">
+                        <span>${Goods.goods_price}</span>
+                        <span>원</span>
+                     </span>
+                  </span>
+               </li>
+            </c:forEach>
+         </ul>
+      </div>
+     </div>
 </body>
 <script type="text/javascript">
-	// myPage 이동시 개인피드 출력
-	document.getElementById('myFeed1').addEventListener('click', function(e) {	
-	  e.preventDefault();
-	  document.getElementById('myForm').submit();
+   // myPage 이동시 개인피드 출력
+   document.getElementById('myFeed1').addEventListener('click', function(e) {   
+     e.preventDefault();
+     document.getElementById('myForm').submit();
 });
 
 </script>

@@ -2,6 +2,7 @@ package com.gachi.controller;
 
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,6 +25,9 @@ public class RecService implements Command {
 			
 			RecDAO dao = new RecDAO();
 			
+			// ArrayList<RecBoardDTO> recList = dao.RecBoard(); //
+			// request.setAttribute("recList", recList); //
+			
 			RecDTO rec = new RecDTO();
 			rec.setGoods_id(goods_id);
 			rec.setUser_id(user_id);
@@ -37,6 +41,7 @@ public class RecService implements Command {
 			}else {		// 좋아요를 하였다면 좋아요 삭제
 				dao.RecDelete(rec);
 			}
+			
 			
 			response.setContentType("text/html");
             PrintWriter out=response.getWriter();

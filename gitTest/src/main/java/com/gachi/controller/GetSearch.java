@@ -1,16 +1,20 @@
 package com.gachi.controller;
 
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.gachi.model.BoardDTO;
+import com.gachi.model.CmtDTO;
 import com.gachi.model.GoodsDTO;
 import com.gachi.model.MemberDTO;
 import com.gachi.model.SearchDAO;
 import com.gachi.model.SearchDTO;
+import com.google.gson.Gson;
 
 public class GetSearch implements Command {
 
@@ -47,9 +51,21 @@ public class GetSearch implements Command {
 				List<GoodsDTO> goodsResult = dao.searchGoods(search);
 				request.setAttribute("goodsResult", goodsResult);
 				url = "SearchResultG.jsp";
+			} else if (type.equals("goodsS")) {
+				List<GoodsDTO> goodsSResult = dao.searchGoods(search);
+
+	            Gson g=new Gson();
+	            String json=g.toJson(goodsSResult);
+	            
+	            //request.setAttribute("goodsSResult", goodsSResult);
+	
+	            response.setContentType("text/json;charset=euc-kr");            
+	            PrintWriter out=response.getWriter();
+	            out.println(json);
+				url = null;
 			}
 
-		} catch (UnsupportedEncodingException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

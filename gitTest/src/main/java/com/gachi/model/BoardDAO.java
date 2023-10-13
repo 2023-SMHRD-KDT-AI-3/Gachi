@@ -14,11 +14,11 @@ public class BoardDAO {
 	// 게시글 전체 조회 메소드
 	ArrayList<BoardDTO> list = new ArrayList<BoardDTO>();
 
-	public ArrayList<LikeBoardDTO> AllList() {
+	public ArrayList<LikeBoardDTO> AllList(String user_id) { // BoardDTO -> LikeBoardDTO
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
-		ArrayList<LikeBoardDTO> list = (ArrayList) sqlSession.selectList("AllList");
-
+		ArrayList<LikeBoardDTO> list = (ArrayList) sqlSession.selectList("AllList", user_id);
+		// BoardDTO -> LikeBoardDTO
 		sqlSession.close();
 
 		return list;
@@ -70,6 +70,15 @@ public class BoardDAO {
 		return myLikeList;
 	}
 	
-	// 내가 작성한 게시물 가져오기
+	// 상대방 프로필 게시글 수 카운트
+	public int MypostCount(String count) {
+		SqlSession sqlSession  = sqlSessionFactory.openSession(true);
+		
+		int resultCount = sqlSession.selectOne("MypostCount", count);
+		
+		sqlSession.close();		
+		
+		return resultCount;
+	}
 	
 }

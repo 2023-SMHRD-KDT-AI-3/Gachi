@@ -15,6 +15,8 @@ public class LikeBoardDTO {
 	private int goods_id;
 	private String created_at;
 	private String user_id;
+	private String kuser_id;
 	private String user_pic;
 	private int like_id;
+	private int liked; // 1, 0
 }

@@ -21,16 +21,13 @@ public class LikeUpdate implements Command {
 			int post_id = Integer.valueOf(request.getParameter("post_id"));
 			String user_id = request.getParameter("user_id");
 			
-			System.out.println(post_id);
-			System.out.println(user_id);
 			LikeDAO dao = new LikeDAO();
 			
 			LikeDTO like = new LikeDTO();
-			like.setPost_idx(post_id);
-			like.setUser_id(user_id);
+			like.setPost_id(post_id);
+			like.setKuser_id(user_id);
 			int resultLike = dao.likeCheck(like);
 			
-			System.out.println(resultLike);
 			if(resultLike==0) {	// 좋아요를 하지 않았다면 좋아요 추가 
 				dao.likeUpdate(like);				
 			}else {		// 좋아요를 하였다면 좋아요 삭제
@@ -45,8 +42,7 @@ public class LikeUpdate implements Command {
             PrintWriter out=response.getWriter();
 		    out.println(resultLike);
 		    
-		    
-		    
+		    request.setAttribute("resultLike",resultLike);
 		    
 		} catch (Exception e) {
 			e.printStackTrace();

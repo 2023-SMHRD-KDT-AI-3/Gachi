@@ -3,22 +3,24 @@
 <mapper namespace="com.gachi.model.BoardMapper">
 
 	<!-- 게시판 전체 내용 조회할 수 있는 SQL문장 -->
-	<select id="AllList" resultType="com.gachi.model.LikeBoardDTO">
+	<select id="AllList" parameterType="string" resultType="com.gachi.model.LikeBoardDTO">
 	 <!-- select p.post_id, p.post_content, p.post_img, p.goods_id, p.created_at, p.user_id,	u.user_pic 
 		from tbl_post p inner join tbl_user u on p.user_id=u.user_id -->
-		SELECT *
-		FROM (
-		    SELECT 
-		        p.post_id,
-		        p.post_content,
-		        k.like_id ,
-		        p.user_id ,
-		        k.post_idx,
-		        p.post_img
-		    FROM tbl_post p
-		    left JOIN tbl_likes k ON p.post_id = k.post_idx
-		) AS x
-		left JOIN tbl_user u ON u.user_id = x.user_id
+		SELECT
+            p.post_id,
+			p.post_content,
+			p.goods_id,
+			l.like_id ,
+			l.kuser_id ,
+			p.user_id,
+			l.post_idx,
+			p.post_img , 
+			m.user_pic,
+            IFNULL(l.kuser_id IS NOT NULL, 0) AS liked
+		FROM tbl_post p
+		JOIN tbl_user m ON p.user_id = m.user_id
+		LEFT JOIN tbl_likes l ON p.post_id = l.post_idx AND l.kuser_id = #{user_id}
+
 	</select>
 
 	<!-- 게시글 하나만 조회하는 sql문장 -->
@@ -39,8 +41,13 @@
 		from tbl_post p inner join tbl_user u on p.user_id=u.user_id where p.user_id=#{user_id}
 	</select>
 	
-	<!-- 내가 좋아요 누른 게시물을 가져오는 sql문장 -->
+	<!-- 내가 좋아요 누른 게시물을 가져오는 sql문장 수정해야됨-->
 	<select id="MyLikeList" parameterType="string" resultType="com.gachi.model.BoardDTO">
 		select * from tbl_post p inner join tbl_likes k on p.post_id = k.post_idx where k.kuser_id=#{user_id}
+	</select>
+	
+		<!-- 내가 작성한 게시물 갯수를 카운트 하는 sql문장 -->
+	<select id="MypostCount" parameterType="string" resultType="int">
+		select count(*) from tbl_post where user_id=#{user_id}
 	</select>
 </mapper>

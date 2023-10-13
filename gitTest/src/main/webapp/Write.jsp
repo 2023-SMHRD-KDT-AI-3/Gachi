@@ -278,7 +278,7 @@ nav:hover {
     background-color: #eee;
 }
 /* 사진등록 모달창 위치*/
-#modalPic {
+#modalGoods {
    width: 100%;
    height: 100%;
    position: fixed;
@@ -290,18 +290,20 @@ nav:hover {
    background: rgba(0, 0, 0, 0.5);
 }
 /* 소개글 수정 모달창 속성*/
-#fix_pic {
+#update_Goods {
    position: absolute;
    background-color: #ffffff;
    width: 900px;
    height: 450px;
    padding: 15px;
-   z-index : 100;
+   z-index: 100;
    margin-left: 100px;
+   overflow: auto;
 }
 
+
 /* 팝업창 */
-#modalPic.hidden {
+#modalGoods.hidden {
    display: none;
 }
 </style>
@@ -343,13 +345,14 @@ nav:hover {
          	</a>
          </li>
 		 <li>
-            <a href="#" id="myFeed1" class="headers"> 
-               <i class="fas fa-user"></i> 
-               <span class="nav-item">프로필</span>
-            </a>
-            <form id="myForm" action="MyBoard.do" method="post">
-            	<input id="myFeed2" type="hidden" name = "user_id" value="${info.user_id}">
-            </form>
+             <form id="myForm" action="MyBoard.do" method="post">
+                <input id="myFeed2" type="hidden" name = "user_id" value="${info.user_id}">
+             </form>
+             <a href="#" id="myFeed1" class="headers"> 
+                 <i class="fas fa-user"></i> 
+                 <span class="nav-item">프로필</span>
+             </a>
+            </li>
          </li>
          <li>
          	<a href="LogoutService.do" class="logout headers"> 
@@ -363,93 +366,120 @@ nav:hover {
       <span id="userID">${info.user_id}님 환영합니다.</span>
    </div>
 
-   <div class="myPage">
-        <div class="space">
-
-        </div>
-        <form action="BoardWrite.do" method="post" enctype="multipart/form-data">
-           <div>
-           <input type="hidden" name="user_id" value="${info.user_id}">
-           </div>
-            <!-- 게시글 제목 -->
-            <div class="board-title">
-                <strong>게시글 작성</strong>
-                <p>게시글을 등록할 수 있는 곳입니다.</p>
-            </div>
-            <div class="board-wrap">
-                <div class="board-write">
-                    <!-- 내용 입력 -->
-                    <div class="info">
-                        <textarea cols="30" rows="10" placeholder="내용 입력" name="post_content"></textarea>
-                    </div>
-                    <!-- 상품 등록(test) -->
-                    <div class="item">
-                        <dl>
-                            <dt>
-                                <dd><input type="text" placeholder="상품검색" name="goods_id"></dd>
-                                <button class="item-btn" style="float: right;">상품등록</button>
-                            </dt>
-                        </dl>
-                    </div>
-                    <div>
-                            <button type="button" id="modalOpenButton">사진등록하기</button> 
-      			  <div id="modalPic" class="hidden">
-              		 <!-- 사진등록 모달창(test) -->
-            	   <div id="fix_userPic">
-              	 <p>사진 등록</p>
-              	    <form action="GetSearch.do" method="post">
-						<input type="hidden" name="type" value="goods">
-						<input type="text" name="keyword" placeholder="상품이름 검색">
-						<input type="submit" value="검색">
-              	    </form>
-                  <c:forEach var="goodsRes" items="${goodsResult}" varStatus="status">
-					<p>상품 이름 : ${goodsRes.goods_name}</p>
-					<p>상품사진 :<img src=" ${goodsRes.goods_img}"></p>
-					<p>브랜드 : ${goodsRes.goods_brand}</p>
-					<p>가격 : ${goodsRes.goods_price}</p>
-					<br>
-		       	</c:forEach>
-                  <button id="modalPicClose">닫기</button>
-               </div>
-            </div>
-                    </div>
-                  </div>
-               </div>
-                    <!-- 사진등록(test) -->
-                    <div class="url">
-                        <dl>
-                            <dt>
-                                <dd class="url-btn"><input type="file" name="post_img" style="float: right;"></dd>
-                            </dt>
-                        </dl>
-                    </div>
-                </div>
-                <div class="btn-wrap">
-                    <input type="submit" value="등록" class="on">
-                    <a href="BoardService.do">취소</a>
-                </div>
-            </div>
-        </form>
-    </div>
-
+		<div class="myPage">
+			<div class="space"></div>
+        	<form action="BoardWrite.do" method="post" enctype="multipart/form-data">
+           		<div>
+           			<input type="hidden" name="user_id" value="${info.user_id}">
+	           	</div>
+    	        <!-- 게시글 제목 -->
+            	<div class="board-title">
+                	<strong>게시글 작성</strong>
+                	<p>게시글을 등록할 수 있는 곳입니다.</p>
+            	</div>
+            	<div class="board-wrap">
+	                <div class="board-write">
+                    	<!-- 내용 입력 -->
+                    	<div class="info">
+	                        <textarea cols="30" rows="10" placeholder="내용 입력" name="post_content" autocomplete="off"></textarea>
+                    	</div>
+                    	<!-- 해시태그 등록 -->
+                    	<input type="text" name="hashtags" placeholder="해시태그 추가">
+                    	<button type="button" onclick="extractHashtags()">해시태그 추가</button>
+                    	<!-- 상품 등록(test) -->
+                    	<div class="item">
+	                        <dl>
+                            	<dt>
+									<button type="button" id="modalOpenButton">상품등록하기</button> 
+									<input type="text" name="goods_id" placeholder="상품 번호 입력(임시))">
+									<!-- <input type="hidden" id="goods_value" name="goods_id" value=""> -->	
+                            	</dt>
+                        	</dl>
+                    	</div>
+            		</div>
+	        	</div>
+				<!-- 사진등록(test) -->
+				<div class="url">
+					<dl>
+						<dt>
+							<dd class="url-btn"><input type="file" name="post_img" style="float: right;"></dd>
+						</dt>
+					</dl>	
+				</div>
+				<div class="btn-wrap">
+					<input type="submit" value="등록" class="on">
+					<a href="BoardService.do">취소</a>
+            	</div>
+			</form>
+			<div id="modalGoods" class="hidden">
+			<!-- 상품등록 모달창(test) -->
+				<div id="update_Goods">
+					<p>상품 등록</p>
+					<input type="text" id="keyword" name="keyword" class="bar" autocomplete="off" placeholder="상품 이름 입력"> 
+					<button type="button" onclick="searchGoods()">검색</button>
+					<div id="reply" class="lines"></div>
+					<button id="modalCloseButton">닫기</button>
+				</div>
+			</div>
+		</div>
    <script>
    const modalOpenButton = document.getElementById('modalOpenButton');
    const modalCloseButton = document.getElementById('modalCloseButton');
-   const modalPic = document.getElementById('modalPic');
+   const modalGoods = document.getElementById('modalGoods');
 
    modalOpenButton.addEventListener('click', () => {
-     modalPic.classList.remove('hidden');
+     modalGoods.classList.remove('hidden');
    });
 
    modalCloseButton.addEventListener('click', () => {
-     modalPic.classList.add('hidden');
+     modalGoods.classList.add('hidden');
    });
+   
+// 댓글작성 ajax
+	function searchGoods() {
+		var keyword=$("#keyword").val();
+		$.ajax({
+			url : "GetSearch.do",
+			type : "post",
+			data : {
+				type : "goodsS",
+				keyword : keyword,
+			},
+			success : function(data) {
+				var html="<table>";
+				$.each(data, function(index, obj){
+					html+="<tr>";
+					html+="<td id="goods_id" onclick="updateGoods()">"+obj.goods_id+"</td>";
+					html+="<td>"+obj.goods_name+"</td>";
+					html+="</tr>";						
+				});
+				html+="</table>";
+				$("#reply").html(html);
+			},
+			error : function() {
+				console.log('요청실패 ㅜㅜ');
+			}
+		});
+	}
+	
+	let goods_value;
+	let updateGoods = function () {
+		goods_value.textContent += goods_id.textContent;
+		
+	}
+	
+	// 입력 필드에서 해시태그를 추출하기 위한 JavaScript 함수
+	function extractHashtags() {
+	    const inputField = document.querySelector('input[name="hashtags"]');
+	    const hashtags = inputField.value.match(/#(\w+)/g);
+	    return hashtags || [];
+	}
 
-	// myPage 이동시 개인피드 출력
+// myPage 이동시 개인피드 출력
    document.getElementById('myFeed1').addEventListener('click', function(e) {	
  	  e.preventDefault();
-   document.getElementById('myForm').submit();
-	});
+	  document.getElementById('myForm').submit();
+});
    
    </script>
 

@@ -25,7 +25,14 @@
 body {
     background: #dfe9f5;
 }
-
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
 /* 왼쪽 바 */
 .myPage .container ul {
     list-style-type: none;
@@ -126,11 +133,32 @@ nav:hover {
     bottom: 0;
 }
 
+/* 로고 디테일 */
+.fa-user,
+.home {
+    color: #3F51B5;
+    background-color: #eee;
+}
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
 /* 사용자가 유지되는지 확인용 */
 #userID {
    align-items: right;
 }
-
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
 /* 프로필 흰바탕 */
 .myPage {
    background-color: white;
@@ -140,7 +168,14 @@ nav:hover {
    margin-top: 200px;
    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
-
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
 /* 프로필 사진 위치 조정 */
 .myPage .container .profile {
    padding: 25px 20px;
@@ -168,7 +203,14 @@ nav:hover {
    display: block;
    box-shadow: 1px 3px 12px rgba(0, 0, 0, 0.5);
 }
-
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
 /* 프로필 이름 조정 */
 .myPage .container .profile h2 {
    margin-top: 60px;
@@ -176,14 +218,28 @@ nav:hover {
    font-size: 22px;
    margin-bottom: 5px;
 }
-
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
 /* 프로필 이름 밑에 인사글 조정 */
 .myPage .container .profile p {
    font-size: 0.9rem;
    color: #818181;
    margin: 0;
 }
-
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
 /* 팔로워, 팔로잉, 게시글 조정 */
 .myPage .container .profile .follows {
    justify-content: space-between;
@@ -204,61 +260,14 @@ nav:hover {
    color: #1d1d1d;
    font-weight: 600;
 }
-
-/* 팔로우 버튼 */
-.myPage .container .profile .follows::after {
-   position: absolute;
-   content: "";
-   bottom: -16px;
-   display: block;
-   background: #ccc;
-   height: 1px;
-   width: 100%;
-}
-
-/* 팔로우 버튼 크기 조정 */
-.myPage .container .container_cols button {
-    margin-left: 510px;
-    margin-bottom: 40px;
-   padding: 1px;
-   background: #bbb;
-   color: #000;
-   border-radius: 2px;
-   display: flex;
-}
-
-/* 팔로우 버튼을 누르기전 */
-.myPage .container .container_cols .container_followBtn button {
-   background: blue;
-   color: white;
-   border: none;
-   width: 120px;
-   padding: 10px 25px;
-   border-radius: 7px;
-   transition: all 0.3s ease-in;
-}
-
-/* 버튼 아웃라인 없애기 */
-.myPage .container .container_cols .container_followBtn button:active {
-   outline: none;
-}
-
-/* 버튼 아웃라인 없애기 */
-.myPage .container .container_cols .container_followBtn button:visited {
-   outline: none;
-}
-
-/* 팔로우 버튼을 누룬 후 */
-.myPage .container .container_cols .container_followBtn .unfollow {
-   background: whitesmoke;
-   color: black;
-   border: none;
-   width: 120px;
-   padding: 10px 25px;
-   border-radius: 7px;
-   transition: all 0.3s ease-in;
-}
-
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
 /* 자기 게시글 크기 제한 조정 */
 .myPage .container .container_cols .container_board {
    display: grid;
@@ -275,173 +284,14 @@ nav:hover {
    margin-left: 340px;
    margin-bottom: 80px;
 }
-/* 프로필 수정 위한 버튼 생성 */
-.myPage .container .profile .profile_img span button img {
-   position: absolute;
-   background-color: white;
-   width: 30px;
-   height: 30px;
-   border-radius: 50%;
-   bottom: 0.5px;
-   right: 11px;
-   border: 2px solid #fff;
-   margin-bottom: 20px;
-}
-
-/* 프로필 사진 수정 모달창 위치*/
-#modalPic {
-   width: 100%;
-   height: 100%;
-   position: fixed;
-   top: 0;
-   left: 0;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   background: rgba(0, 0, 0, 0.5);
-}
-/* 프로필 사진 수정 모달창 속성*/
-#fix_userPic {
-   z-index:1050;
-   position: absolute;
-   background-color: #ffffff;
-   width: 900px;
-   height: 450px;
-   padding: 15px;
-   margin-left: 100px;
-}
-
-/* 팝업창 */
-#modalPic.hidden {
-   display: none;
-}
-
-/* 소개글 수정 모달창 위치*/
-#modalIntrod {
-   width: 100%;
-   height: 100%;
-   position: fixed;
-   top: 0;
-   left: 0;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   background: rgba(0, 0, 0, 0.5);
-}
-/* 소개글 수정 모달창 속성*/
-#fix_userIntrod {
-   position: absolute;
-   background-color: #ffffff;
-   width: 900px;
-   height: 450px;
-   padding: 15px;
-   z-index : 100;
-   margin-left: 100px;
-}
-
-/* 팝업창 */
-#modalIntrod.hidden {
-   display: none;
-}
-
-/* pw, nick, email 수정 모달창 위치*/
-#modalPNE {
-   width: 100%;
-   height: 100%;
-   position: fixed;
-   top: 0;
-   left: 0;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   background: rgba(0, 0, 0, 0.5);
-}
-/* pw, nick, email 수정 모달창 속성*/
-#fix_userPNE {
-   position: absolute;
-   background-color: #ffffff;
-   width: 900px;
-   height: 450px;
-   padding: 15px;
-   margin-left: 100px;
-}
-
-/* 팝업창 */
-#modalPNE.hidden {
-   display: none;
-}
-
-/* 프로필사진 팝업창 제목 크기 */
-#fix_userPic p {
-   font-size: 30px;
-   margin-left: 70px;
-   border-bottom: 2px solid black;
-   width: 720px;
-}
-
-/* 수정버튼 디테일 */
-.btn-update {
-   position: absolute;
-    margin-top: 1rem;
-}
-
-/* 수정버튼 디테일 */
-.btn-update input {
-   background: #000;
-   color: #fff;
-   padding: 8px;
-   font-size: 1rem;
-   border-radius: 2px;
-   position: fixed;
-    margin-left: 330px;
-    border: 1px solid black;
-}
-
-/* 닫기버튼 */
-.btn-update #modalIntrodClose {
-   background: #fff;
-   border: 1px solid black;
-   color: #000;
-   padding: 8px;
-   font-size: 1rem;
-   border-radius: 2px;
-   margin-left: 460px;
-}
-
-/* 소개글 제목 크기 */
-#fix_userIntrod p {
-   font-size: 30px;
-   margin-left: 70px;
-   border-bottom: 2px solid black;
-   width: 720px;
-}
-
-/* 소개글 창 */
-#text-update {
-   display: block;
-    width: 720px;
-    height: 300px;
-    padding: 15px;
-    box-sizing: border-box;
-    border: 1px solid #ddd;
-    resize: vertical;
-    margin-left: 70px;
-    border-radius: 10px;
-    margin-top: 1rem;
-}
-
-/* 파일 창 */
-.url {
-    padding: 15px;
-}
-
-/* 로고 디테일 */
-.fa-user,
-.home {
-    color: #3F51B5;
-    background-color: #eee;
-}
-
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
 /* 자기 메인 피드 전체 */
 .main-Feed {
    flex-direction: column;
@@ -491,7 +341,14 @@ nav:hover {
    border: 1px solid #eee;
    border-radius: 5px;
 }
-
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
 /* 본인 게시물 및 좋아요 게시물 표시 */
 .container_cols .col-btn {
    display: flex;
@@ -573,7 +430,208 @@ nav:hover {
     font-size: 20px;
     text-align: center;
 }
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/* 프로필 편집 모달창 위치 */
+#modalIntrod {
+   width: 100%;
+   height: 100%;
+   position: fixed;
+   top: 0;
+   left: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: rgba(0, 0, 0, 0.5);
+}
+/* 프로필 편집 모달창 속성 */
+#fix_userIntrod {
+   position: absolute;
+   background-color: #ffffff;
+   width: 900px;
+   height: 550px;
+   padding: 15px;
+   z-index : 100;
+   margin-left: 100px;
+   border-radius: 45px
+}
 
+/* 팝업창 */
+#modalIntrod.hidden {
+   display: none;
+}
+
+/* 프로필 편집 폼태그 크기 */
+#modalIntrod form {
+   width: 100%;
+   height: 91%;
+}
+
+/* 닫기버튼 */
+.btn-update #modalIntrodClose {
+   background: #fff;
+   border: 1px solid #3F51B5;
+   color: #3F51B5;
+   padding: 8px;
+   font-size: 1rem;
+   border-radius: 6px;
+   margin-left: 415px;
+   width: 75px;
+}
+
+/* 소개글 제목 크기 */
+#fix_userIntrod p:first-child {
+   font-size: 30px;
+   margin-left: 70px;
+   border-bottom: 2px solid #3F51B5;
+   width: 720px;
+   color: #3F51B5;
+}
+
+/* 소개글 창 */
+#text-update {
+   display: block;
+    width: 720px;
+    height: 250px;
+    padding: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    resize: none;
+    margin-left: 70px;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
+/* 프로필 편집 버튼 */
+#modalIntrodOpen {
+   padding: 5px;
+   background: #3F51B5;
+   color: #fff;
+   border-radius: 5px;
+   border: 1px solid #3F51B5; 
+   margin-right: 27px;
+   margin-top: 10px;
+}
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/* pw, nick, email 수정 모달창 위치 */
+#modalPNE {
+   width: 100%;
+   height: 100%;
+   position: fixed;
+   top: 0;
+   left: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: rgba(0, 0, 0, 0.5);
+}
+
+/* pw, nick, email 수정 모달창 속성 */
+#fix_userPNE {
+   position: absolute;
+   background-color: #ffffff;
+   width: 900px;
+   height: 550px;
+   padding: 15px;
+   margin-left: 100px;
+   border-radius: 45px
+}
+
+/* 팝업창 */
+#modalPNE.hidden {
+   display: none;
+}
+
+/* 회원정보 수정 버튼 */
+#modalPNEOpen {
+   padding: 5px;
+   background: #3F51B5;
+   color: #fff;
+   border-radius: 5px;
+   border: 1px solid #3F51B5; 
+}
+
+#fix_userPNE p:first-child {
+   font-size: 30px;
+   margin-left: 70px;
+   border-bottom: 2px solid #3F51B5;
+   width: 720px;
+   color: #3F51B5;
+   margin-bottom: 53px;
+}
+
+.ChangeInfos {
+   display: flex;
+    font-size: 25px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #3F51B5;
+    width: 601px;
+    margin-left: 125px;
+    border-radius: 35px;
+    color: #3F51B5
+}
+
+.ChangeInfos input {
+    width: 440px;
+    border: 1px solid #3F51B5;
+    border-radius: 3px;
+    height: 46px;
+}
+
+.ChangeText {
+   margin-right: 44px;
+}
+
+.ChangeText1 {
+   margin-right: 19px;
+}
+/**/
+/**/
+/**/
+/**/
+/* 수정버튼 디테일 */
+.btn-update {
+   position: absolute;
+   bottom: 0;
+   padding: 20px;
+}
+
+/* 수정버튼 디테일 */
+.btn-update input {
+   background: #3F51B5;
+   color: #fff;
+   padding: 8px;
+   font-size: 1rem;
+   border-radius: 6px;
+   position: fixed;
+    margin-left: 327px;
+    border: 1px solid #3F51B5;
+    width: 75px;
+} 
+
+/* 프로필 편집 글자 크기 */
+p.titles {
+    margin-left: 73px;
+    margin-top: revert;
+    border-bottom: 1px dashed #3F51B5;
+    width: 717px;
+    font-size: 19px;
+    color: #3F51B5;
+}
 </style>
 </head>
 <body>
@@ -634,23 +692,17 @@ nav:hover {
          <div class="profile">
             <!-- 프로필 사진 -->
             <div class="profile_img">
-               <img src="${info.user_pic}" alt="profile"> 
-               <span><button
-                     type="button" id="modalPicOpen">
-                     <img src="./img/plus.png" alt="">
-                  </button></span>
+               <img src="./upload/${info.user_pic}" alt="profile"> 
             </div>
             <!-- 이름 -->
             <h2>${info.user_name}</h2>
             <!-- 인사말/소개 -->
             <div>
                ${info.user_introduction}
-               <button type="button" id="modalIntrodOpen">소개글수정</button>
             </div>
+               <button type="button" id="modalIntrodOpen">프로필 편집</button>
             <!-- 회원정보 수정 -->
-         <span>
-            <button type="button" id="modalPNEOpen">회원정보수정</button>
-         </span>
+            <button type="button" id="modalPNEOpen">회원정보 수정</button>
             <!-- 팔로우 및 게시글 -->
             <ul class="follows">
                <li><span>5,000</span>팔로워</li>
@@ -663,18 +715,12 @@ nav:hover {
          <div class="container_cols">
             <!-- 본인 게시물 및 좋아요한 게시물 버튼 -->
             <div class="col-btn">
-            
-            <a href="#" id="myFeed1" class="myFeed-link"> 
+               <a href="#" class="myFeed-link">
                   <div class="myFeed-btn">
                      <i class="fa-solid fa-table-cells"></i>
                      <span>게시물</span>
                   </div>
-            </a>
-            <form id="myForm" action="MyBoard.do" method="post">
-            	<input id="myFeed2" type="hidden" name = "user_id" value="${info.user_id}">
-            </form>
-
-               
+               </a>
                <a href="MyLikeBoard.do" class="likeFeed-link">
                   <div class="likeFeed-btn">
                      <i class="fas fa-heart"></i>
@@ -688,57 +734,33 @@ nav:hover {
                <article class="container_board">
                   <div>
                      <div class="myFeed-row">
-                        <c:forEach var="myFeed" items="${myLikeList}" varStatus="status">
-                           <div class="myFeeds"><img src="${myFeed.post_img}" alt="postbox"></div>
+                        <c:forEach var="myFeed" items="${myList}" varStatus="status">
+                           <div class="myFeeds"><img src="./upload/${myFeed.post_img}" alt="postbox"></div>
                         </c:forEach>
                      </div>
                   </div>
                </article>
             </div>
             
-            <div id="modalPic" class="hidden">
-               <!-- 프로필사진 수정 모달창(test) -->
-               <div id="fix_userPic">
-               <p>프로필사진 수정</p>
-                  <form action="FixProfile.do" method="post">
-                     <span> 
-                     <input type="hidden" name="user_id" value="${info.user_id}"> 
-                     <input type="hidden" name="user_pw" value="${info.user_pw}"> 
-                     <input type="hidden" name="user_nick" value="${info.user_nick}">
-                     <input type="hidden" name="user_email" value="${info.user_email}">
-                     <input type="hidden" name="user_introduction" value="${info.user_introduction}"> 
-                     <input type="text" name="user_pic" autocomplete="off"> 
-                     <input type="submit" value="프로필 사진 수정">
-                     <div class="url">
-                        <dl>
-                            <dt>
-                                <dd><input type="text" placeholder="사진 등록" id="pic" name="post_img"></dd>
-                                <dd class="url-btn"><input type="file" name="filename" style="float: right;"></dd>
-                            </dt>
-                        </dl>
-                    </div>
-                     </span>
-                     
-                  </form>
-                  <button id="modalPicClose">닫기</button>
-               </div>
-            </div>
-            
             <div id="modalIntrod" class="hidden">
-               <!-- 소개글 수정 모달창(test) -->
+               <!-- 프로필 편집 모달창(test) -->
                <div id="fix_userIntrod">
-               <p>소개글 수정</p>
-                  <form action="FixProfile.do" method="post">
+               <p>프로필 편집</p>
+                  <form action="FixProfile.do" method="post" enctype="multipart/form-data">
                      <span> 
                      <input type="hidden" name="user_id"   value="${info.user_id}"> 
                      <input type="hidden" name="user_pw" value="${info.user_pw}"> 
                      <input type="hidden" name="user_nick" value="${info.user_nick}">
                      <input type="hidden" name="user_email" value="${info.user_email}">
                      <input type="hidden" name="user_pic" value="${info.user_pic}"> 
-                     <textarea name="user_introduction" cols="55" rows="5" autocomplete="off" id="text-update" placeholder="소개글 입력"></textarea> 
+                     <input type="hidden" name="user_introduction" value="${info.user_introduction}">
+                     <p class="titles">프로필 사진</p> 
+                     <input type="file" name="filename" style="margin-left: 79px; padding: 15px;">
                      </span>
+                     <p class="titles">소개글</p>
+                     <textarea name="user_introduction" cols="55" rows="5" autocomplete="off" id="text-update" placeholder="소개글 입력"></textarea> 
                      <div class="btn-update">
-                       <input type="submit" value="소개글 수정">
+                       <input type="submit" value="저장">
                         <button id="modalIntrodClose">닫기</button>
                      </div>
                   </form>
@@ -748,18 +770,30 @@ nav:hover {
             <div id="modalPNE" class="hidden">
                <!-- 회원정보 수정 모달창(test) -->
                <div id="fix_userPNE">
+                  <p>회원정보 수정</p>
                   <form action="FixProfile.do" method="post">
                      <span> 
                      <div><input type="hidden" name="user_id"   value="${info.user_id}"></div> 
-                     <div><input type="text" name="user_pw"  placeholder="수정할 비밀번호 입력"></div><br> 
-                     <div><input type="text" name="user_nick"  placeholder="수정할 닉네임 입력"></div><br>
-                     <div><input type="text" name="user_email"  placeholder="수정할 email 입력"></div><br>
+                     <div class="ChangeInfos">
+                        <div class="ChangeText1">비밀번호</div>
+                        <div><input type="text" name="user_pw"  placeholder="  수정할 비밀번호 입력"></div>
+                     </div><br> 
+                     <div class="ChangeInfos">
+                        <div class="ChangeText">닉네임</div>
+                        <div><input type="text" name="user_nick"  placeholder="  수정할 닉네임 입력"></div>
+                     </div><br>
+                     <div class="ChangeInfos">
+                        <div class="ChangeText">이메일</div>
+                        <div><input type="text" name="user_email"  placeholder="  수정할 email 입력"></div>
+                     </div><br>
                      <input type="hidden" name="user_pic" value="${info.user_pic}"> 
                      <input type="hidden" name="user_introduction" value="${info.user_introduction}">                      
-                     <input type="submit" value="회원정보 수정">
                      </span>
+                     <div class="btn-update">
+                       <input type="submit" value="저장">
+                        <button id="modalIntrodClose">닫기</button>
+                     </div>
                   </form>
-                  <button id="modalPNEClose">닫기</button>
                </div>
             </div>      
          </div>
@@ -772,23 +806,11 @@ nav:hover {
       crossorigin="anonymous"></script>
 
    <script>
-      // 프로필사진 변경 모달창 버튼
-      const modalPicOpen = document.getElementById('modalPicOpen');
-      const modalPicClose = document.getElementById('modalPicClose');
-      const modalPic = document.getElementById('modalPic');
-
-      modalPicOpen.addEventListener('click', () => {
-        modalPic.classList.remove('hidden');
-      });
-
-      modalPicClose.addEventListener('click', () => {
-        modalPic.classList.add('hidden');
-      });
       
       // 소개글 변경 모달창 버튼
       const modalIntrodOpen = document.getElementById('modalIntrodOpen');
       const modalIntrodClose = document.getElementById('modalIntrodClose');
-      const modalIntord = document.getElementById('modalIntrod');
+      const modalIntrod = document.getElementById('modalIntrod');
 
       modalIntrodOpen.addEventListener('click', () => {
         modalIntrod.classList.remove('hidden');
@@ -815,7 +837,7 @@ nav:hover {
       document.getElementById('myFeed1').addEventListener('click', function(e) {   
          e.preventDefault();
         document.getElementById('myForm').submit();
-  });
+       });
    </script>
 
 </body>

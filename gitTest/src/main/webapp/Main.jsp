@@ -286,15 +286,21 @@ nav:hover {
    text-align:center
 }
 
-.lines {
-   border: 1px solid #eee;
-   border-bottom: 1px solid #ddd;
+.lines1 {
    border-radius: 10px;
    width: 550px;
    margin-top: 30px;
    position: relative;
    padding: 1.0em;
-   box-shadow: 2px 5px 8px 0px #777;
+}
+
+.lines2 {
+   border: 1px solid #ddd;
+   border-radius: 10px;
+   width: 550px;
+   margin-top: 30px;
+   position: relative;
+   padding: 1.0em;
 }
 
 .fa-home,
@@ -374,13 +380,13 @@ nav:hover {
             </a>
          </li>
          <li>
+               <form id="myForm" action="MyBoard.do" method="post">
+                  <input id="myFeed2" type="hidden" name = "user_id" value="${info.user_id}">
+               </form>
                <a href="#" id="myFeed1" class="headers"> 
                      <i class="fas fa-user"></i> 
                      <span class="nav-item">프로필</span>
                </a>
-               <form id="myForm" action="MyBoard.do" method="post">
-                  <input id="myFeed2" type="hidden" name = "user_id" value="${info.user_id}">
-               </form>
             </li>
          <li>
             <a href="LogoutService.do" class="logout headers"> 
@@ -547,7 +553,7 @@ nav:hover {
                <div class="post-profile">
                   <div class="post-img">
                      <!-- 프로필 사진 -->
-                     <img src="${board.user_pic}" alt="postprofile">
+                     <img src="./upload/${board.user_pic}" alt="postprofile">
                   </div>
                   <c:choose>
                      <c:when test="${info.user_id == board.user_id}">
@@ -568,27 +574,27 @@ nav:hover {
                </div>
                                  <div>글번호:${board.post_id}</div>
                <br>
-               <img src="${board.post_img}" alt="postbox">
+               <img src="./upload/${board.post_img}" alt="postbox">
                <div align=left>${board.post_content}</div>
                <div class="post-info">
                   <div class="likes">
 							<!-- 좋아요 -->
 						    <c:choose>
-							    <c:when test="${board.user_id eq info.user_id and board.post_id eq board.post_idx}">
+							    <c:when test="${board.liked eq 1}">
 							        <i class="likeimg"> <img id="likeimg${board.post_id}" class="likeimg" src="./img/likeO.png"></i>
 							    </c:when>
-							    <c:otherwise>
-							        <i class="likeimg"> <img id="likeimg${board.post_id}" class="likeimg" src="./img/likeX.png"></i>
+							    <c:otherwise>													    		
+									<i class="likeimg"> <img id="likeimg${board.post_id}" class="likeimg" src="./img/likeX.png"></i>
 							    </c:otherwise>						      
 						     </c:choose>
                     <!-- 좋아요 버튼 -->
                      <button type="button" id="BtnLike"	onclick="goLove('${board.post_id}','${info.user_id}')">
 						좋아요</button>
                      <!-- 추천 이미지 -->
-					 <i class="fa-regular fa-thumbs-up"></i>
+					 <i class="recimg"> <img id="recimg${board.goods_id}" class="recimg" src="./img/RecX.png"></i>
                      <!-- 추천 버튼 -->
-					 <button type="button" id="btn2" onclick="goRec('${board.goods_id}','${info.user_id}')">
-						추천</button>
+					 <button type="button" id="BtnRec"
+								onclick="goRec('${board.goods_id}','${info.user_id}')">추천</button>
                   </div>
                </div>
             </div>
@@ -604,7 +610,7 @@ nav:hover {
 	               <!-- 댓글 출력 반복문 -->
 	               <button type="button" onclick="goCmt('${board.post_id}')">댓글보기</button>
                </div>
-               <div id="reply${board.post_id}" class="lines"></div>
+               <div id="reply${board.post_id}" class="lines1"></div>
                <c:forEach var="CMT" items="${cmtList}" varStatus="status">
                   <span>${board.user_id}</span>
                   <span>${CMT.cmt_content}</span>
@@ -615,82 +621,89 @@ nav:hover {
 		
 		<script type="text/javascript">
 		// 좋아요 ajax
-		function goLove(post_id, user_id) {
-			//alert(post_id+":"+user_id);
-			$.ajax({
-				url : "LikeUpdate.do",
-				type : "post",
-				dataType : "text",
-				data : {
-					post_id : post_id,
-					user_id : user_id
-				},
-				success : function(resultLike) {
-					if (resultLike == 0) {
-						$("#likeimg"+post_id).attr("src", "./img/likeO.png");
-						console.log("좋아요O");
-					} else{
-						$("#likeimg"+post_id).attr("src", "./img/likeX.png");
-						console.log("좋아요X");
-					}
-				},
-				error : function() {
-					console.log('요청실패 ㅜㅜ');
-				}
-			})
-		}
-			// 추천 ajax
-			function goRec(goods_id, user_id) {
-				// alert("goods_id: "+goods_id+" / user_id: "+user_id);
+			function goLove(post_id, user_id) {
+				//alert(post_id+":"+user_id);
 				$.ajax({
-					url : "RecService.do",
+					url : "LikeUpdate.do",
 					type : "post",
 					dataType : "text",
 					data : {
-						goods_id : goods_id,
+						post_id : post_id,
 						user_id : user_id
 					},
-					success : function(result) {
-						console.log(result); //1:추천삭제 ,0:추천추가
+					success : function(resultLike) {
+						if (resultLike == 0) {
+							$("#likeimg"+post_id).attr("src", "./img/likeO.png");
+							console.log("좋아요O");
+						} else{
+							$("#likeimg"+post_id).attr("src", "./img/likeX.png");
+							console.log("좋아요X");
+						}
 					},
 					error : function() {
-						console.log('요청실패 ..');
+						console.log('요청실패 ㅜㅜ');
 					}
 				})
 			}
-
+		// 추천 ajax
+		function goRec(goods_id, user_id) {
+			// alert("goods_id: "+goods_id+" / user_id: "+user_id);
+			$.ajax({
+				url : "RecService.do",
+				type : "post",
+				dataType : "text",
+				data : {
+					goods_id : goods_id,
+					user_id : user_id
+				},
+				success : function(result) {
+					if (result == 0) {//1:추천삭제 ,0:추천추가
+						$("#recimg"+goods_id).attr("src", "./img/RecO.png");
+						console.log("추천O");
+					} else {
+						$("#recimg"+goods_id).attr("src", "./img/RecX.png");
+						console.log("추천X");
+					}
+				},
+				error : function() {
+					console.log('요청실패 ..');
+				}
+			})
+		}
 			// 댓글 보기 ajax
-			function goCmt(post_id) {
-				// alert("goods_id: "+goods_id+" / user_id: "+user_id);
-				$.ajax({
-					url : "CmtService.do",
-					type : "post",				
-					data : {
-						post_id : post_id
-					},
-					dataType : "json",
-					success : function(data) {
-						console.log("요청성공"); //1:추천삭제 ,0:추천추가
-						// 댓글 출력
-						var html="<table>";
-						html+="<tr>";
-						html+="<td>아이디</td>";
-						html+="<td>내용</td>";
-						html+="</tr>";
-						$.each(data, function(index, obj){
-							html+="<tr>";
-							html+="<td>"+obj.user_id+"</td>";
-							html+="<td>"+obj.cmt_content+"</td>";
-							html+="</tr>";						
-						});
-						html+="</table>";
-						$("#reply"+post_id).html(html);
-					},
-					error : function() {
-						console.log('요청실패 ..');
-					}
-				})
-			}
+	         function goCmt(post_id) {
+	            // alert("goods_id: "+goods_id+" / user_id: "+user_id);
+	            $.ajax({
+	               url : "CmtService.do",
+	               type : "post",            
+	               data : {
+	                  post_id : post_id
+	               },
+	               dataType : "json",
+	               success : function(data) {
+	                  console.log("요청성공"); //1:추천삭제 ,0:추천추가
+	                  // 댓글 출력
+	                  var html="<div class='lines2'>";
+	                  html+="<table>";
+	                  html+="<tr>";
+	                  html+="<td>아이디</td>";
+	                  html+="<td>내용</td>";
+	                  html+="</tr>";
+	                  $.each(data, function(index, obj){
+	                     html+="<tr>";
+	                     html+="<td>"+obj.user_id+"</td>";
+	                     html+="<td>"+obj.cmt_content+"</td>";
+	                     html+="</tr>";                  
+	                  });
+	                  html+="</table>";
+	                  html+="</div/>"
+	                  $("#reply"+post_id).html(html);
+	               },
+	               error : function() {
+	                  console.log('요청실패 ..');
+	               }
+	            })
+	         }
 
 
 			//  댓글작성 ajax

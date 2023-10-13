@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class RecDTO {
 
-	private int like_id;
+	private int rec_id;
 	private int goods_id;
 	private String user_id;
 }

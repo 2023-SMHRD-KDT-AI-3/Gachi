@@ -372,7 +372,7 @@ nav:hover {
          <div class="profile">
             <!-- 프로필 사진 -->
             <div class="profile_img">
-               <img src="${userList[1].user_pic}" alt="profile"> 
+               <img src="./upload/${userList[1].user_pic}" alt="profile"> 
             </div>
             <!-- 이름 -->
             <h2>${userList[1].user_id}</h2>
@@ -384,7 +384,7 @@ nav:hover {
             <ul class="follows">
                <li><span>5,000</span>팔로워</li>
                <li><span>500</span>팔로잉</li>
-               <li><span>10</span>게시글</li>
+               <li><span>${postCount}</span>게시글</li>
             </ul>
          </div>
 
@@ -401,7 +401,7 @@ nav:hover {
                   <div>
                      <div class="myFeed-row">
                         <c:forEach var="myFeed" items="${userList}" varStatus="status">
-                           <div class="myFeeds"><img src="${myFeed.post_img}" alt="postbox"></div>
+                           <div class="myFeeds"><img src="./upload/${myFeed.post_img}" alt="postbox"></div>
                         </c:forEach>
                      </div>
                   </div>

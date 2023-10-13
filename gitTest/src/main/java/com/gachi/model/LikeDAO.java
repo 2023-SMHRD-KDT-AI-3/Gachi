@@ -22,10 +22,10 @@ public class LikeDAO {
 	
 	// 게시글 좋아요
 	public void likeUpdate(LikeDTO m) {
-		
+			
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		
-		sqlSession.insert("likeUpdate", m	);
+		sqlSession.insert("likeUpdate", m);
 		sqlSession.close();
 	}
 	
@@ -38,7 +38,6 @@ public class LikeDAO {
 		sqlSession.close();
 	}
 	
-	
-	
+
 
 }

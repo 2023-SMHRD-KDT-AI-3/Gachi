@@ -125,6 +125,24 @@ nav:hover {
 #userID {
 	align-items: right;
 }
+/* 검색바 */
+.search .bar {
+   border: 1px solid #bbb;
+   width: 500px;
+}
+
+.search form {
+   height: 35px;
+    justify-content: center;
+    display: flex;
+    margin-top: 15px;
+}
+
+input[type="submit"] {
+    font-family: FontAwesome;
+    width: 45px;
+    border: 1px solid #bbb;
+}
 
 /* 프로필 흰바탕 */
 .myPage {
@@ -170,7 +188,7 @@ nav:hover {
 	<div align="right">
 		<span id="userID">${info.user_id}님 환영합니다.</span>
 	</div>
-	<div align="center">
+	<div align="center" class="search">
 		<!-- 검색창 -->
 		<form action="GetSearch.do" autocomplete="" method="post">
 			<select name="type" id="searchType">
@@ -179,8 +197,9 @@ nav:hover {
 				<option selected value="content">게시글 내용</option>
 				<option selected value="goods">상품이름</option>
 				<option selected value="nick">닉네임</option>
-			</select> <input type="text" name="keyword"> <input type="submit"
-				value="검색">
+			</select> 
+				<input type="text" name="keyword" class="bar"> 
+				<input type="submit" value="&#xf002;">
 		</form>
 
 	</div>
