@@ -50,4 +50,23 @@
 	<select id="MypostCount" parameterType="string" resultType="int">
 		select count(*) from tbl_post where user_id=#{user_id}
 	</select>
+	
+	<!-- 해당 상품의 게시글 출력 -->
+	<select id="GoodsBoard" parameterType="int" resultType="com.gachi.model.LikeBoardDTO">
+		SELECT
+            p.post_id,
+			p.post_content,
+			p.goods_id,
+			l.like_id ,
+			l.kuser_id ,
+			p.user_id,
+			l.post_idx,
+			p.post_img , 
+			m.user_pic,
+            IFNULL(l.kuser_id IS NOT NULL, 0) AS liked
+		FROM tbl_post p
+		JOIN tbl_user m ON p.user_id = m.user_id
+		LEFT JOIN tbl_likes l ON p.post_id = l.post_idx AND l.kuser_id = #{user_id} where goods_id=#{goods_id}
+
+	</select>
 </mapper>

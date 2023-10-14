@@ -2,24 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gachi.model.MemberMapper">
 
-	<insert id="join" parameterType="com.gachi.model.MemberDTO">
-		insert into tbl_user (user_id,
-		user_pw, user_name, user_nick, user_email, user_gender,
-		user_birthdate, user_joindate)
-		values(#{user_id}, #{user_pw},
-		#{user_name}, #{user_nick}, #{user_email}, #{user_gender},
-		#{user_birthdate}, sysdate())
-	</insert>
+   <insert id="join" parameterType="com.gachi.model.MemberDTO">
+      insert into tbl_user (user_id,
+      user_pw, user_name, user_nick, user_email, user_gender,
+      user_birthdate, user_joindate)
+      values(#{user_id}, #{user_pw},
+      #{user_name}, #{user_nick}, #{user_email}, #{user_gender},
+      #{user_birthdate}, sysdate())
+   </insert>
 
-	<select id="login" parameterType="com.gachi.model.MemberDTO"
-		resultType="com.gachi.model.MemberDTO">
-		select * from tbl_user where user_id = #{user_id} and
-		user_pw = #{user_pw}
-	</select>
+   <select id="login" parameterType="com.gachi.model.MemberDTO"
+      resultType="com.gachi.model.MemberDTO">
+      select * from tbl_user where user_id = #{user_id} and
+      user_pw = #{user_pw}
+   </select>
 
-	<update id="updateProfile" parameterType="com.gachi.model.MemberDTO">
-		update tbl_user set user_pw
-		=#{user_pw}, user_nick=#{user_nick}, user_email=#{user_email}, user_pic=#{user_pic}, user_introduction=#{user_introduction} where user_id = #{user_id}
-	</update>
+   <update id="updateProfile" parameterType="com.gachi.model.MemberDTO">
+      update tbl_user set user_pw
+      =#{user_pw}, user_nick=#{user_nick}, user_email=#{user_email}, user_pic=#{user_pic}, user_introduction=#{user_introduction} where user_id = #{user_id}
+   </update>
 
 </mapper>

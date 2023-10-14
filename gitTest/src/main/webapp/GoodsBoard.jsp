@@ -600,7 +600,7 @@ nav:hover {
    <div class="myPage" align=center>
       <!-- 게시글 전체 -->
       <div class="main-posts">
-         <c:forEach var="board" items="${list}" varStatus="status">
+         <c:forEach var="board" items="${goodsBoard}" varStatus="status">
             <br>
             <div class="post-box">
                <!-- 게시글 사진 -->
@@ -620,7 +620,6 @@ nav:hover {
                      <c:otherwise>
                          <form action="UserBoard.do" method="post" class="user-id">
                            <!-- 사용자 아이디 -->
-                           <%-- <input type="hidden" name="writer_id" value="${board.user_id}"> --%>
                            <input type="hidden" name="user_id" value="${board.user_id}">
                            <input type="submit" value="${board.user_id}">
                         </form>
@@ -666,7 +665,6 @@ nav:hover {
                   <button type="button" onclick="goCmt('${board.post_id}')">댓글보기</button>
                </div>
                <div id="reply${board.post_id}" class="lines1"></div>
-
             </div>
          </c:forEach>
       </div>
@@ -723,6 +721,40 @@ nav:hover {
          })
       }
       // 댓글 보기 ajax
+        function goCmt(post_id) {
+           // alert("goods_id: "+goods_id+" / user_id: "+user_id);
+           $.ajax({
+              url : "CmtService.do",
+              type : "post",            
+              data : {
+                 post_id : post_id
+              },
+              dataType : "json",
+              success : function(data) {
+                 console.log("요청성공"); //1:추천삭제 ,0:추천추가
+                 // 댓글 출력
+                 var html="<table class='lines2'>";
+                 html+="<tr class='detgul-row'>";
+                 html+="<td class='data1'>아이디</td>";
+                 html+="<td>내용</td>";
+                 html+="</tr>";
+                 $.each(data, function(index, obj){
+                    html+="<tr class='detgul-row'>";
+                    html+="<td class='data1'>"+obj.user_id+"</td>";
+                    html+="<td>"+obj.cmt_content+"</td>";
+                    html+="</tr>";                  
+                 });
+                 html+="</table>"
+                 $("#reply"+post_id).html(html);
+              },
+              error : function() {
+                 console.log('요청실패 ..');
+              }
+           })
+        }
+
+
+         //  댓글작성 ajax
 let reple = true;
 
 function goCmt(post_id) {
@@ -765,28 +797,6 @@ function goCmt(post_id) {
     }
 }
 
-
-
-         //  댓글작성 ajax
-         function writeCmt(post_id, user_id) {
-            var cmt_content=$("#comment"+post_id).val();
-            alert(cmt_content);
-            $.ajax({
-               url : "CmtWrite.do",
-               type : "post",
-               data : {
-                  post_id : post_id,
-                  cmt_content : cmt_content,
-                  user_id : user_id
-               },
-               success : function(data) {
-                  colsole.log(data);
-               },
-               error : function() {
-                  console.log('요청실패 ㅜㅜ');
-               }
-            });
-         }
          
          // myPage 이동시 개인피드 출력
             document.getElementById('myFeed1').addEventListener('click', function(e) {   

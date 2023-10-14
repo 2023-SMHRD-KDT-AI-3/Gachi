@@ -9,15 +9,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor // 매개변수가 없는 기본생성자 메소드 생성
 
 public class MemberDTO {
-	private String user_id;
-	private String user_pw;
-	private String user_name;
-	private String user_nick;
-	private String user_email;
-	private String user_gender;
-	private String user_birthdate;
-	private String user_pic;
-	private String created_at;
-	private String user_introduction;
-	
+   private String user_id;
+   private String user_pw;
+   private String user_name;
+   private String user_nick;
+   private String user_email;
+   private String user_gender;
+   private String user_birthdate;
+   private String user_pic;
+   private String created_at;
+   private String user_introduction;
+   
 }

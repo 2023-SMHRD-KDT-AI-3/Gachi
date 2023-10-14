@@ -218,11 +218,11 @@ nav:hover {
     display: inline-block;
     min-width: 80px;
     padding: 5px;
-    border: 1px solid #000;
+    border: 1px solid #3F51B5;
     border-radius: 2px;
     font-size: 0.8rem;
     background: #000;
-    color: #fff;
+    color: #3F51B5;
     text-align: center;
 }
 
@@ -244,10 +244,10 @@ nav:hover {
     min-width: 80px;
     margin-left: 10px;
     padding: 10px;
-    border: 1px solid #000;
+    border: 1px solid #3F51B5;
     border-radius: 2px;
     font-size: 1rem;
-    color: #000;
+    color: #3F51B5;
 }
 
 .btn-wrap a {
@@ -255,10 +255,10 @@ nav:hover {
     min-width: 80px;
     margin-left: 10px;
     padding: 10px;
-    border: 1px solid #000;
+    border: 1px solid #3F51B5;
     border-radius: 2px;
     font-size: 1rem;
-    color: #000;
+    color: #3F51B5;
 }
 
 /* 등록 버튼 위치 조정 */
@@ -268,7 +268,7 @@ nav:hover {
 
 /* 등록 버튼 색깔 */
 .btn-wrap .on {
-    background: #000;
+    background: #3F51B5;
     color: #fff;
 }
 
@@ -305,6 +305,37 @@ nav:hover {
 /* 팝업창 */
 #modalGoods.hidden {
    display: none;
+}
+
+.profile-top {
+   position: absolute;
+    top: 22px;
+    left: 82%;
+    transform: translateX(5%);
+}
+
+.profile-top img {
+   border-radius: 50%;
+   width: 45px;
+    height: 45px;
+    border: 1px solid #ddd;
+}
+
+.profile-top-img {
+   margin-left: 26px;
+}
+
+#userID {
+   font-size: 20px;
+   float: right;
+   margin-top: 8px;
+   margin-left: 8px;
+}
+
+.user-welcome {
+   margin-right: 35px;
+   float: right;
+   margin-top: 11px;
 }
 </style>
 </head>
@@ -362,10 +393,14 @@ nav:hover {
          </li>
       </ul>
    </nav>
-   <div align="right">
-      <span id="userID">${info.user_id}님 환영합니다.</span>
+   <div class="profile-top">
+     <!-- 프로필 사진 -->
+     <div class="profile-top-img">
+        <img src="./upload/${info.user_pic}" alt="postprofile">
+        <span class="user-welcome">님 환영합니다!</span>
+        <span id="userID">${info.user_id}</span>
+     </div>
    </div>
-
 		<div class="myPage">
 			<div class="space"></div>
         	<form action="BoardWrite.do" method="post" enctype="multipart/form-data">
@@ -391,8 +426,8 @@ nav:hover {
 	                        <dl>
                             	<dt>
 									<button type="button" id="modalOpenButton">상품등록하기</button> 
-									<input type="text" name="goods_id" placeholder="상품 번호 입력(임시))">
-									<!-- <input type="hidden" id="goods_value" name="goods_id" value=""> -->	
+									
+									<input type="hidden" id="goods_value" name="goods_id" value="">	
                             	</dt>
                         	</dl>
                     	</div>
@@ -428,12 +463,14 @@ nav:hover {
    const modalGoods = document.getElementById('modalGoods');
 
    modalOpenButton.addEventListener('click', () => {
-     modalGoods.classList.remove('hidden');
+	   console.log(00);
+      modalGoods.classList.remove('hidden');
    });
 
    modalCloseButton.addEventListener('click', () => {
-     modalGoods.classList.add('hidden');
+      modalGoods.classList.add('hidden');
    });
+
    
 // 댓글작성 ajax
 	function searchGoods() {
@@ -448,8 +485,8 @@ nav:hover {
 			success : function(data) {
 				var html="<table>";
 				$.each(data, function(index, obj){
-					html+="<tr>";
-					html+="<td id="goods_id" onclick="updateGoods()">"+obj.goods_id+"</td>";
+					html += "<tr onclick=\"sendID(" + obj.goods_id + ",'" + obj.goods_name + "')\">";
+					html+="<td>"+obj.goods_id+"</td>";
 					html+="<td>"+obj.goods_name+"</td>";
 					html+="</tr>";						
 				});
@@ -462,13 +499,7 @@ nav:hover {
 		});
 	}
 	
-	let goods_value;
-	let updateGoods = function () {
-		goods_value.textContent += goods_id.textContent;
-		
-	}
-	
-	// 입력 필드에서 해시태그를 추출하기 위한 JavaScript 함수
+/	// 입력 필드에서 해시태그를 추출하기 위한 JavaScript 함수
 	function extractHashtags() {
 	    const inputField = document.querySelector('input[name="hashtags"]');
 	    const hashtags = inputField.value.match(/#(\w+)/g);
@@ -480,6 +511,14 @@ nav:hover {
  	  e.preventDefault();
 	  document.getElementById('myForm').submit();
 });
+
+//sendID
+
+let sendID = function(goodsID, goodsName){
+	document.getElementById('goods_value').value = goodsID;
+	alert('선택한 상품 : ' + goodsName);
+	modalGoods.classList.add('hidden');
+}
    
    </script>
 

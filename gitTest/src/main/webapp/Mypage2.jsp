@@ -563,6 +563,18 @@ nav:hover {
    border: 1px solid #3F51B5; 
 }
 
+/* 닫기버튼 */
+.btn-update#modalPNEClose {
+   background: #fff;
+   border: 1px solid #3F51B5;
+   color: #3F51B5;
+   padding: 8px;
+   font-size: 1rem;
+   border-radius: 6px;
+   margin-left: 415px;
+   width: 75px;
+}
+
 #fix_userPNE p:first-child {
    font-size: 30px;
    margin-left: 70px;
@@ -683,9 +695,6 @@ p.titles {
          </li>
       </ul>
    </nav>
-   <div align="right">
-      <span id="userID">${info.user_id}님 환영합니다.</span>
-   </div>
    <!-- 마이페이지 코드 -->
    <div class="myPage">
       <div class="container">
@@ -705,9 +714,9 @@ p.titles {
             <button type="button" id="modalPNEOpen">회원정보 수정</button>
             <!-- 팔로우 및 게시글 -->
             <ul class="follows">
-               <li><span>5,000</span>팔로워</li>
-               <li><span>500</span>팔로잉</li>
-               <li><span>10</span>게시글</li>
+               <li><div id="FollowrOpen"><span>${FollowerCountM2}명</span><br>팔로워</div></li>
+               <li><div id="FollowingOpen"><span>${FolloingCountM2}명</span><br>팔로잉</div></li>
+               <li><span>${postCountM2}개</span>게시글</li>
             </ul>
          </div>
 
@@ -715,12 +724,16 @@ p.titles {
          <div class="container_cols">
             <!-- 본인 게시물 및 좋아요한 게시물 버튼 -->
             <div class="col-btn">
-               <a href="#" class="myFeed-link">
-                  <div class="myFeed-btn">
-                     <i class="fa-solid fa-table-cells"></i>
-                     <span>게시물</span>
-                  </div>
-               </a>
+				<a href="#" id="myFeed3" class="myFeed-lin"> 
+					<div class="myFeed-btn">
+						<i class="fa-solid fa-table-cells"></i>
+						<span>게시물</span>
+					</div>
+				</a>
+				<form id="myForm2" action="MyBoard.do" method="post">
+					<input id="myFeed4" type="hidden" name = "user_id" value="${info.user_id}">
+				</form>
+               
                <a href="MyLikeBoard.do" class="likeFeed-link">
                   <div class="likeFeed-btn">
                      <i class="fas fa-heart"></i>
@@ -761,7 +774,7 @@ p.titles {
                      <textarea name="user_introduction" cols="55" rows="5" autocomplete="off" id="text-update" placeholder="소개글 입력"></textarea> 
                      <div class="btn-update">
                        <input type="submit" value="저장">
-                        <button id="modalIntrodClose">닫기</button>
+                       <button id="modalIntrodClose">닫기</button>
                      </div>
                   </form>
                </div>
@@ -791,7 +804,7 @@ p.titles {
                      </span>
                      <div class="btn-update">
                        <input type="submit" value="저장">
-                        <button id="modalIntrodClose">닫기</button>
+                       <button id="modalPNEClose">닫기</button>
                      </div>
                   </form>
                </div>
@@ -806,6 +819,17 @@ p.titles {
       crossorigin="anonymous"></script>
 
    <script>
+   
+// myPage 이동시 개인피드 출력
+   document.getElementById('myFeed1').addEventListener('click', function(e) {   
+      e.preventDefault();
+     document.getElementById('myForm').submit();
+    });
+// myPage 이동시 개인피드 출력2
+   document.getElementById('myFeed3').addEventListener('click', function(e) {   
+      e.preventDefault();
+     document.getElementById('myForm2').submit();
+    });
       
       // 소개글 변경 모달창 버튼
       const modalIntrodOpen = document.getElementById('modalIntrodOpen');
@@ -833,11 +857,7 @@ p.titles {
         modalPNE.classList.add('hidden');
       });
       
-      // myPage 이동시 개인피드 출력
-      document.getElementById('myFeed1').addEventListener('click', function(e) {   
-         e.preventDefault();
-        document.getElementById('myForm').submit();
-       });
+      
    </script>
 
 </body>

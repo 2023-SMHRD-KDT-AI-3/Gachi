@@ -24,5 +24,6 @@
 		<mapper resource="com/gachi/model/RecMapper.xml" />
 		<mapper resource="com/gachi/model/SearchMapper.xml" />
 		<mapper resource="com/gachi/model/GoodsMapper.xml" />
+		<mapper resource="com/gachi/model/FollowMapper.xml" />
 	</mappers>
 </configuration>

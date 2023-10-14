@@ -4,6 +4,6 @@
 
 	<!-- 게시판 전체 내용 조회할 수 있는 SQL문장 -->
 	<select id="GoodsList" resultType="com.gachi.model.GoodsDTO">
-		select * from tbl_goods limit 100
+		select * from tbl_goods  order by goods_wish desc limit 100
 	</select>
 </mapper>

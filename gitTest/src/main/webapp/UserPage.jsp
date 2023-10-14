@@ -311,6 +311,37 @@ nav:hover {
    height: 35px;
 }
 
+.profile-top {
+   position: absolute;
+    top: 22px;
+    left: 82%;
+    transform: translateX(5%);
+}
+
+.profile-top img {
+   border-radius: 50%;
+   width: 45px;
+    height: 45px;
+    border: 1px solid #ddd;
+}
+
+.profile-top-img {
+   margin-left: 26px;
+}
+
+#userID {
+   font-size: 20px;
+   float: right;
+   margin-top: 8px;
+   margin-left: 8px;
+}
+
+.user-welcome {
+   margin-right: 35px;
+   float: right;
+   margin-top: 11px;
+}
+
 
 </style>
 </head>
@@ -363,8 +394,13 @@ nav:hover {
          </li>
       </ul>
    </nav>
-   <div align="right">
-      <span id="userID">${info.user_id}님 환영합니다.</span>
+   <div class="profile-top">
+     <!-- 프로필 사진 -->
+     <div class="profile-top-img">
+        <img src="./upload/${info.user_pic}" alt="postprofile">
+        <span class="user-welcome">님 환영합니다!</span>
+        <span id="userID">${info.user_id}</span>
+     </div>
    </div>
    <!-- 마이페이지 코드 -->
    <div class="myPage">
@@ -372,25 +408,36 @@ nav:hover {
          <div class="profile">
             <!-- 프로필 사진 -->
             <div class="profile_img">
-               <img src="./upload/${userList[1].user_pic}" alt="profile"> 
+               <img src="./upload/${userList[0].user_pic}" alt="profile"> 
             </div>
             <!-- 이름 -->
-            <h2>${userList[1].user_id}</h2>
+            <h2>${userList[0].user_id}</h2>
             <!-- 인사말/소개 -->
             <div>
                ${info.user_introduction}
             </div>
             <!-- 팔로우 및 게시글 -->
             <ul class="follows">
-               <li><span>5,000</span>팔로워</li>
-               <li><span>500</span>팔로잉</li>
-               <li><span>${postCount}</span>게시글</li>
+               <li><div id="FollowrOpen"><span>${FollowerCount}명</span><br>팔로워</div></li>
+               <li><div id="FollowingOpen"><span>${FolloingCount}명</span><br>팔로잉</div></li>
+               <li><span>${postCount}개</span>게시글</li>
             </ul>
          </div>
 
          <div class="container_cols">
+         
             <!-- 팔로우 버튼 -->
-            <button class="follow-button">팔로우</button>
+	         <c:choose>
+				<c:when test="${FollowCheck eq 1}">
+					<button class="follow-button"
+						onclick="goFollow('${info.user_id}','${userList[0].user_id}')">언팔로우</button>
+				</c:when>
+				<c:otherwise>													    		
+					<button class="follow-button"
+						onclick="goFollow('${info.user_id}','${userList[0].user_id}')">팔로우</button>
+				</c:otherwise>						      
+			</c:choose> 
+         
             <!-- 본인 게시물 및 좋아요한 게시물 버튼 -->
             <div class="col-btn">
 
@@ -417,25 +464,43 @@ nav:hover {
       crossorigin="anonymous"></script>
 
    <script>
-   		<!-- 팔로우 버튼 기능 -->
-         const followBtn = document.querySelectorAll('.follow-button')
-         
-         followBtn.forEach((btn) => {
-            btn.addEventListener('click', (e) => followUnFollow(e.target));
-         });
-         
-         function followUnFollow(button) {
-            button.classList.toggle('followed')
-            if (button.innerText == '팔로우') button.innerText = '언팔로우';
-            else button.innerText = '팔로우';
-         }
-         
-         
-         
-         
-         
-         
+   <!-- 팔로우 버튼 기능 -->
+   const followBtn = document.querySelectorAll('.follow-button')
    
+   followBtn.forEach((btn) => {
+      btn.addEventListener('click', (e) => followUnFollow(e.target));
+   });
+   
+   function followUnFollow(button) {
+      button.classList.toggle('followed')
+      if (button.innerText == '팔로우') button.innerText = '언팔로우';
+      else button.innerText = '팔로우';
+   }
+   
+   // 팔로우 ajax
+   function goFollow(user_id,following_id){
+  	 
+  	 $.ajax({
+  		url : "FollowService.do",
+  		type : "post",
+  		dataType : "text",
+  		data : {
+  			user_id : user_id,
+  			following_id : following_id
+  		},
+  		success : function(resultFollow) {
+				if(resultFollow == 0){
+					console.log("팔로우O");
+				}else{
+					console.log("팔로우X");
+				}
+			},
+			error : function() {
+				console.log("요청실패!");
+			}
+  	 })
+   }
+
    </script>
 
 </body>

@@ -13,7 +13,7 @@ public class LoginService implements Command {
 
    @Override
    public String execute(HttpServletRequest request, HttpServletResponse response) {
-	   String url = "";
+      String url = "";
       try {
          request.setCharacterEncoding("utf-8");
 
@@ -38,7 +38,7 @@ public class LoginService implements Command {
             session.setAttribute("info", info);
             url =  "goMain.do";
          } else {
-        	 //로그인 실패
+            //로그인 실패
              url = "goLoginFail.do";
          }
       } catch (UnsupportedEncodingException e) {

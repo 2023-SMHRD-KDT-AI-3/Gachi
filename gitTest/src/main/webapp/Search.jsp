@@ -156,7 +156,7 @@ nav:hover {
 #searchType {
    border: 1px solid #3F51B5;
    text-align: center;
-   margin-left: 40px;
+   margin-left: 390px;
    border-bottom-left-radius: 25px;
    border-top-left-radius: 25px;
    color: #3F51B5;
@@ -214,7 +214,7 @@ input[type="submit"] {
 .rank-board {
    width: 340px;
    height: 362px;
-   margin: 135px 0 0 20px;
+   margin: 143px 0 0 20px;
    padding-bottom: 0;
 }
 
@@ -245,7 +245,52 @@ input[type="submit"] {
     color: #3F51B5
 }
 
+.user-id input {
+   background: #fff;
+   font-size: 16px;
+}
 
+.profile-top {
+   float: right;
+}
+
+.profile-top img {
+   border-radius: 50%;
+   width: 45px;
+    height: 45px;
+    border: 1px solid #ddd;
+}
+
+.profile-top-img {
+   margin-left: 26px;
+}
+
+.recsize {
+   width: 22px;
+    height: 22px;
+    margin-left: 18px;
+    background: #fff;
+}
+
+.likesize {
+   width: 22px;
+    height: 18px;
+    margin-left: 18px;
+    background: #fff
+}
+
+#userID {
+   font-size: 20px;
+   float: right;
+   margin-top: 8px;
+   margin-left: 8px;
+}
+
+.user-welcome {
+   margin-right: 35px;
+   float: right;
+   margin-top: 11px;
+}
 
 </style>
 </head>
@@ -301,17 +346,23 @@ input[type="submit"] {
          </li>
       </ul>
    </nav>
-   <div align="right">
-      <span id="userID">${info.user_id}님 환영합니다.</span>
+   <div class="profile-top">
+     <!-- 프로필 사진 -->
+     <div class="profile-top-img">
+        <img src="./upload/${info.user_pic}" alt="postprofile">
+        <span class="user-welcome">님 환영합니다!</span>
+        <span id="userID">${info.user_id}</span>
+     </div>
    </div>
    <div align="center" class="search">
       <!-- 검색창 -->
-      <form action="GetSearch.do" autocomplete="" method="post">
+      <form action="GetSearch.do" autocomplete="off" method="post">
          <select name="type" id="searchType">
             <option selected value="hashtag">해시태그</option>
             <option selected value="content">게시글 내용</option>
-            <option selected value="goods">상품이름</option>
+            <option selected value="goods">상품 이름</option>
             <option selected value="nick">닉네임</option>
+            <option selected value="content">카테고리 선택</option>
          </select> 
          <input type="text" name="keyword" class="bar" placeholder="  상품 이름 입력"> 
          <input type="submit" value="&#xf002;">
@@ -325,29 +376,63 @@ input[type="submit"] {
          <!-- 랭킹 상품 -->
          <ul class="rank-row">
             <c:forEach var="Goods" items="${goodsList}" varStatus="status">
-               <li class="rank-board">
-                  <span><img src="${Goods.goods_img}"></span>
-                  <span class="goods-info">
-                     <span>${Goods.goods_brand}</span>
-                     <strong>${Goods.goods_name}</strong>
-                     <span class="goods-price">
-                        <span>${Goods.goods_price}</span>
-                        <span>원</span>
-                     </span>
-                  </span>
+                <li class="rank-board">
+                    <span><img src="${Goods.goods_img}" onclick="GoodsBoard(${Goods.goods_id})"></span>
+                    <span class="goods-info">
+                        <span>${Goods.goods_brand}</span>
+                        <strong>${Goods.goods_name}</strong>
+                        <span class="goods-price">
+                            <span>${Goods.goods_price}</span>
+                            <span>원</span>
+                        </span>
+                    </span>
                </li>
             </c:forEach>
          </ul>
       </div>
      </div>
-</body>
-<script type="text/javascript">
-   // myPage 이동시 개인피드 출력
-   document.getElementById('myFeed1').addEventListener('click', function(e) {   
-     e.preventDefault();
-     document.getElementById('myForm').submit();
-});
+   <script type="text/javascript">
+      // myPage 이동시 개인피드 출력
+      document.getElementById('myFeed1').addEventListener('click', function(e) {   
+        e.preventDefault();
+        document.getElementById('myForm').submit();
+   });
+   	// 해당상품 게시글 출력
+   	function GoodsBoard(goods_id) {
+    	// 폼 엘리먼트 생성
+    	var form = document.createElement("form");
+    	form.action = "GoodsBoard.do"; // 이동할 페이지의 URL을 여기에 넣으세요
+    	form.method = "POST"; // POST 또는 GET 메소드를 선택하세요
 
-</script>
+    	// hidden 입력 엘리먼트를 폼에 추가 (goods_id를 전달)
+    	var input = document.createElement("input");
+    	input.type = "hidden";
+    	input.name = "goods_id";
+    	input.value = goods_id;
+    	form.appendChild(input);
+
+    	// 폼을 문서에 추가하고 자동으로 제출
+    	document.body.appendChild(form);
+    	form.submit();
+	}
+
+/*       function GoodsBoard(goods_id) {
+         alert(goods_id);
+          $.ajax({
+             url : "GoodsBoard.do",
+             type : "post",
+             data : {
+                goods_id : goods_id
+             },
+             success : function() {
+            	 window.location.href = "GoodsBoard.";
+             },
+             error : function() {
+                console.log('요청실패 ㅜㅜ');
+             }
+          });
+       } */
+   </script>
+</body>
 
 </html>

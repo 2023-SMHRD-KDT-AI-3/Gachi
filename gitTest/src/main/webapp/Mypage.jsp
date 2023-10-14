@@ -554,6 +554,64 @@ nav:hover {
    display: none;
 }
 
+/* 팔로워 모달창 위치 */
+#modalFollower {
+   width: 100%;
+   height: 100%;
+   position: fixed;
+   top: 0;
+   left: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: rgba(0, 0, 0, 0.5);
+}
+
+/* 팔로워 모달창 속성 */
+#FollowerList {
+   position: absolute;
+   background-color: #ffffff;
+   width: 900px;
+   height: 550px;
+   padding: 15px;
+   margin-left: 100px;
+   border-radius: 45px
+}
+
+/* 팔로워 모달창 onoff */
+#modalFollower.hidden {
+   display: none;
+}
+
+/* 팔로잉 모달창 위치 */
+#modalFollowing {
+   width: 100%;
+   height: 100%;
+   position: fixed;
+   top: 0;
+   left: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: rgba(0, 0, 0, 0.5);
+}
+
+/* 팔로잉 모달창 속성 */
+#FollowingList {
+   position: absolute;
+   background-color: #ffffff;
+   width: 900px;
+   height: 550px;
+   padding: 15px;
+   margin-left: 100px;
+   border-radius: 45px
+}
+
+/* 팔로잉 모달창 onoff */
+#modalFollowing.hidden {
+   display: none;
+}
+
 /* 회원정보 수정 버튼 */
 #modalPNEOpen {
    padding: 5px;
@@ -561,6 +619,17 @@ nav:hover {
    color: #fff;
    border-radius: 5px;
    border: 1px solid #3F51B5; 
+}
+/* 닫기 버튼 */
+#modalIntrodClose {
+   background: #fff;
+   border: 1px solid #3F51B5;
+   color: #3F51B5;
+   padding: 8px;
+   font-size: 1rem;
+   border-radius: 6px;
+   margin-left: 415px;
+   width: 75px;
 }
 
 #fix_userPNE p:first-child {
@@ -683,9 +752,7 @@ p.titles {
          </li>
       </ul>
    </nav>
-   <div align="right">
-      <span id="userID">${info.user_id}님 환영합니다.</span>
-   </div>
+
    <!-- 마이페이지 코드 -->
    <div class="myPage">
       <div class="container">
@@ -705,9 +772,9 @@ p.titles {
             <button type="button" id="modalPNEOpen">회원정보 수정</button>
             <!-- 팔로우 및 게시글 -->
             <ul class="follows">
-               <li><span>5,000</span>팔로워</li>
-               <li><span>500</span>팔로잉</li>
-               <li><span>${postCount}</span>게시글</li>
+               <li><div onclick="FollowerOpen()"><span>${FollowerCountM}명</span><br>팔로워</div></li>
+               <li><div onclick="FollowingOpen()"><span>${FolloingCountM}명</span><br>팔로잉</div></li>
+               <li><span>${postCountM}개</span>게시글</li>
             </ul>
          </div>
 
@@ -715,18 +782,25 @@ p.titles {
          <div class="container_cols">
             <!-- 본인 게시물 및 좋아요한 게시물 버튼 -->
             <div class="col-btn">
-               <a href="#" class="myFeed-link">
-                  <div class="myFeed-btn">
-                     <i class="fa-solid fa-table-cells"></i>
-                     <span>게시물</span>
-                  </div>
-               </a>
-               <a href="MyLikeBoard.do" class="likeFeed-link">
-                  <div class="likeFeed-btn">
-                     <i class="fas fa-heart"></i>
-                     <span>좋아요 게시물</span>
-                  </div>
-               </a>
+               <a href="#" id="myFeed3" class="myFeed-lin"> 
+					<div class="myFeed-btn">
+						<i class="fa-solid fa-table-cells"></i>
+						<span>게시물</span>
+					</div>
+				</a>
+				<form id="myForm2" action="MyBoard.do" method="post">
+					<input id="myFeed4" type="hidden" name = "user_id" value="${info.user_id}">
+				</form>
+				
+				<a href="#" id="myFeed6" class="likeFeed-link"> 
+					<div class="likeFeed-btn">
+						<i class="fas fa-heart"></i>
+						<span>좋아요 게시물</span>
+					</div>
+				</a>
+				<form id="myForm5" action="MyLikeBoard.do" method="post">
+					<input id="myFeed7" type="hidden" name = "user_id" value="${info.user_id}">
+				</form>
             </div>
 
             <!-- 마이페이지 본인 게시글 -->
@@ -791,11 +865,28 @@ p.titles {
                      </span>
                      <div class="btn-update">
                        <input type="submit" value="저장">
-                        <button id="modalIntrodClose">닫기</button>
+                        <button id="modalPNEClose">닫기</button>
                      </div>
                   </form>
                </div>
-            </div>      
+            </div> 
+            
+            
+            <div id="modalFollower" class="hidden">
+               <!-- 팔로워 리스트 모달창 -->
+               <div id="FollowerList">
+               <p>팔로워 리스트</p>
+                  <button type="button" id="FollwerClose">닫기</button>
+               </div>
+            </div>
+                 
+            <div id="modalFollowing" class="hidden">
+               <!-- 팔로잉 리스트 모달창 -->
+               <div id="FollowingList">
+               <p>팔로워 리스트</p>
+                  <button type="button" id="FollowingClose">닫기</button>
+               </div>
+            </div>     
          </div>
       </div>
    </div>
@@ -806,7 +897,18 @@ p.titles {
       crossorigin="anonymous"></script>
 
    <script>
-      
+		// myPage 이동시 개인피드 출력
+		document.getElementById('myFeed3').addEventListener('click', function(e) {   
+			e.preventDefault();
+			document.getElementById('myForm2').submit();
+		});   
+		
+		// myLikePage 이동시 개인피드 출력
+		document.getElementById('myFeed6').addEventListener('click', function(e) {   
+			e.preventDefault();
+			document.getElementById('myForm5').submit();
+		});  
+   
       // 소개글 변경 모달창 버튼
       const modalIntrodOpen = document.getElementById('modalIntrodOpen');
       const modalIntrodClose = document.getElementById('modalIntrodClose');
@@ -833,11 +935,30 @@ p.titles {
         modalPNE.classList.add('hidden');
       });
       
-      // myPage 이동시 개인피드 출력
-      document.getElementById('myFeed1').addEventListener('click', function(e) {   
-         e.preventDefault();
-        document.getElementById('myForm').submit();
-       });
+      // 팔로워 모달창 버튼
+      const FollowerClose = document.getElementById('FollowerClose');
+      const modalFollower = document.getElementById('modalFollower');
+
+      function FollowerOpen() {
+    	  modalFollower.classList.remove('hidden');
+		};
+   	  
+      FollwerClose.addEventListener('click', () => {
+         modalFollower.classList.add('hidden');
+      });
+      
+   // 팔로잉 모달창 버튼
+      const FollowingClose = document.getElementById('FollowingClose');
+      const modalFollowing = document.getElementById('modalFollowing');
+
+      function FollowingOpen() {
+    	  modalFollowing.classList.remove('hidden');
+		};
+   	  
+      FollowingClose.addEventListener('click', () => {
+         modalFollowing.classList.add('hidden');
+      });
+
    </script>
 
 </body>

@@ -1,6 +1,7 @@
 package com.gachi.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -34,6 +35,7 @@ public class BoardDAO {
 
 		return board;
 	}
+
 	// 게시글 작성 기능
 	public int write(BoardDTO board) {
 		SqlSession sqlsession = sqlSessionFactory.openSession(true);
@@ -46,39 +48,82 @@ public class BoardDAO {
 	}
 
 	ArrayList<BoardDTO> myList = new ArrayList<BoardDTO>();
-	
+
 	public ArrayList<BoardDTO> MyList(String user_id) {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
-		myList = (ArrayList) sqlSession.selectList("MyList",user_id);
+		myList = (ArrayList) sqlSession.selectList("MyList", user_id);
 
 		sqlSession.close();
 
 		return myList;
 
-
 	}
+
 	ArrayList<BoardDTO> myLikeList = new ArrayList<BoardDTO>();
-	
+
 	public ArrayList<BoardDTO> MyLikeList(String user_id) {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
-		myLikeList = (ArrayList) sqlSession.selectList("MyLikeList",user_id);
+		myLikeList = (ArrayList) sqlSession.selectList("MyLikeList", user_id);
 
 		sqlSession.close();
 
 		return myLikeList;
 	}
-	
+
 	// 상대방 프로필 게시글 수 카운트
 	public int MypostCount(String count) {
-		SqlSession sqlSession  = sqlSessionFactory.openSession(true);
-		
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+
 		int resultCount = sqlSession.selectOne("MypostCount", count);
-		
-		sqlSession.close();		
-		
+
+		sqlSession.close();
+
 		return resultCount;
 	}
+
+	// 팔로워 카운트
+	public int FollowUserCount(String count) {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+
+		int Followers = sqlSession.selectOne("FollowUserCount", count);
+
+		sqlSession.close();
+
+		return Followers;
+	}
+
+	// 팔로잉 카운트
+	public int FollowingUserCount(String count) {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+
+		int Followers = sqlSession.selectOne("FollowingUserCount", count);
+
+		sqlSession.close();
+
+		return Followers;
+	}
+
 	
+	public List<LikeBoardDTO> GoodsBoard(int goods_id) {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		
+		List<LikeBoardDTO> goodsBoard=sqlSession.selectList("GoodsBoard",goods_id);
+		
+		sqlSession.close();
+
+		return goodsBoard;
+		
+	}
+	
+//	// 팔로우 체크
+//	public int FollowCheck(FollowDTO follow) {
+//		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+//		
+//		int followCheck = sqlSession.selectOne("FollowCheck",follow);
+//		sqlSession.close();
+//		return followCheck;
+//	}
+
 }

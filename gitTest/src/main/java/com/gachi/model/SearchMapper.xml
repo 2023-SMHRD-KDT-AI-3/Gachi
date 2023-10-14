@@ -14,7 +14,7 @@
 
 <!-- 상품검색 -->
 <select id="SearchGoods" parameterType="com.gachi.model.SearchDTO" resultType="com.gachi.model.GoodsDTO">
-	SELECT * FROM tbl_goods WHERE goods_name LIKE CONCAT('%',#{keyword},'%')
+	SELECT * FROM tbl_goods WHERE goods_name LIKE CONCAT('%',#{keyword},'%') order by goods_wish desc
 </select>
 
 </mapper>

@@ -36,7 +36,6 @@ public class FrontController extends HttpServlet {
 			// 로그인 기능 구현
 			LoginService loginService = new LoginService();
 			url = loginService.execute(request, response);// BoardService.do
-
 		} else if (result.equals("goMain.do")) {
 			// 메인으로 이동하는 기능
 			GoMainController goMainController = new GoMainController();
@@ -106,9 +105,17 @@ public class FrontController extends HttpServlet {
 			UploadService uploadService= new UploadService();
 			url = uploadService.execute(request, response);
 		} else if (result.equals("MyLikeBoard.do")) {
-			//  기능
+			// 내가 좋아요한 게시물 보기 기능
 			MyLikeBoard myLikeBoard= new MyLikeBoard();
 			url = myLikeBoard.execute(request, response);
+		} else if (result.equals("FollowService.do")) {
+			// 팔로우 기능
+			FollowService followService= new FollowService();
+			url = followService.execute(request, response);
+		} else if (result.equals("GoodsBoard.do")) {
+			// 해당 상품 게시물 출력 기능
+			GoodsBoard goodsBoard= new GoodsBoard();
+			url = goodsBoard.execute(request, response);
 		}
 		
 		
