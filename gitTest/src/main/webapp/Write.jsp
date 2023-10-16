@@ -419,8 +419,11 @@ nav:hover {
 	                        <textarea cols="30" rows="10" placeholder="내용 입력" name="post_content" autocomplete="off"></textarea>
                     	</div>
                     	<!-- 해시태그 등록 -->
-                    	<input type="text" name="hashtags" placeholder="해시태그 추가">
-                    	<button type="button" onclick="extractHashtags()">해시태그 추가</button>
+                    	<div id="hashtagList">
+    						<!-- 추가한 해시태그가 여기에 표시 -->
+						</div>
+                    	<input type="text" id="hashtagInput" placeholder="해시태그 입력">
+                    	<button type="button" onclick="AddHashtag()">해시태그 추가</button>
                     	<!-- 상품 등록(test) -->
                     	<div class="item">
 	                        <dl>
@@ -458,6 +461,13 @@ nav:hover {
 			</div>
 		</div>
    <script>
+   
+// myPage 이동시 개인피드 출력
+   document.getElementById('myFeed1').addEventListener('click', function(e) {	
+ 	  e.preventDefault();
+	  document.getElementById('myForm').submit();
+});
+
    const modalOpenButton = document.getElementById('modalOpenButton');
    const modalCloseButton = document.getElementById('modalCloseButton');
    const modalGoods = document.getElementById('modalGoods');
@@ -472,7 +482,7 @@ nav:hover {
    });
 
    
-// 댓글작성 ajax
+// 검색상품 출력 ajax
 	function searchGoods() {
 		var keyword=$("#keyword").val();
 		$.ajax({
@@ -499,27 +509,60 @@ nav:hover {
 		});
 	}
 	
-/	// 입력 필드에서 해시태그를 추출하기 위한 JavaScript 함수
-	function extractHashtags() {
-	    const inputField = document.querySelector('input[name="hashtags"]');
-	    const hashtags = inputField.value.match(/#(\w+)/g);
-	    return hashtags || [];
+	// 상품 번호 form태그로 넘겨주기
+	let sendID = function(goodsID, goodsName){
+		document.getElementById('goods_value').value = goodsID;
+		alert('선택한 상품 : ' + goodsName);
+		modalGoods.classList.add('hidden');
+	}
+	
+
+	// 해시태그를 저장할 배열
+	var hashtags = [];
+	// 해시태그 추가, 출력
+	function addHashtag() {
+
+	    var hashtagInput = document.getElementById('hashtagInput');
+	    var hashtag = hashtagInput.value;
+
+	    // 해시태그가 비어있지 않은지 확인
+	    if (hashtag.trim() === '') {
+	        alert('유효한 해시태그를 입력하세요.');
+	        return;
+	    }
+	    $.ajax({
+	        url: "HashtagService.do", // 실제 URL로 대체
+	        type: "post",
+	        data: {
+	            hashtag: hashtag
+	        },
+	        success: function (data) {
+			    // 배열에 해시태그 추가
+			    hashtags.push(hashtag);
+
+			    // 해시태그를 화면에 표시	
+	  		    displayHashtags();
+
+			    // 입력 필드 지우기
+			    hashtagInput.value = '';
+
+				// 해시태그를 화면에 표시하는 함수
+				function displayHashtags() {
+	    			var hashtagList = document.getElementById('hashtagList');
+	    			// 기존 해시태그 목록 초기화
+	    			hashtagList.innerHTML = '';
+
+	    			// 배열에 저장된 모든 해시태그를 표시
+	   			 	hashtags.forEach(function (hashtag) {
+	       			var hashtagElement = document.createElement('span');
+	        		hashtagElement.textContent = hashtag;
+	        		hashtagList.appendChild(hashtagElement);
+	   			 	})
+				}
+	        }
+	    });
 	}
 
-// myPage 이동시 개인피드 출력
-   document.getElementById('myFeed1').addEventListener('click', function(e) {	
- 	  e.preventDefault();
-	  document.getElementById('myForm').submit();
-});
-
-//sendID
-
-let sendID = function(goodsID, goodsName){
-	document.getElementById('goods_value').value = goodsID;
-	alert('선택한 상품 : ' + goodsName);
-	modalGoods.classList.add('hidden');
-}
-   
    </script>
 
 </body>

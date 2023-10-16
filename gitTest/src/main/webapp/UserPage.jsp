@@ -311,6 +311,66 @@ nav:hover {
    height: 35px;
 }
 
+/* 팔로워 모달창 위치 */
+#modalFollower {
+   width: 100%;
+   height: 100%;
+   position: fixed;
+   top: 0;
+   left: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: rgba(0, 0, 0, 0.5);
+}
+
+/* 팔로워 모달창 속성 */
+#FollowerList {
+   position: absolute;
+   background-color: #ffffff;
+   width: 900px;
+   height: 550px;
+   padding: 15px;
+   margin-left: 100px;
+   border-radius: 45px;
+   overflow: auto;
+}
+
+/* 팔로워 모달창 onoff */
+#modalFollower.hidden {
+   display: none;
+}
+
+/* 팔로잉 모달창 위치 */
+#modalFollowing {
+   width: 100%;
+   height: 100%;
+   position: fixed;
+   top: 0;
+   left: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: rgba(0, 0, 0, 0.5);
+}
+
+/* 팔로잉 모달창 속성 */
+#FollowingList {
+   position: absolute;
+   background-color: #ffffff;
+   width: 900px;
+   height: 550px;
+   padding: 15px;
+   margin-left: 100px;
+   border-radius: 45px;
+   overflow: auto;
+}
+
+/* 팔로잉 모달창 onoff */
+#modalFollowing.hidden {
+   display: none;
+}
+
 .profile-top {
    position: absolute;
     top: 22px;
@@ -418,7 +478,7 @@ nav:hover {
             </div>
             <!-- 팔로우 및 게시글 -->
             <ul class="follows">
-               <li><div id="FollowrOpen"><span>${FollowerCount}명</span><br>팔로워</div></li>
+               <li><div id="FollowerOpen"><span>${FollowerCount}명</span><br>팔로워</div></li>
                <li><div id="FollowingOpen"><span>${FolloingCount}명</span><br>팔로잉</div></li>
                <li><span>${postCount}개</span>게시글</li>
             </ul>
@@ -454,6 +514,23 @@ nav:hover {
                   </div>
                </article>
             </div>
+            <div id="modalFollower" class="hidden">
+               <!-- 팔로워 리스트 모달창 -->
+               <div id="FollowerList">
+               <p>팔로워 리스트</p>
+					<div id="Follower" class="lines"></div>
+                    <button type="button" id="FollwerClose">닫기</button>
+               </div>
+            </div>
+                 
+            <div id="modalFollowing" class="hidden">
+               <!-- 팔로잉 리스트 모달창 -->
+               <div id="FollowingList">
+               <p>팔로잉 리스트</p>
+                  <div id="Following" class="lines"></div>
+                  <button type="button" id="FollowingClose">닫기</button>
+               </div>
+            </div>  
          </div>
       </div>
    </div>
@@ -500,6 +577,79 @@ nav:hover {
 			}
   	 })
    }
+   
+// 팔로워 모달창 버튼
+   const user_id = "${userList[0].user_id}";
+   const FollowerOpen = document.getElementById('FollowerOpen');
+   const FollowerClose = document.getElementById('FollowerClose');
+   const modalFollower = document.getElementById('modalFollower');
+
+   FollowerOpen.addEventListener('click', function () {
+ 	    modalFollower.classList.remove('hidden');
+ 	    $.ajax({
+ 	        url: "GetFollowList.do",
+ 	        type: "post",
+ 	        data: {
+ 	            type: "follower",
+ 	            user_id: user_id, 
+ 	        },
+ 	        success: function (data) {
+ 	            var html = "<table>";
+ 	            $.each(data, function (index, obj) {
+ 	                html += "<tr>";
+ 	                html += "<td><img src=./upload/" + obj.user_pic + "></td>";
+ 	               html += "<td><form action='UserBoard.do' method='post' class='user-id'><input type='hidden' name='user_id' value='" + obj.user_id + "'><input type='submit' value='" + obj.user_id +"'></form></td>";
+ 	                html += "</tr>";
+ 	            });
+ 	            html += "</table>";
+ 	            $("#Follower").html(html);
+ 	        },
+ 	        error: function () {
+ 	            console.log('요청 실패');
+ 	        }
+ 	    });
+ 	});
+
+	  
+   FollwerClose.addEventListener('click', () => {
+      modalFollower.classList.add('hidden');
+   });
+   
+// 팔로잉 모달창 버튼
+   const FollowingOpen = document.getElementById('FollowingOpen');
+   const FollowingClose = document.getElementById('FollowingClose');
+   const modalFollowing = document.getElementById('modalFollowing');
+
+   FollowingOpen.addEventListener('click', function () {
+	    modalFollowing.classList.remove('hidden');
+	    $.ajax({
+	        url: "GetFollowList.do",
+	        type: "post",
+	        data: {
+	            type: "following",
+	            user_id: user_id, 
+	        },
+	        success: function (data) {
+	            var html = "<table>";
+	            $.each(data, function (index, obj) {
+	                html += "<tr>";
+	                html += "<td><img src='./upload/" + obj.user_pic + "'></td>";
+	                html += "<td><form action='UserBoard.do' method='post' class='user-id'><input type='hidden' name='user_id' value='" + obj.following_id + "'><input type='submit' value='" + obj.following_id +"'></form></td>";
+	                html += "</tr>";
+	            });
+	            html += "</table>";
+	            $("#Following").html(html);
+	        },
+	        error: function () {
+	            console.log('요청 실패');
+	        }
+	    });
+	});
+	  
+   FollowingClose.addEventListener('click', () => {
+      modalFollowing.classList.add('hidden');
+   });
+   
 
    </script>
 

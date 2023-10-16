@@ -36,6 +36,16 @@
 		resultType="int">
 		select count(*) from tbl_follow where user_id=#{user_id}
 	</select>
+	
+	<!-- 팔로워 리스트 출력 -->
+	<select id="FollowerList" parameterType="string" resultType="com.gachi.model.FollowDTO">
+		select f.user_id, f.following_id, u.user_pic from tbl_follow f inner join tbl_user u on f.user_id= u.user_id where f.following_id=#{user_id}
+	</select>
+	
+	<!-- 팔로잉 리스트 출력 -->
+	<select id="FollowingList" parameterType="string" resultType="com.gachi.model.FollowDTO">
+		select f.user_id, f.following_id, u.user_pic from tbl_follow f inner join tbl_user u on f.following_id= u.user_id where f.user_id=#{user_id}
+	</select>
 
 	<!--  팔로우 체크  
 	<select id="FollowCheck" parameterType="com.gachi.model.FollowDTO"

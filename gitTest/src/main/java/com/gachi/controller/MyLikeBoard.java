@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.gachi.model.BoardDAO;
 import com.gachi.model.BoardDTO;
+import com.gachi.model.FollowDAO;
 
 public class MyLikeBoard implements Command {
 
@@ -20,6 +21,7 @@ public class MyLikeBoard implements Command {
 
 			// BoardDAO에 접근할 수 있는 객체생성
 			BoardDAO dao = new BoardDAO();
+			FollowDAO follow = new FollowDAO();
 			ArrayList<BoardDTO> myLikeList = dao.MyLikeList(user_id);
 
 			// 상대방프로필 게시글 수 카운트
@@ -27,12 +29,12 @@ public class MyLikeBoard implements Command {
 			request.setAttribute("postCountM2", postCount);
 
 			// 팔로우 카운트
-			int FollowerCount = dao.FollowUserCount(user_id);
+			int FollowerCount = follow.FollowUserCount(user_id);
 			request.setAttribute("FollowerCountM2", FollowerCount);
 			System.out.println("FollowerCountM: " + FollowerCount);
 
 			// 팔로잉 카운트
-			int FolloingCount = dao.FollowingUserCount(user_id);
+			int FolloingCount = follow.FollowingUserCount(user_id);
 			request.setAttribute("FolloingCountM2", FolloingCount);
 			System.out.println("FolloingCountM: " + FolloingCount);
 

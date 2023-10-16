@@ -8,11 +8,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.gachi.model.BoardDAO;
 import com.gachi.model.BoardDTO;
+import com.gachi.model.FollowDAO;
 
 public class MyBoard implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
+
 		try {
 			request.setCharacterEncoding("utf-8");
 
@@ -20,6 +22,7 @@ public class MyBoard implements Command {
 			
 			// BoardDAO에 접근할 수 있는 객체생성
 			BoardDAO dao = new BoardDAO();
+			FollowDAO follow = new FollowDAO();
 			ArrayList<BoardDTO> myList = dao.MyList(user_id);
 			
 			// 상대방프로필 게시글 수 카운트
@@ -27,14 +30,15 @@ public class MyBoard implements Command {
 			request.setAttribute("postCountM", postCount);
 			
 			//팔로우 카운트
-			int FollowerCount = dao.FollowUserCount(user_id);
+			int FollowerCount = follow.FollowUserCount(user_id);
 			request.setAttribute("FollowerCountM", FollowerCount);
 //			System.out.println("FollowerCountM: "+FollowerCount);
 
 			//팔로잉 카운트
-			int FolloingCount = dao.FollowingUserCount(user_id);
+			int FolloingCount = follow.FollowingUserCount(user_id);
 			request.setAttribute("FolloingCountM", FolloingCount);
 //			System.out.println("FolloingCountM: "+FolloingCount);
+						
 
 			request.setAttribute("myList", myList);
 		} catch (UnsupportedEncodingException e) {

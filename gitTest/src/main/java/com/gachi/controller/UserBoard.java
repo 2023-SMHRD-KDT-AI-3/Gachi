@@ -5,11 +5,10 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.gachi.model.BoardDAO;
 import com.gachi.model.BoardDTO;
-import com.gachi.model.FollowDTO;
+import com.gachi.model.FollowDAO;
 
 public class UserBoard implements Command {
 
@@ -23,7 +22,7 @@ public class UserBoard implements Command {
 
 			// BoardDAO에 접근할 수 있는 객체생성
 			BoardDAO dao = new BoardDAO();
-//			FollowDTO follow=new FollowDTO();
+			FollowDAO follow=new FollowDAO();
 //			follow.setUser_id(login_id);
 //			follow.setFollowing_id(user_id);
 			ArrayList<BoardDTO> userList = dao.MyList(user_id);
@@ -34,14 +33,15 @@ public class UserBoard implements Command {
 			request.setAttribute("postCount", postCount);
 			
 			//팔로우 카운트
-			int FollowerCount = dao.FollowUserCount(user_id);
+			int FollowerCount = follow.FollowUserCount(user_id);
 			request.setAttribute("FollowerCount", FollowerCount);
-			System.out.println("FollowerCount: "+FollowerCount);
+//			System.out.println("FollowerCount: "+FollowerCount);
 
 			//팔로잉 카운트
-			int FolloingCount = dao.FollowingUserCount(user_id);
+			int FolloingCount = follow.FollowingUserCount(user_id);
 			request.setAttribute("FolloingCount", FolloingCount);
-			System.out.println("FolloingCount: "+FolloingCount);
+//			System.out.println("FolloingCount: "+FolloingCount);
+			
 			
 //			//팔로우 체크
 //			int followCheck =dao.FollowCheck(follow);

@@ -347,7 +347,7 @@ nav:hover {
       <p>닉네임</p>
         <c:forEach var="nickRes" items="${nickResult}" varStatus="status">
            <div class="profile-info">
-              <div class="profile-img"><img src=" ${nickRes.user_pic}"></div>
+              <div class="profile-img"><img src="./upload/${nickRes.user_pic}"></div>
               <div>
                  <div class="profile-id">
                     <c:choose>

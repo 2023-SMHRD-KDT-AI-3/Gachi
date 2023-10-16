@@ -41,7 +41,7 @@ public class JoinService implements Command {
 			m.setUser_birthdate(birth);
 
 			dao.join(m);
-			url = "Login.jsp";
+			url = "JoinSuccess.jsp";
 		} catch (Exception e) {
 			url = "JoinFail.jsp";
 			e.printStackTrace();

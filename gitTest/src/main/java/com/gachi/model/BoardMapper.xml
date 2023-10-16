@@ -67,6 +67,6 @@
 		FROM tbl_post p
 		JOIN tbl_user m ON p.user_id = m.user_id
 		LEFT JOIN tbl_likes l ON p.post_id = l.post_idx AND l.kuser_id = #{user_id} where goods_id=#{goods_id}
-
 	</select>
+
 </mapper>

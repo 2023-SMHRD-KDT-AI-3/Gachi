@@ -770,7 +770,7 @@ function goCmt(post_id) {
          //  댓글작성 ajax
          function writeCmt(post_id, user_id) {
             var cmt_content=$("#comment"+post_id).val();
-            alert(cmt_content);
+            
             $.ajax({
                url : "CmtWrite.do",
                type : "post",
@@ -779,8 +779,10 @@ function goCmt(post_id) {
                   cmt_content : cmt_content,
                   user_id : user_id
                },
-               success : function(data) {
-                  colsole.log(data);
+               success : function() {
+                  
+                  $("#comment" + post_id).val('');
+                  goCmt(post_id);
                },
                error : function() {
                   console.log('요청실패 ㅜㅜ');
