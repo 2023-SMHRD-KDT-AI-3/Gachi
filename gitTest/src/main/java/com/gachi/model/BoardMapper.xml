@@ -6,7 +6,7 @@
 	<select id="AllList" parameterType="string" resultType="com.gachi.model.LikeBoardDTO">
 	 <!-- select p.post_id, p.post_content, p.post_img, p.goods_id, p.created_at, p.user_id,	u.user_pic 
 		from tbl_post p inner join tbl_user u on p.user_id=u.user_id -->
-		SELECT
+		<!-- SELECT
             p.post_id,
 			p.post_content,
 			p.goods_id,
@@ -19,7 +19,23 @@
             IFNULL(l.kuser_id IS NOT NULL, 0) AS liked
 		FROM tbl_post p
 		JOIN tbl_user m ON p.user_id = m.user_id
-		LEFT JOIN tbl_likes l ON p.post_id = l.post_idx AND l.kuser_id = #{user_id}
+		LEFT JOIN tbl_likes l ON p.post_id = l.post_idx AND l.kuser_id = #{user_id} -->
+		SELECT
+    		p.post_id,
+    		p.post_content,
+    		p.goods_id,
+    		l.like_id,
+    		l.kuser_id,
+    		p.user_id,
+    		l.post_idx,
+    		p.post_img,
+    		m.user_pic,
+    		IFNULL(l.kuser_id IS NOT NULL, 0) AS liked,
+    		h.hashtag_name
+			FROM tbl_post p
+			JOIN tbl_user m ON p.user_id = m.user_id
+			LEFT JOIN tbl_likes l ON p.post_id = l.post_idx AND l.kuser_id = #{user_id}
+			LEFT JOIN tbl_hashtag h ON p.post_id = h.post_id order by post_id desc	
 
 	</select>
 
@@ -29,8 +45,12 @@
 		select * from tbl_post where num=#{num}
 	</select>
 
+
 	<!-- 게시글 작성 sql문장 -->
 	<insert id="write" parameterType="com.gachi.model.BoardDTO">
+        <selectKey>
+            
+        </selectKey>
 		INSERT INTO tbl_post(post_content, post_img, goods_id, created_at, user_id)
 		VALUES (#{post_content},#{post_img}, #{goods_id}, NOW(), #{user_id});
 	</insert>
@@ -54,19 +74,46 @@
 	<!-- 해당 상품의 게시글 출력 -->
 	<select id="GoodsBoard" parameterType="int" resultType="com.gachi.model.LikeBoardDTO">
 		SELECT
-            p.post_id,
-			p.post_content,
-			p.goods_id,
-			l.like_id ,
-			l.kuser_id ,
-			p.user_id,
-			l.post_idx,
-			p.post_img , 
-			m.user_pic,
-            IFNULL(l.kuser_id IS NOT NULL, 0) AS liked
-		FROM tbl_post p
-		JOIN tbl_user m ON p.user_id = m.user_id
-		LEFT JOIN tbl_likes l ON p.post_id = l.post_idx AND l.kuser_id = #{user_id} where goods_id=#{goods_id}
+    		p.post_id,
+    		p.post_content,
+    		p.goods_id,
+    		l.like_id,
+    		l.kuser_id,
+    		p.user_id,
+    		l.post_idx,
+    		p.post_img,
+    		m.user_pic,
+    		IFNULL(l.kuser_id IS NOT NULL, 0) AS liked,
+    		h.hashtag_name
+			FROM tbl_post p
+			JOIN tbl_user m ON p.user_id = m.user_id
+			LEFT JOIN tbl_likes l ON p.post_id = l.post_idx AND l.kuser_id = #{user_id}
+			LEFT JOIN tbl_hashtag h ON p.post_id = h.post_id where goods_id=#{goods_id}
 	</select>
+	
+	<!-- 해당 해시태그의 게시글 출력 -->
+	<select id="HashBoard" parameterType="string" resultType="com.gachi.model.LikeBoardDTO">
+		SELECT
+    		p.post_id,
+    		p.post_content,
+    		p.goods_id,
+    		l.like_id,
+    		l.kuser_id,
+    		p.user_id,
+    		l.post_idx,
+    		p.post_img,
+    		m.user_pic,
+    		IFNULL(l.kuser_id IS NOT NULL, 0) AS liked,
+    		h.hashtag_name
+			FROM tbl_post p
+			JOIN tbl_user m ON p.user_id = m.user_id
+			LEFT JOIN tbl_likes l ON p.post_id = l.post_idx AND l.kuser_id = #{user_id}
+			LEFT JOIN tbl_hashtag h ON p.post_id = h.post_id WHERE hashtag_name LIKE CONCAT('%',#{hashtag_name},'%')
+	</select>
+	
+	<!-- 마지막에 삽입된 게시물 id가져오기 -->
+<select id="LastPostID" resultType="int">
+	SELECT MAX(post_id) FROM tbl_post
+</select>
 
 </mapper>

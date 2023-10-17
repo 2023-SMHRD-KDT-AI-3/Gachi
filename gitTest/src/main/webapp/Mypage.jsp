@@ -571,12 +571,17 @@ nav:hover {
 #FollowerList {
    position: absolute;
    background-color: #ffffff;
-   width: 900px;
+   width: 566px;
    height: 550px;
-   padding: 15px;
+   padding: 40px;
    margin-left: 100px;
    border-radius: 45px;
    overflow: auto;
+}
+
+#FollowerList p {
+   font-size: 28px;
+   color: #3F51B5;
 }
 
 /* 팔로워 모달창 onoff */
@@ -601,9 +606,9 @@ nav:hover {
 #FollowingList {
    position: absolute;
    background-color: #ffffff;
-   width: 900px;
+   width: 566px;
    height: 550px;
-   padding: 15px;
+   padding: 40px;
    margin-left: 100px;
    border-radius: 45px;
    overflow: auto;
@@ -654,6 +659,18 @@ nav:hover {
 }
 /* 닫기 버튼 */
 #modalIntrodClose {
+   background: #fff;
+   border: 1px solid #3F51B5;
+   color: #3F51B5;
+   padding: 8px;
+   font-size: 1rem;
+   border-radius: 6px;
+   margin-left: 415px;
+   width: 75px;
+}
+
+/* 닫기 버튼 */
+#modalPNEClose {
    background: #fff;
    border: 1px solid #3F51B5;
    color: #3F51B5;
@@ -733,6 +750,61 @@ p.titles {
     font-size: 19px;
     color: #3F51B5;
 }
+
+.datas {
+    width: 483px;
+    height: 84px;
+    overflow: auto;
+}
+
+.data1 {
+    width: 0px;
+}
+
+.data1 img {
+   border-radius: 50%;
+    border: 1px solid #eee;
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+}
+
+.data2 {
+   width: 200px;
+}
+
+#FollowerClose {
+   bottom: 25px;
+    position: inherit;
+    background: #3F51B5;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    width: 75px;
+    margin-left: 203px;
+}
+
+#FollowingClose {
+   bottom: 25px;
+    position: inherit;
+    background: #3F51B5;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    width: 75px;
+    margin-left: 203px;
+}
+
+.totaldata {
+   display: inline-table;
+}
+
+.user-id input {
+   background: #fff;
+    font-size: 18px;
+}
+
+
 </style>
 </head>
 <body>
@@ -815,24 +887,24 @@ p.titles {
             <!-- 본인 게시물 및 좋아요한 게시물 버튼 -->
             <div class="col-btn">
                <a href="#" id="myFeed3" class="myFeed-lin"> 
-					<div class="myFeed-btn">
-						<i class="fa-solid fa-table-cells"></i>
-						<span>게시물</span>
-					</div>
-				</a>
-				<form id="myForm2" action="MyBoard.do" method="post">
-					<input id="myFeed4" type="hidden" name = "user_id" value="${info.user_id}">
-				</form>
-				
-				<a href="#" id="myFeed6" class="likeFeed-link"> 
-					<div class="likeFeed-btn">
-						<i class="fas fa-heart"></i>
-						<span>좋아요 게시물</span>
-					</div>
-				</a>
-				<form id="myForm5" action="MyLikeBoard.do" method="post">
-					<input id="myFeed7" type="hidden" name = "user_id" value="${info.user_id}">
-				</form>
+               <div class="myFeed-btn">
+                  <i class="fa-solid fa-table-cells"></i>
+                  <span>게시물</span>
+               </div>
+            </a>
+            <form id="myForm2" action="MyBoard.do" method="post">
+               <input id="myFeed4" type="hidden" name = "user_id" value="${info.user_id}">
+            </form>
+            
+            <a href="#" id="myFeed6" class="likeFeed-link"> 
+               <div class="likeFeed-btn">
+                  <i class="fas fa-heart"></i>
+                  <span>좋아요 게시물</span>
+               </div>
+            </a>
+            <form id="myForm5" action="MyLikeBoard.do" method="post">
+               <input id="myFeed7" type="hidden" name = "user_id" value="${info.user_id}">
+            </form>
             </div>
 
             <!-- 마이페이지 본인 게시글 -->
@@ -867,9 +939,9 @@ p.titles {
                      <textarea name="user_introduction" cols="55" rows="5" autocomplete="off" id="text-update" placeholder="소개글 입력"></textarea> 
                      <div class="btn-update">
                        <input type="submit" value="저장">
-                        <button id="modalIntrodClose">닫기</button>
                      </div>
                   </form>
+                        <button id="modalIntrodClose">닫기</button>
                </div>
             </div>
             
@@ -897,9 +969,9 @@ p.titles {
                      </span>
                      <div class="btn-update">
                        <input type="submit" value="저장">
-                        <button id="modalPNEClose">닫기</button>
                      </div>
                   </form>
+                        <button id="modalPNEClose">닫기</button>
                </div>
             </div> 
             
@@ -908,8 +980,8 @@ p.titles {
                <!-- 팔로워 리스트 모달창 -->
                <div id="FollowerList">
                <p>팔로워 리스트</p>
-					<div id="Follower" class="lines"></div>
-                    <button type="button" id="FollwerClose">닫기</button>
+               <div id="Follower" class="lines"></div>
+                    <button type="button" id="FollowerClose">닫기</button>
                </div>
             </div>
                  
@@ -941,17 +1013,17 @@ p.titles {
       crossorigin="anonymous"></script>
 
    <script>
-		// myPage 이동시 개인피드 출력
-		document.getElementById('myFeed3').addEventListener('click', function(e) {   
-			e.preventDefault();
-			document.getElementById('myForm2').submit();
-		});   
-		
-		// myLikePage 이동시 개인피드 출력
-		document.getElementById('myFeed6').addEventListener('click', function(e) {   
-			e.preventDefault();
-			document.getElementById('myForm5').submit();
-		});  
+      // myPage 이동시 개인피드 출력
+      document.getElementById('myFeed3').addEventListener('click', function(e) {   
+         e.preventDefault();
+         document.getElementById('myForm2').submit();
+      });   
+      
+      // myLikePage 이동시 개인피드 출력
+      document.getElementById('myFeed6').addEventListener('click', function(e) {   
+         e.preventDefault();
+         document.getElementById('myForm5').submit();
+      });  
    
       // 소개글 변경 모달창 버튼
       const modalIntrodOpen = document.getElementById('modalIntrodOpen');
@@ -999,33 +1071,33 @@ p.titles {
       const modalFollower = document.getElementById('modalFollower');
 
       FollowerOpen.addEventListener('click', function () {
-    	    modalFollower.classList.remove('hidden');
-    	    $.ajax({
-    	        url: "GetFollowList.do",
-    	        type: "post",
-    	        data: {
-    	            type: "follower",
-    	            user_id: user_id, 
-    	        },
-    	        success: function (data) {
-    	            var html = "<table>";
-    	            $.each(data, function (index, obj) {
-    	                html += "<tr>";
-    	                html += "<td><img src=./upload/" + obj.user_pic + "></td>";
-    	                html += "<td><form action='UserBoard.do' method='post' class='user-id'><input type='hidden' name='user_id' value='" + obj.user_id + "'><input type='submit' value='" + obj.user_id +"'></form></td>";
-    	                html += "</tr>";
-    	            });
-    	            html += "</table>";
-    	            $("#Follower").html(html);
-    	        },
-    	        error: function () {
-    	            console.log('요청 실패');
-    	        }
-    	    });
-    	});
+           modalFollower.classList.remove('hidden');
+           $.ajax({
+               url: "GetFollowList.do",
+               type: "post",
+               data: {
+                   type: "follower",
+                   user_id: user_id, 
+               },
+               success: function (data) {
+                   var html = "<table class='datas'>";
+                   $.each(data, function (index, obj) {
+                       html += "<tr class='totaldata'>";
+                       html += "<td class='data1'><img src=./upload/" + obj.user_pic + "></td>";
+                       html += "<td class='data2'><form action='UserBoard.do' method='post' class='user-id'><input type='hidden' name='user_id' value='" + obj.user_id + "'><input type='submit' value='" + obj.user_id +"'></form></td>";
+                       html += "</tr>";
+                   });
+                   html += "</table>";
+                   $("#Follower").html(html);
+               },
+               error: function () {
+                   console.log('요청 실패');
+               }
+           });
+       });
 
-   	  
-      FollwerClose.addEventListener('click', () => {
+        
+      FollowerClose.addEventListener('click', () => {
          modalFollower.classList.add('hidden');
       });
       
@@ -1035,31 +1107,31 @@ p.titles {
       const modalFollowing = document.getElementById('modalFollowing');
 
       FollowingOpen.addEventListener('click', function () {
-  	    modalFollowing.classList.remove('hidden');
-  	    $.ajax({
-  	        url: "GetFollowList.do",
-  	        type: "post",
-  	        data: {
-  	            type: "following",
-  	            user_id: user_id, 
-  	        },
-  	        success: function (data) {
-  	            var html = "<table>";
-  	            $.each(data, function (index, obj) {
-  	                html += "<tr>";
-  	                html += "<td><img src='./upload/" + obj.user_pic + "'></td>";
-  	              html += "<td><form action='UserBoard.do' method='post' class='user-id'><input type='hidden' name='user_id' value='" + obj.following_id + "'><input type='submit' value='" + obj.following_id +"'></form></td>";
-  	                html += "</tr>";
-  	            });
-  	            html += "</table>";
-  	            $("#Following").html(html);
-  	        },
-  	        error: function () {
-  	            console.log('요청 실패');
-  	        }
-  	    });
-  	});
-   	  
+         modalFollowing.classList.remove('hidden');
+         $.ajax({
+             url: "GetFollowList.do",
+             type: "post",
+             data: {
+                 type: "following",
+                 user_id: user_id, 
+             },
+             success: function (data) {
+                 var html = "<table class='datas'>";
+                 $.each(data, function (index, obj) {
+                     html += "<tr class='totaldata'>";
+                     html += "<td class='data1'><img src='./upload/" + obj.user_pic + "'></td>";
+                     html += "<td class='data2'><form action='UserBoard.do' method='post' class='user-id'><input type='hidden' name='user_id' value='" + obj.following_id + "'><input type='submit' value='" + obj.following_id +"'></form></td>";
+                     html += "</tr>";
+                 });
+                 html += "</table>";
+                 $("#Following").html(html);
+             },
+             error: function () {
+                 console.log('요청 실패');
+             }
+         });
+     });
+        
       FollowingClose.addEventListener('click', () => {
          modalFollowing.classList.add('hidden');
       });

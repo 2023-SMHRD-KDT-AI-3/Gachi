@@ -105,6 +105,24 @@ input {
    width: 100%;
 }
 
+label {
+	font-size: 18px;
+	line-height: 2rem;
+}
+
+[type="radio"] {
+    vertical-align: middle;
+    /* appearance: none; */
+    border: max(2px, 0.1em) solid gray;
+    border-radius: 50%;
+    width: 1.25em;
+}
+
+fieldset {
+    border: 1px solid #FFFFFF;
+    margin: -8px 0px;
+}
+
 .container {
    background-color: #fff;
    border-radius: 10px;
@@ -293,15 +311,16 @@ footer a {
                type="text" placeholder="이름을 입력하세요" autocomplete="off" name="name"> <input
                type="text" placeholder="닉네임을 입력하세요" autocomplete="off" name="nick"> <input
                type="text" placeholder="이메일을 입력하세요" autocomplete="off" name="email"> <span>
-               <select name="gender">
-                  <option value="gender">성별</option>
-                  <option value="male">남</option>
-                  <option value="female">여</option>
-            </select> <!-- <fieldset>
-                        <legend>성별</legend>
-                        <label for="">남<input type="radio" name="gender" value="male"></label>
-                        <label for="">여<input type="radio" name="gender" value="female"></label>
-                    </fieldset> -->
+               <fieldset>
+				<label>
+					<input type="radio" name="gender" value="male" id="male"> 
+		           	<span>남자</span>
+            	</label>
+            	<label>
+					<input type="radio" name="gender" value="female" id="female"> 
+            		<span>여자</span>
+            	</label>
+            </fieldset>
             </span> <input type="date" name="birth">
             <button>회원가입</button>
          </form>

@@ -465,7 +465,7 @@ nav:hover {
                   </span>
                </span> 
                <span class="text-category"> 
-                  <span class="text-cate">생일</span>
+                  <span class="text-cate">생일선물</span>
                </span>
             </a>
          </li>
@@ -474,13 +474,12 @@ nav:hover {
          <li>
             <a href="#" class="link-item"> 
                <span class="area-thumb">
-                  <form action = "HashResult.do" method="post">
-                    	<input type="hidden" name="hashtag_name" value="크리스마스">
-                    	<button type="submit"><img src="./img/크리스마스.png" alt=""></button>
-                    </form>
+                  <span class="wrap-thumb"> 
+                     <img src="./img/부모님.png" alt="">
+                  </span>
                </span> 
                <span class="text-category"> 
-                  <span class="text-cate">크리스마스</span>
+                  <span class="text-cate">부모님 선물</span>
                </span>
             </a>
          </li>
@@ -490,14 +489,11 @@ nav:hover {
             <a href="#" class="link-item"> 
                <span class="area-thumb">
                   <span class="wrap-thumb"> 
-                     <form action = "HashResult.do" method="post">
-                    	<input type="hidden" name="hashtag_name" value="결혼">
-                    	<button type="submit"><img src="./img/결혼.png" alt=""></button>
-                    </form>
+                     <img src="./img/명품.png" alt="">
                   </span>
                </span> 
                <span class="text-category"> 
-                  <span class="text-cate">결혼</span>
+                  <span class="text-cate">명품선물</span>
                </span>
             </a>
          </li>
@@ -507,14 +503,11 @@ nav:hover {
             <a href="#" class="link-item"> 
                <span class="area-thumb">
                   <span class="wrap-thumb">
-                     <form action = "HashResult.do" method="post">
-                    	<input type="hidden" name="hashtag_name" value="출산/키즈">
-                    	<button type="submit"><img src="./img/출산키즈.png" alt=""></button>
-                    </form>
+                     <img src="./img/추석.png" alt="">
                   </span>
                </span> 
                <span class="text-category"> 
-                  <span class="text-cate">출산/키즈</span>
+                  <span class="text-cate">추석 선물</span>
                </span>
             </a>
          </li>
@@ -524,14 +517,11 @@ nav:hover {
             <a href="#" class="link-item"> 
                <span class="area-thumb">
                   <span class="wrap-thumb"> 
-                     <form action = "HashResult.do" method="post">
-                    	<input type="hidden" name="hashtag_name" value="부모님">
-                    	<button type="submit"><img src="./img/부모님.png" alt=""></button>
-                    </form>
+                     <img src="./img/크리스마스.png" alt="">
                   </span>
                </span> 
                <span class="text-category"> 
-                  <span class="text-cate">부모님</span>
+                  <span class="text-cate">크리스마스 선물</span>
                </span>
             </a>
          </li>
@@ -541,14 +531,11 @@ nav:hover {
             <a href="#" class="link-item"> 
                <span class="area-thumb">
                   <span class="wrap-thumb"> 
-                     <form action = "HashResult.do" method="post">
-                    	<input type="hidden" name="hashtag_name" value="커플">
-                    	<button type="submit"><img src="./img/커플.png" alt=""></button>
-                    </form>
+                     <img src="./img/의류.png" alt="">
                   </span>
                </span> 
                <span class="text-category"> 
-                  <span class="text-cate">커플</span>
+                  <span class="text-cate">의류 선물</span>
                </span>
             </a>
          </li>
@@ -558,14 +545,11 @@ nav:hover {
             <a href="#" class="link-item"> 
                <span class="area-thumb">
                   <span class="wrap-thumb"> 
-                     <form action = "HashResult.do" method="post">
-                    	<input type="hidden" name="hashtag_name" value="반려동물">
-                    	<button type="submit"><img src="./img/반려동물.png" alt=""></button>
-                    </form>
+                     <img src="./img/전자기기.png" alt="">
                   </span>
                </span> 
                <span class="text-category"> 
-                  <span class="text-cate">반려동물</span>
+                  <span class="text-cate">전자기기 선물</span>
                </span>
             </a>
          </li>
@@ -575,26 +559,48 @@ nav:hover {
             <a href="#" class="link-item"> 
                <span class="area-thumb">
                   <span class="wrap-thumb"> 
-                     <form action = "HashResult.do" method="post">
-                    	<input type="hidden" name="hashtag_name" value="명품">
-                    	<button type="submit"><img src="./img/명품.png" alt=""></button>
-                    </form>
+                     <img src="./img/주류.png" alt="">
                   </span>
                </span> 
                <span class="text-category"> 
-                  <span class="text-cate">명품</span>
+                  <span class="text-cate">주류 선물</span>
                </span>
             </a>
          </li>
 
-         
+         <!-- 첫번째 줄 9.카테고리 -->
+         <li>
+            <a href="#" class="link-item"> 
+               <span class="area-thumb">
+                  <span class="wrap-thumb"> 
+                     <img src="./img/커플.png" alt="">
+                  </span>
+               </span> 
+               <span class="text-category"> 
+                  <span class="text-cate">커플 선물</span>
+            </span>
+         </a></li>
+
+         <!-- 첫번째 줄 10.카테고리 -->
+         <li>
+            <a href="#" class="link-item"> 
+               <span class="area-thumb">
+                  <span class="wrap-thumb"> 
+                     <img src="./img/유아.png" alt="">
+                  </span>
+               </span> 
+               <span class="text-category"> 
+                  <span class="text-cate">유아 선물</span>
+               </span>
+            </a>
+         </li>
       </ul>
    </div>   
 
    <div class="myPage" align=center>
       <!-- 게시글 전체 -->
       <div class="main-posts">
-         <c:forEach var="board" items="${list}" varStatus="status">
+         <c:forEach var="board" items="${HashList}" varStatus="status">
             <br>
             <div class="post-box">
                <!-- 게시글 사진 -->

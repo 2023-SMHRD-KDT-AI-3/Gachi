@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.gachi.model.BoardDAO;
 import com.gachi.model.BoardDTO;
+import com.gachi.model.HashtagDAO;
+import com.gachi.model.HashtagDTO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -22,7 +24,6 @@ public class BoardWrite implements Command {
 		
         //업로드될 폴더 경로
         String path = request.getServletContext().getRealPath("/upload");
-        System.out.println("uploadpath는? "+path);
 		
 		try {
 			
@@ -44,11 +45,13 @@ public class BoardWrite implements Command {
 			String user_id = multi.getParameter("user_id");
 			String post_content = multi.getParameter("post_content");
 			int goods_id = Integer.parseInt(multi.getParameter("goods_id"));
+			String[] tagList = multi.getParameterValues("tagList");
 			//String post_img = multi.getFilesystemName("post_img");
 	        
 			BoardDAO dao = new BoardDAO();
-
 			BoardDTO board = new BoardDTO();
+			HashtagDTO hashtag = new HashtagDTO();
+			HashtagDAO hashDAO = new HashtagDAO();
 
 			board.setUser_id(user_id);
 			board.setPost_content(post_content);
@@ -56,6 +59,17 @@ public class BoardWrite implements Command {
 			board.setPost_img(post_img);
 
 			int cnt = dao.write(board);
+			int lastID = dao.LastPostID();
+			System.out.println(lastID);
+			
+			for (int i = 0; i<tagList.length;i++) {
+			hashtag.setHashtag_name(tagList[i]);
+			hashtag.setPost_id(lastID);
+			hashDAO.AddHashtag(hashtag);
+			}
+			
+			
+		
 
 			if (cnt > 0) {
 				// 게시글 등록 성공 -> 메인페이지 이동
@@ -64,6 +78,8 @@ public class BoardWrite implements Command {
 				// 게시글 등록 실패 -> "WriteFail.jsp" 이동
 				url = "WriteFail.jsp";
 			}
+			
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

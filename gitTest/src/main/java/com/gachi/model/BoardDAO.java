@@ -33,14 +33,27 @@ public class BoardDAO {
 
 	// 게시글 작성 기능
 	public int write(BoardDTO board) {
+		
 		SqlSession sqlsession = sqlSessionFactory.openSession(true);
 		int cnt = sqlsession.insert("write", board);
+		
+//		for(int i = 0;i<tagList.length;i++) {
+//			sqlSession.insert("AddHashtag", tagList[i]);
+//		}
 		sqlsession.close();
 		return cnt;
 	}
+	
+	// 마지막에 작성한 게시물 번호 불러오기
+	public int LastPostID() {
+		SqlSession sqlsession = sqlSessionFactory.openSession(true);
+		int lastID = sqlsession.selectOne("LastPostID");
+		sqlsession.close();
+		return lastID;
+	}
 
 	ArrayList<BoardDTO> myList = new ArrayList<BoardDTO>();
-
+    // 내가 작성한 글 목록 불러오기
 	public ArrayList<BoardDTO> MyList(String user_id) {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		myList = (ArrayList) sqlSession.selectList("MyList", user_id);
@@ -50,7 +63,7 @@ public class BoardDAO {
 	}
 
 	ArrayList<BoardDTO> myLikeList = new ArrayList<BoardDTO>();
-
+	// 내가 좋아요 누른 리스트 불러오기
 	public ArrayList<BoardDTO> MyLikeList(String user_id) {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		myLikeList = (ArrayList) sqlSession.selectList("MyLikeList", user_id);
@@ -73,6 +86,16 @@ public class BoardDAO {
 		sqlSession.close();
 		return goodsBoard;
 	}
+
+	// 해당 해시태그의 내용을 가진 게시글 출력
+	public List<LikeBoardDTO> HashList(String hashtag_name) {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		List<LikeBoardDTO> hashBoard = sqlSession.selectList("HashBoard", hashtag_name);
+		sqlSession.close();
+		return hashBoard;
+	}
+
+	
 
 	
 

@@ -130,7 +130,7 @@ nav:hover {
 .myPage {
     background-color: white;
     width: 1100px;
-    height: 800px;
+    height: 688px;
     margin-left: 450px;
     margin-top: 100px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
@@ -149,6 +149,7 @@ nav:hover {
 
 /* 게시글 제목 글자 */
 .board-title strong {
+    color: #3F51B5;
     font-size: 30px;
 }
 
@@ -156,18 +157,19 @@ nav:hover {
 .board-title p {
     margin-bottom: 10px;
     font-size: 15px;
+    color: #3F51B5;
 }
 
 /* 제목이랑 내용 사이 검은 줄 */
 .board-write {
     margin-left: 200px;
     width: 700px;
-    border-top: 2px solid black;
+    border-top: 2px solid #3F51B5;
 }
 
 /* 내용 입력 칸 밑 검은줄 */
 .info {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #3F51B5;
 }
 
 /* 상품등록, 상품 사진 크기 */
@@ -180,6 +182,7 @@ nav:hover {
 .board-write .url {
     border-top: 1px dashed #ddd;
     border-bottom: 1px solid black; 
+    
 }
 
 /* 내용 입력 크기 */
@@ -322,7 +325,7 @@ nav:hover {
 }
 
 .profile-top-img {
-   margin-left: 26px;
+    margin-left: 216px;
 }
 
 #userID {
@@ -332,10 +335,25 @@ nav:hover {
    margin-left: 8px;
 }
 
-.user-welcome {
-   margin-right: 35px;
-   float: right;
-   margin-top: 11px;
+#modalOpenButton {
+   padding: 4px;
+    color: #fff;
+    background: #3F51B5;
+    margin-bottom: 10px;
+}
+
+.url-btn input {
+    margin-left: 221px;
+}
+
+.board-url {
+   display: flex;
+    margin-top: 30px;
+    margin-left: 218px;
+}
+
+#goods_selected {
+	margin-left: 215px;
 }
 </style>
 </head>
@@ -352,30 +370,30 @@ nav:hover {
    <nav class="heads">
       <ul>
          <li>
-         	<a href="BoardService.do" class="logo headers"> 
-         		<img src="./img/logo1.png" alt=""> 
-         		<span class="nav-item">선물팔레트</span>
-         	</a>
+            <a href="BoardService.do" class="logo headers"> 
+               <img src="./img/logo1.png" alt=""> 
+               <span class="nav-item">선물팔레트</span>
+            </a>
          </li>
          <li>
-         	<a href="BoardService.do" class="headers"> 
-         		<i class="fas fa-home"></i> 
-         		<span class="nav-item">홈</span>
-         	</a>
+            <a href="BoardService.do" class="headers"> 
+               <i class="fas fa-home"></i> 
+               <span class="nav-item">홈</span>
+            </a>
          </li>
          <li>
-         	<a href="GoodsService.do" class="headers"> 
-         		<i class="fas fa-magnifying-glass"></i> 
-         		<span class="nav-item">검색</span>
-         	</a>
+            <a href="GoodsService.do" class="headers"> 
+               <i class="fas fa-magnifying-glass"></i> 
+               <span class="nav-item">검색</span>
+            </a>
          </li>
          <li>
-         	<a href="Write.jsp" class="headers home"> 
-         		<i class="fas fa-pen-to-square"></i> 
-         		<span class="nav-item home">게시글작성</span>
-         	</a>
+            <a href="Write.jsp" class="headers home"> 
+               <i class="fas fa-pen-to-square"></i> 
+               <span class="nav-item home">게시글작성</span>
+            </a>
          </li>
-		 <li>
+       <li>
              <form id="myForm" action="MyBoard.do" method="post">
                 <input id="myFeed2" type="hidden" name = "user_id" value="${info.user_id}">
              </form>
@@ -383,13 +401,12 @@ nav:hover {
                  <i class="fas fa-user"></i> 
                  <span class="nav-item">프로필</span>
              </a>
-            </li>
          </li>
          <li>
-         	<a href="LogoutService.do" class="logout headers"> 
-         		<i class="fas fa-sign-out-alt"></i> 
-         		<span class="nav-item">로그아웃</span>
-         	</a>
+            <a href="LogoutService.do" class="logout headers"> 
+               <i class="fas fa-sign-out-alt"></i> 
+               <span class="nav-item">로그아웃</span>
+            </a>
          </li>
       </ul>
    </nav>
@@ -397,83 +414,117 @@ nav:hover {
      <!-- 프로필 사진 -->
      <div class="profile-top-img">
         <img src="./upload/${info.user_pic}" alt="postprofile">
-        <span class="user-welcome">님 환영합니다!</span>
         <span id="userID">${info.user_id}</span>
      </div>
    </div>
-		<div class="myPage">
-			<div class="space"></div>
-        	<form action="BoardWrite.do" method="post" enctype="multipart/form-data">
-           		<div>
-           			<input type="hidden" name="user_id" value="${info.user_id}">
-	           	</div>
-    	        <!-- 게시글 제목 -->
-            	<div class="board-title">
-                	<strong>게시글 작성</strong>
-                	<p>게시글을 등록할 수 있는 곳입니다.</p>
-            	</div>
-            	<div class="board-wrap">
-	                <div class="board-write">
-                    	<!-- 내용 입력 -->
-                    	<div class="info">
-	                        <textarea cols="30" rows="10" placeholder="내용 입력" name="post_content" autocomplete="off"></textarea>
-                    	</div>
-                    	<!-- 해시태그 등록 -->
-                    	<div id="hashtagList">
-    						<!-- 추가한 해시태그가 여기에 표시 -->
-						</div>
-                    	<input type="text" id="hashtagInput" placeholder="해시태그 입력">
-                    	<button type="button" onclick="AddHashtag()">해시태그 추가</button>
-                    	<!-- 상품 등록(test) -->
-                    	<div class="item">
-	                        <dl>
-                            	<dt>
+      <div class="myPage">
+         <div class="space"></div>
+           <form action="BoardWrite.do" method="post" enctype="multipart/form-data">
+                 <div>
+                    <input type="hidden" name="user_id" value="${info.user_id}">
+                 </div>
+               <!-- 게시글 제목 -->
+               <div class="board-title">
+                   <strong>게시글 작성</strong>
+                   <p>게시글을 등록할 수 있는 곳입니다.</p>
+               </div>
+               <div class="board-wrap">
+                   <div class="board-write">
+                       <!-- 내용 입력 -->
+                       <div class="info">
+                           <textarea cols="30" rows="10" placeholder="내용 입력" name="post_content" autocomplete="off"></textarea>
+                       </div>
+                  </div>
+                  <!-- <div>
+                  이 선물의 태그를 남겨주세요<br>
+                  해시태그
+						<span># 선물 대상은 누구인가요?</div>
+						<span><input type="checkbox" name="tagList" value="친구"> 친구</span>
+						<span><input type="checkbox" name="tagList" value="연인"> 연인</span>
+						<span><input type="checkbox" name="tagList" value="썸"> 썸</span>
+						<span><input type="checkbox" name="tagList" value="형제/자매"> 형제/자매</span>
+						<span><input type="checkbox" name="tagList" value="선/후배"> 선/후배</span>
+						<span><input type="checkbox" name="tagList" value="직장동료"> 직장동료</span>
+						<span><input type="checkbox" name="tagList" value="자녀"> 자녀</span>
+						<span><input type="checkbox" name="tagList" value="부모님"> 부모님</span>
+						<span><input type="checkbox" name="tagList" value="선생님"> 선생님</span>
+						<span><input type="checkbox" name="tagList" value="가족"> 가족</span>
+						<span><input type="checkbox" name="tagList" value="기타"> 기타</span>
+                  </div>
+                  <div>
+                  		<span><input type="checkbox" name="tagList" value="준">준</span>
+                  		<span><input type="checkbox" name="tagList" value="받은">받은</span>
+                  </div>
+                  <div>
+						<div> # 어떤 선물인가요?</div>
+						<span><input type="checkbox" name="tagList" value="생일"> 생일</span>                  	
+						<span><input type="checkbox" name="tagList" value="응원"> 응원</span>                  	
+						<span><input type="checkbox" name="tagList" value="감사"> 감사</span>                  	
+						<span><input type="checkbox" name="tagList" value="결혼"> 결혼</span>                  	
+						<span><input type="checkbox" name="tagList" value="이사/집들이"> 이사/집들이</span>                  	
+						<span><input type="checkbox" name="tagList" value="백일/돌"> 백일/돌</span>                  	
+						<span><input type="checkbox" name="tagList" value="임신/출산"> 임신/출산</span>                  	
+						<span><input type="checkbox" name="tagList" value="입학/졸업"> 입학/졸업</span>                  	
+						<span><input type="checkbox" name="tagList" value="취업/이직"> 취업/이직</span>                  	
+						<span><input type="checkbox" name="tagList" value="시험"> 시험</span>                  	
+						<span><input type="checkbox" name="tagList" value="수능"> 수능</span>                  	
+						<span><input type="checkbox" name="tagList" value="위로"> 위로</span>                  	
+						<span><input type="checkbox" name="tagList" value="반려동물"> 반려동물</span>                  	
+						<span><input type="checkbox" name="tagList" value="크리스마스"> 크리스마스</span>                  	
+						<span><input type="checkbox" name="tagList" value="기념일"> 기념일</span>                  	
+                  </div>  -->
+                  
+                 <!-- 해시태그 등록 -->
+                  <div id="hashtagList">
+                      <!-- 추가한 해시태그가 여기에 표시 -->
+                  </div>
+                       <input type="text" id="hashtagInput" placeholder="해시태그 입력">
+                       <button type="button" onclick="AddHashtag()">해시태그 추가</button>
+                       <input type="text" name="tagList" value="">
+                  <div class="board-url">
+                       <!-- 상품 등록(test) -->
+                        <div class="item">
+							<dl>
+								<dt>
 									<button type="button" id="modalOpenButton">상품등록하기</button> 
-									
-									<input type="hidden" id="goods_value" name="goods_id" value="">	
-                            	</dt>
-                        	</dl>
-                    	</div>
-            		</div>
-	        	</div>
-				<!-- 사진등록(test) -->
-				<div class="url">
-					<dl>
-						<dt>
-							<dd class="url-btn"><input type="file" name="post_img" style="float: right;"></dd>
-						</dt>
-					</dl>	
-				</div>
-				<div class="btn-wrap">
-					<input type="submit" value="등록" class="on">
-					<a href="BoardService.do">취소</a>
-            	</div>
-			</form>
-			<div id="modalGoods" class="hidden">
-			<!-- 상품등록 모달창(test) -->
-				<div id="update_Goods">
-					<p>상품 등록</p>
-					<input type="text" id="keyword" name="keyword" class="bar" autocomplete="off" placeholder="상품 이름 입력"> 
-					<button type="button" onclick="searchGoods()">검색</button>
-					<div id="reply" class="lines"></div>
-					<button id="modalCloseButton">닫기</button>
-				</div>
-			</div>
-		</div>
+									<input type="hidden" id="goods_value" name="goods_id" value="">
+								</dt>
+							</dl>
+						</div>
+                  <!-- 사진등록(test) -->
+                  <div class="url">
+                     <dl>
+                        <dt>
+                           <dd class="url-btn"><input type="file" name="post_img"></dd>
+                        </dt>
+                     </dl>   
+                  </div>
+                 </div>
+                 <span id="goods_selected"></span>   
+                  </div>
+            <div class="btn-wrap">
+               <input type="submit" value="등록" class="on">
+               <a href="BoardService.do">취소</a>
+               </div>
+         </form>
+         <div id="modalGoods" class="hidden">
+         <!-- 상품등록 모달창(test) -->
+            <div id="update_Goods">
+               <p>상품 등록</p>
+               <input type="text" id="keyword" name="keyword" class="bar" autocomplete="off" placeholder="상품 이름 입력"> 
+               <button type="button" onclick="searchGoods()">검색</button>
+               <div id="reply" class="lines"></div>
+               <button id="modalCloseButton">닫기</button>
+            </div>
+         </div>
+      </div>
    <script>
-   
-// myPage 이동시 개인피드 출력
-   document.getElementById('myFeed1').addEventListener('click', function(e) {	
- 	  e.preventDefault();
-	  document.getElementById('myForm').submit();
-});
-
    const modalOpenButton = document.getElementById('modalOpenButton');
    const modalCloseButton = document.getElementById('modalCloseButton');
    const modalGoods = document.getElementById('modalGoods');
 
    modalOpenButton.addEventListener('click', () => {
-	   console.log(00);
+      console.log(00);
       modalGoods.classList.remove('hidden');
    });
 
@@ -482,88 +533,122 @@ nav:hover {
    });
 
    
-// 검색상품 출력 ajax
-	function searchGoods() {
-		var keyword=$("#keyword").val();
-		$.ajax({
-			url : "GetSearch.do",
-			type : "post",
-			data : {
-				type : "goodsS",
-				keyword : keyword,
-			},
-			success : function(data) {
-				var html="<table>";
-				$.each(data, function(index, obj){
-					html += "<tr onclick=\"sendID(" + obj.goods_id + ",'" + obj.goods_name + "')\">";
-					html+="<td>"+obj.goods_id+"</td>";
-					html+="<td>"+obj.goods_name+"</td>";
-					html+="</tr>";						
-				});
-				html+="</table>";
-				$("#reply").html(html);
-			},
-			error : function() {
-				console.log('요청실패 ㅜㅜ');
-			}
-		});
-	}
-	
-	// 상품 번호 form태그로 넘겨주기
-	let sendID = function(goodsID, goodsName){
-		document.getElementById('goods_value').value = goodsID;
-		alert('선택한 상품 : ' + goodsName);
-		modalGoods.classList.add('hidden');
-	}
-	
+// 상품등록 ajax
+   function searchGoods() {
+      var keyword=$("#keyword").val();
+      $.ajax({
+         url : "GetSearch.do",
+         type : "post",
+         data : {
+            type : "goodsS",
+            keyword : keyword,
+         },
+         success : function(data) {
+            var html="<table>";
+            $.each(data, function(index, obj){
+                html += "<tr onclick=\"sendID(" + obj.goods_id + ",'" + obj.goods_name + "')\">";
+                html+="<td>"+obj.goods_id+"</td>";
+                html+="<td>"+obj.goods_name+"</td>";
+                html+="</tr>";                  
+             });
+            html+="</table>";
+            $("#reply").html(html);
+         },
+         error : function() {
+            console.log('요청실패 ㅜㅜ');
+         }
+      });
+   }
+   
+   // 입력 필드에서 해시태그를 추출하기 위한 JavaScript 함수
+   function extractHashtags() {
+       const inputField = document.querySelector('input[name="hashtags"]');
+       const hashtags = inputField.value.match(/#(\w+)/g);
+       return hashtags || [];
+   }
 
-	// 해시태그를 저장할 배열
-	var hashtags = [];
-	// 해시태그 추가, 출력
-	function addHashtag() {
+// myPage 이동시 개인피드 출력
+   document.getElementById('myFeed1').addEventListener('click', function(e) {   
+      e.preventDefault();
+     document.getElementById('myForm').submit();
+});
 
-	    var hashtagInput = document.getElementById('hashtagInput');
-	    var hashtag = hashtagInput.value;
+//sendID
 
-	    // 해시태그가 비어있지 않은지 확인
-	    if (hashtag.trim() === '') {
-	        alert('유효한 해시태그를 입력하세요.');
-	        return;
-	    }
-	    $.ajax({
-	        url: "HashtagService.do", // 실제 URL로 대체
-	        type: "post",
-	        data: {
-	            hashtag: hashtag
-	        },
-	        success: function (data) {
-			    // 배열에 해시태그 추가
-			    hashtags.push(hashtag);
+let sendID = function(goodsID, goodsName){
+   document.getElementById('goods_value').value = goodsID;
+   var goodsSelectedElement = document.getElementById('goods_selected');
+   goodsSelectedElement.innerText = goodsName;
+   alert('선택한 상품 : ' + goodsName);
+   modalGoods.classList.add('hidden');
+}
+   
 
-			    // 해시태그를 화면에 표시	
-	  		    displayHashtags();
 
-			    // 입력 필드 지우기
-			    hashtagInput.value = '';
+/* function AddHashtag() {
+    // 입력된 해시태그 가져오기
+    var hashtagInput = document.getElementById("hashtagInput");
+    var hashtag = hashtagInput.value.trim();
 
-				// 해시태그를 화면에 표시하는 함수
-				function displayHashtags() {
-	    			var hashtagList = document.getElementById('hashtagList');
-	    			// 기존 해시태그 목록 초기화
-	    			hashtagList.innerHTML = '';
+    if (hashtag !== "") {
+      // 새로운 해시태그 요소 생성
+      var hashtagElement = document.createElement("span");
+      hashtagElement.textContent = hashtag;
+      hashtagElement.classList.add("hashtag");
 
-	    			// 배열에 저장된 모든 해시태그를 표시
-	   			 	hashtags.forEach(function (hashtag) {
-	       			var hashtagElement = document.createElement('span');
-	        		hashtagElement.textContent = hashtag;
-	        		hashtagList.appendChild(hashtagElement);
-	   			 	})
-				}
-	        }
-	    });
-	}
+      // 해시태그 목록에 추가
+      var hashtagList = document.getElementById("hashtagList");
+      hashtagList.appendChild(hashtagElement);
 
-   </script>
+      // 입력 필드 초기화
+      hashtagInput.value = "";
+    }
+  } */
+  
+  
+  
+//해시태그를 저장할 배열
+  var hashtags = [];
+
+  // 해시태그를 추가하고 화면에 표시하는 함수
+  function AddHashtag() {
+      var hashtagInput = document.getElementById('hashtagInput');
+      var hashtag = hashtagInput.value;
+
+      // 해시태그가 비어있지 않은지 확인
+      if (hashtag.trim() === '') {
+          alert('유효한 해시태그를 입력하세요.');
+          return;
+      }
+
+      // 배열에 해시태그 추가
+      hashtags.push("#"+hashtag);
+
+      // 해시태그를 화면에 표시
+      displayHashtags();
+
+      // 입력 필드 지우기
+      hashtagInput.value = '';
+      
+      
+  }
+
+  // 해시태그를 화면에 표시하는 함수
+  function displayHashtags() {
+      var hashtagList = document.getElementById('hashtagList');
+      // 기존 해시태그 목록 초기화
+      hashtagList.innerHTML = '';
+
+      // 배열에 저장된 모든 해시태그를 표시
+      hashtags.forEach(function (hashtag) {
+          var hashtagElement = document.createElement('span');
+          hashtagElement.textContent = hashtag;
+          hashtagList.appendChild(hashtagElement);
+      });
+      document.querySelector('input[name="tagList"]').value = hashtags.join(',');
+      
+  }
+  </script>
 
 </body>
 

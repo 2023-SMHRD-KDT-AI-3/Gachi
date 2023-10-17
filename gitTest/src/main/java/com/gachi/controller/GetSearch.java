@@ -1,16 +1,14 @@
 package com.gachi.controller;
 
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.gachi.model.BoardDTO;
-import com.gachi.model.CmtDTO;
 import com.gachi.model.GoodsDTO;
+import com.gachi.model.LikeBoardDTO;
 import com.gachi.model.MemberDTO;
 import com.gachi.model.SearchDAO;
 import com.gachi.model.SearchDTO;
@@ -44,13 +42,17 @@ public class GetSearch implements Command {
 			}
 			// 게시글 검색
 			else if (type.equals("content")) {
-				List<BoardDTO> contentResult = dao.searchBoard(search);
+				List<LikeBoardDTO> contentResult = dao.searchBoard(keyword);
 				request.setAttribute("contentResult", contentResult);
 				url = "SearchResult.jsp";
 			} else if (type.equals("goods")) {
 				List<GoodsDTO> goodsResult = dao.searchGoods(search);
 				request.setAttribute("goodsResult", goodsResult);
 				url = "SearchResultG.jsp";
+			} else if (type.equals("hashtag")) {
+				List<LikeBoardDTO> hashResult = dao.searchHash(keyword);
+				request.setAttribute("HashResult", hashResult);
+				url = "SearchResultH.jsp";
 			} else if (type.equals("goodsS")) {
 				List<GoodsDTO> goodsSResult = dao.searchGoods(search);
 

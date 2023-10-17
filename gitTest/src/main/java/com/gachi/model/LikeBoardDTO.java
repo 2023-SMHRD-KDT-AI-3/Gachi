@@ -19,4 +19,5 @@ public class LikeBoardDTO {
 	private String user_pic;
 	private int like_id;
 	private int liked; // 1, 0
+	private String hashtag_name;
 }

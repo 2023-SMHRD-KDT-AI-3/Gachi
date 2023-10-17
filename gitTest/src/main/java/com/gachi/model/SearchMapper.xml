@@ -8,13 +8,48 @@
 </select>
 
 <!-- 게시글 검색 -->
-<select id="SearchBoard" parameterType="com.gachi.model.SearchDTO" resultType="com.gachi.model.BoardDTO">
-	SELECT * FROM tbl_post WHERE post_content LIKE CONCAT('%',#{keyword},'%')
+<select id="SearchBoard" parameterType="string" resultType="com.gachi.model.LikeBoardDTO">
+	SELECT
+    		p.post_id,
+    		p.post_content,
+    		p.goods_id,
+    		l.like_id,
+    		l.kuser_id,
+    		p.user_id,
+    		l.post_idx,
+    		p.post_img,
+    		m.user_pic,
+    		IFNULL(l.kuser_id IS NOT NULL, 0) AS liked,
+    		h.hashtag_name
+			FROM tbl_post p
+			JOIN tbl_user m ON p.user_id = m.user_id
+			LEFT JOIN tbl_likes l ON p.post_id = l.post_idx AND l.kuser_id = #{user_id}
+			LEFT JOIN tbl_hashtag h ON p.post_id = h.post_id order by post_id desc WHERE p.post_content LIKE CONCAT('%',#{keyword},'%')
 </select>
 
 <!-- 상품검색 -->
 <select id="SearchGoods" parameterType="com.gachi.model.SearchDTO" resultType="com.gachi.model.GoodsDTO">
 	SELECT * FROM tbl_goods WHERE goods_name LIKE CONCAT('%',#{keyword},'%') order by goods_wish desc
+</select>
+
+<!-- 해시태그검색 -->
+<select id="SearchHash" parameterType="string" resultType="com.gachi.model.LikeBoardDTO">
+	SELECT
+    		p.post_id,
+    		p.post_content,
+    		p.goods_id,
+    		l.like_id,
+    		l.kuser_id,
+    		p.user_id,
+    		l.post_idx,
+    		p.post_img,
+    		m.user_pic,
+    		IFNULL(l.kuser_id IS NOT NULL, 0) AS liked,
+    		h.hashtag_name
+			FROM tbl_post p
+			JOIN tbl_user m ON p.user_id = m.user_id
+			LEFT JOIN tbl_likes l ON p.post_id = l.post_idx AND l.kuser_id = #{user_id}
+			LEFT JOIN tbl_hashtag h ON p.post_id = h.post_id WHERE h.hashtag_name LIKE CONCAT('%',#{keyword},'%')
 </select>
 
 </mapper>

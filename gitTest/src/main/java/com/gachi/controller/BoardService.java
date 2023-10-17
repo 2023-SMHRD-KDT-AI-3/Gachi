@@ -22,6 +22,7 @@ public class BoardService implements Command {
 		ArrayList<LikeBoardDTO> list = dao.AllList(dto.getUser_id()); // BoardDTO -> LikeBoardDTO
 
 		request.setAttribute("list", list);
+		
 
 		return "Main.jsp";
 

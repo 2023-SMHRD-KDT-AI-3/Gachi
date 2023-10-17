@@ -3,7 +3,7 @@
 <mapper namespace="com.gachi.model.HashtagMapper">
 
 <!-- 해시태그 추가 -->
-<insert id="AddHashtag" parameterType="string" >
-	insert into tbl_hashtag (hashtag_name) values (#{hashtag})
+<insert id="AddHashtag" parameterType="com.gachi.model.HashtagDTO" >
+	insert into tbl_hashtag (post_id, hashtag_name) values (#{post_id}, #{hashtag_name})
 </insert>
 </mapper>

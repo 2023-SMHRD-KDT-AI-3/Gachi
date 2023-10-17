@@ -386,7 +386,7 @@ nav:hover {
 }
 
 .profile-top-img {
-   margin-left: 26px;
+   margin-left: 216px;
 }
 
 #userID {
@@ -394,12 +394,6 @@ nav:hover {
    float: right;
    margin-top: 8px;
    margin-left: 8px;
-}
-
-.user-welcome {
-   margin-right: 35px;
-   float: right;
-   margin-top: 11px;
 }
 
 
@@ -458,7 +452,6 @@ nav:hover {
      <!-- 프로필 사진 -->
      <div class="profile-top-img">
         <img src="./upload/${info.user_pic}" alt="postprofile">
-        <span class="user-welcome">님 환영합니다!</span>
         <span id="userID">${info.user_id}</span>
      </div>
    </div>

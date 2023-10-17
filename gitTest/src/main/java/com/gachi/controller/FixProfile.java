@@ -70,7 +70,6 @@ public class FixProfile implements Command {
 	         MemberDTO info = dao.login(m);
 
 	         if (info != null) {
-	            // 로그인 성공
 	 			HttpSession session2 = request.getSession();
 	            session2.setAttribute("info", info);
 	            url = "MyBoard.do";

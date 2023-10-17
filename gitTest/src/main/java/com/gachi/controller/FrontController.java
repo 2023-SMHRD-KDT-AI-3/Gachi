@@ -120,11 +120,11 @@ public class FrontController extends HttpServlet {
 			// 해당 상품 게시물 출력 기능
 			GetFollowList getFollowList = new GetFollowList();
 			url = getFollowList.execute(request, response);
-		} else if (result.equals("HashtagService.do")) {
+		} else if (result.equals("HashResult.do")) {
 			// 해당 상품 게시물 출력 기능
-			HashtagService hashtagService = new HashtagService();
-			url = hashtagService.execute(request, response);
-		}
+			HashResult hashResult = new HashResult();
+			url = hashResult.execute(request, response);
+		} 
 		
 		
 		

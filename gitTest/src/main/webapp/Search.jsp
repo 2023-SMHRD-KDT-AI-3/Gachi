@@ -9,8 +9,15 @@
 <title>검색페이지</title>
 <style>
 /* 글씨 크기나 모양 */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@800;900&display=swap');
 
+@font-face {
+    font-family: 'Cafe24Ssurround';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 /* 전체 */
 * {
     margin: 0;
@@ -19,7 +26,7 @@
     border: none;
     text-decoration: none;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+    font-family: "Noto+Sans+KR", sans-serif;
 }
 
 /* 전체 */
@@ -101,6 +108,7 @@ body {
     position: relative;
     top: 12px;
     margin-left: 10px;
+    font-size: 15px;
 }
 
 /* 커서를 올리면 나타나게 하기 */
@@ -136,12 +144,12 @@ nav:hover {
    width: 1100px;
    height: 5000px;
    margin-left: 450px; 
-   margin-top: 20px;
+   margin-top: 10px;
    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 .search form {
-   height: 35px;
+   height: 45px;
     justify-content: center;
     display: flex;
     margin-top: 15px;
@@ -151,20 +159,25 @@ nav:hover {
     border-top: 1px solid #3F51B5;
     border-bottom: 1px solid #3F51B5;
     width: 560px;
+    height: 45px;
+    margin-top: 8px;
 }
 
 #searchType {
    border: 1px solid #3F51B5;
    text-align: center;
    margin-left: 390px;
+   margin-top: 8px;
    border-bottom-left-radius: 25px;
    border-top-left-radius: 25px;
    color: #3F51B5;
+   height: 45px;
 }
 
 input[type="submit"] {
     font-family: FontAwesome;
     width: 45px;
+    height: 45px;
     border-bottom-right-radius: 25px;
     border-top-right-radius: 25px;
     background: #fff;
@@ -172,6 +185,7 @@ input[type="submit"] {
     border-bottom: 1px solid #3F51B5;
     border-right: 1px solid #3F51B5;
     color: #3F51B5;
+    margin-top: 8px;
 }
 
 .fa-magnifying-glass,
@@ -200,13 +214,9 @@ input[type="submit"] {
 
 /* 자기 피드 크기 */
 .rank-row {
-   display: flex; 
    flex-wrap: wrap;
-   padding-bottom: 0px; 
-   padding-top: 0px; 
    position: relative;
    height: 309px;
-   margin-bottom: 9px;
    width: 1100px;
 }
 
@@ -223,11 +233,17 @@ input[type="submit"] {
    width: 100%;
    height: 100%;
    border: 1px solid #eee;
-   border-radius: 5px;
+   border-radius: 35px;
+   cursor: pointer;
+}
+
+.rank-board img:hover {
+   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 .goods-info {
    display: grid;
+   cursor: default
 }
 
 .goods-price{
@@ -241,8 +257,9 @@ input[type="submit"] {
 
 .myPage p {
    text-align: center;
-    font-size: 50px;
-    color: #3F51B5
+    font-size: 45px;
+    color: #3F51B5;
+    font-family: "Cafe24Ssurround", sans-serif;
 }
 
 .user-id input {
@@ -262,7 +279,14 @@ input[type="submit"] {
 }
 
 .profile-top-img {
-   margin-left: 26px;
+   margin-right: 9px;
+   margin-top: 6px;
+}
+
+#userID {
+   font-size: 20px;
+   float: right;
+   margin-left: 8px;
 }
 
 .recsize {
@@ -277,19 +301,6 @@ input[type="submit"] {
     height: 18px;
     margin-left: 18px;
     background: #fff
-}
-
-#userID {
-   font-size: 20px;
-   float: right;
-   margin-top: 8px;
-   margin-left: 8px;
-}
-
-.user-welcome {
-   margin-right: 35px;
-   float: right;
-   margin-top: 11px;
 }
 
 </style>
@@ -350,7 +361,6 @@ input[type="submit"] {
      <!-- 프로필 사진 -->
      <div class="profile-top-img">
         <img src="./upload/${info.user_pic}" alt="postprofile">
-        <span class="user-welcome">님 환영합니다!</span>
         <span id="userID">${info.user_id}</span>
      </div>
    </div>
@@ -371,12 +381,12 @@ input[type="submit"] {
    <br>
    
    <div class="myPage">
-      <p>랭킹 순위</p>
+      <p>제일 인기가 많은 상품!</p>
       <div class="container">
          <!-- 랭킹 상품 -->
          <ul class="rank-row">
             <c:forEach var="Goods" items="${goodsList}" varStatus="status">
-                <li class="rank-board">
+                <li class="rank-board ">
                     <span><img src="${Goods.goods_img}" onclick="GoodsBoard(${Goods.goods_id})"></span>
                     <span class="goods-info">
                         <span>${Goods.goods_brand}</span>
@@ -397,24 +407,24 @@ input[type="submit"] {
         e.preventDefault();
         document.getElementById('myForm').submit();
    });
-   	// 해당상품 게시글 출력
-   	function GoodsBoard(goods_id) {
-    	// 폼 엘리먼트 생성
-    	var form = document.createElement("form");
-    	form.action = "GoodsBoard.do"; // 이동할 페이지의 URL을 여기에 넣으세요
-    	form.method = "POST"; // POST 또는 GET 메소드를 선택하세요
+      // 해당상품 게시글 출력
+      function GoodsBoard(goods_id) {
+       // 폼 엘리먼트 생성
+       var form = document.createElement("form");
+       form.action = "GoodsBoard.do"; // 이동할 페이지의 URL을 여기에 넣으세요
+       form.method = "POST"; // POST 또는 GET 메소드를 선택하세요
 
-    	// hidden 입력 엘리먼트를 폼에 추가 (goods_id를 전달)
-    	var input = document.createElement("input");
-    	input.type = "hidden";
-    	input.name = "goods_id";
-    	input.value = goods_id;
-    	form.appendChild(input);
+       // hidden 입력 엘리먼트를 폼에 추가 (goods_id를 전달)
+       var input = document.createElement("input");
+       input.type = "hidden";
+       input.name = "goods_id";
+       input.value = goods_id;
+       form.appendChild(input);
 
-    	// 폼을 문서에 추가하고 자동으로 제출
-    	document.body.appendChild(form);
-    	form.submit();
-	}
+       // 폼을 문서에 추가하고 자동으로 제출
+       document.body.appendChild(form);
+       form.submit();
+   }
 
 /*       function GoodsBoard(goods_id) {
          alert(goods_id);
@@ -425,7 +435,7 @@ input[type="submit"] {
                 goods_id : goods_id
              },
              success : function() {
-            	 window.location.href = "GoodsBoard.";
+                window.location.href = "GoodsBoard.";
              },
              error : function() {
                 console.log('요청실패 ㅜㅜ');

@@ -9,8 +9,15 @@
 <title>검색페이지</title>
 <style>
 /* 글씨 크기나 모양 */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@800;900&display=swap');
 
+@font-face {
+    font-family: 'yg-jalnan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 /* 전체 */
 * {
     margin: 0;
@@ -19,7 +26,7 @@
     border: none;
     text-decoration: none;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+    font-family: "Noto+Sans+KR", sans-serif;
 }
 
 /* 전체 */
@@ -101,6 +108,7 @@ body {
     position: relative;
     top: 12px;
     margin-left: 10px;
+    font-size: 15px;
 }
 
 /* 커서를 올리면 나타나게 하기 */
@@ -126,13 +134,6 @@ nav:hover {
     bottom: 0;
 }
 
-#userID {
-   font-size: 20px;
-   float: right;
-   margin-top: 8px;
-   margin-left: 8px;
-}
-
 .user-welcome {
    margin-right: 35px;
    float: right;
@@ -145,12 +146,22 @@ nav:hover {
    width: 1100px;
    height: 5000px;
    margin-left: 450px; 
-   margin-top: 20px;
+   margin-top: 10px;
+   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* 프로필 흰바탕 */
+.myPage {
+   background-color: white;
+   width: 1100px;
+   height: 5000px;
+   margin-left: 450px; 
+   margin-top: 10px;
    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 .search form {
-   height: 35px;
+   height: 45px;
     justify-content: center;
     display: flex;
     margin-top: 15px;
@@ -160,20 +171,25 @@ nav:hover {
     border-top: 1px solid #3F51B5;
     border-bottom: 1px solid #3F51B5;
     width: 560px;
+    height: 45px;
+    margin-top: 8px;
 }
 
 #searchType {
    border: 1px solid #3F51B5;
    text-align: center;
    margin-left: 390px;
+   margin-top: 8px;
    border-bottom-left-radius: 25px;
    border-top-left-radius: 25px;
    color: #3F51B5;
+   height: 45px;
 }
 
-.search1 input[type="submit"] {
+.dotbogi[type="submit"] {
     font-family: FontAwesome;
     width: 45px;
+    height: 45px;
     border-bottom-right-radius: 25px;
     border-top-right-radius: 25px;
     background: #fff;
@@ -181,6 +197,7 @@ nav:hover {
     border-bottom: 1px solid #3F51B5;
     border-right: 1px solid #3F51B5;
     color: #3F51B5;
+    margin-top: 8px;
 }
 
 .fa-magnifying-glass,
@@ -197,18 +214,10 @@ nav:hover {
 .myPage p {
    text-align: center;
     font-size: 50px;
-    color: #3F51B5
+    color: #3F51B5;
+    font-family: "yg-jalnan", sans-serif;
 }
 
-/* 프로필 흰바탕 */
-.myPage {
-   background-color: white;
-   width: 1100px;
-   height: 5000px;
-   margin-left: 450px; 
-   margin-top: 40px;
-   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-}
 /* 카테고리 전체 */
 .wrap-category {
    display: flex;
@@ -361,6 +370,8 @@ nav:hover {
    margin-top: 30px;
    position: relative;
    padding: 1.0em;
+   width: 550px;
+   height: 84px;
 }
 
 /* 내용 입력 크기 */
@@ -398,15 +409,10 @@ nav:hover {
    margin-top: 10px;
 }
 
-
-
-
-
-
-
 .user-id input {
    background: #fff;
-   font-size: 16px;
+   font-size: 20px;
+   font-weight: bold;
 }
 
 .profile-top {
@@ -421,7 +427,14 @@ nav:hover {
 }
 
 .profile-top-img {
-   margin-left: 26px;
+   margin-right: 9px;
+   margin-top: 6px;
+}
+
+#userID {
+   font-size: 20px;
+   float: right;
+   margin-left: 8px;
 }
 
 .recsize {
@@ -438,17 +451,14 @@ nav:hover {
     background: #fff
 }
 
-#userID {
-   font-size: 20px;
-   float: right;
-   margin-top: 8px;
-   margin-left: 8px;
-}
-
 .user-welcome {
    margin-right: 35px;
    float: right;
    margin-top: 11px;
+}
+
+.data1 {
+   width: 90px;
 }
 
 </style>
@@ -509,7 +519,6 @@ nav:hover {
      <!-- 프로필 사진 -->
      <div class="profile-top-img">
         <img src="./upload/${info.user_pic}" alt="postprofile">
-        <span class="user-welcome">님 환영합니다!</span>
         <span id="userID">${info.user_id}</span>
      </div>
    </div>
@@ -524,14 +533,14 @@ nav:hover {
             <option selected value="none">카테고리 선택</option>
          </select> 
          <input type="text" name="keyword" class="bar" placeholder="  상품 이름 입력"> 
-         <input type="submit" value="&#xf002;">
+         <input type="submit" value="&#xf002;" class="dotbogi">
       </form>
    </div>
    <br>
    
    <!-- 게시글에 대한 결과물 -->
    <div class="myPage" align=center>
-   <p>게시글</p>
+   <p>검색한 게시글</p>
       <!-- 게시글 전체 -->
       <div class="main-posts">
          <c:forEach var="boardRes" items="${contentResult}" varStatus="status">
@@ -564,6 +573,7 @@ nav:hover {
                <br>
                <img src="./upload/${boardRes.post_img}" alt="postbox">
                <div align=left>${boardRes.post_content}</div>
+               <div>${board.hashtag_name}</div>
                <div class="post-info">
                   <div class="likes">
                      <!-- 좋아요 -->
@@ -612,39 +622,47 @@ nav:hover {
       <script type="text/javascript">
       
       // 댓글 보기 ajax
-        function goCmt(post_id) {
-           // alert("goods_id: "+goods_id+" / user_id: "+user_id);
-           $.ajax({
-              url : "CmtService.do",
-              type : "post",            
-              data : {
-                 post_id : post_id
-              },
-              dataType : "json",
-              success : function(data) {
-                 console.log("요청성공"); //1:추천삭제 ,0:추천추가
-                 // 댓글 출력
-                 var html="<div class='lines2'>";
-                 html+="<table>";
-                 html+="<tr>";
-                 html+="<td>아이디</td>";
-                 html+="<td>내용</td>";
-                 html+="</tr>";
-                 $.each(data, function(index, obj){
-                    html+="<tr>";
-                    html+="<td>"+obj.user_id+"</td>";
-                    html+="<td>"+obj.cmt_content+"</td>";
-                    html+="</tr>";                  
-                 });
-                 html+="</table>";
-                 html+="</div/>"
-                 $("#reply"+post_id).html(html);
-              },
-              error : function() {
-                 console.log('요청실패 ..');
-              }
-           })
-        }
+      let reple = true;
+
+      function goCmt(post_id) {
+          if (reple) {
+              // alert("goods_id: " + goods_id + " / user_id: " + user_id);
+              $.ajax({
+                  url: "CmtService.do",
+                  type: "post",
+                  data: {
+                      post_id: post_id
+                  },
+                  dataType: "json",
+                  success: function (data) {
+                      console.log("요청성공"); // 1:추천삭제 , 0:추천추가
+                      // 댓글 출력
+                      var html = "<table class='lines2'>";
+                      html += "<tr class='detgul-row'>";
+                      html += "<td class='data1'>아이디</td>";
+                      html += "<td>내용</td>";
+                      html += "</tr>";
+                      $.each(data, function (index, obj) {
+                          html += "<tr class='detgul-row'>";
+                          html += "<td class='data1'>" + obj.user_id + "</td>";
+                          html += "<td>" + obj.cmt_content + "</td>";
+                          html += "</tr>";
+                      });
+                      html += "</table>";
+                      $("#reply" + post_id).html(html);
+                      reple = false;
+                  },
+                  error: function () {
+                      console.log('요청실패 ..');
+                  }
+              });
+          } else {
+              // 이미 실행되었으므로 내용을 숨기거나 지울 수 있음
+              // 예를 들어, 아래와 같이 내용을 지우는 방법
+              $("#reply" + post_id).html("");
+              reple = true; // 다시 true로 설정하여 다음 클릭 때 실행할 수 있도록 함
+          }
+      }
       
       
       // 좋아요 ajax

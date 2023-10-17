@@ -14,12 +14,12 @@ public class SearchDAO {
 	SearchDTO search = new SearchDTO();
 
 	// 게시글 검색
-	List<BoardDTO> boardResult;// = new ArrayList<BoardDTO>();
+	List<LikeBoardDTO> boardResult;// = new ArrayList<BoardDTO>();
 
-	public List<BoardDTO> searchBoard(SearchDTO search) {
+	public List<LikeBoardDTO> searchBoard(String keyword) {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
-		boardResult = (List) sqlSession.selectList("SearchBoard",search);
+		boardResult = (List) sqlSession.selectList("SearchBoard",keyword);
 
 		sqlSession.close();
 
@@ -51,4 +51,17 @@ public class SearchDAO {
 
 		return goodsResult;
 	}
+	
+	// 해시태그 검색
+		List<LikeBoardDTO> hashResult;
+		
+		public List<LikeBoardDTO> searchHash(String keyword) {
+			SqlSession sqlSession = sqlSessionFactory.openSession(true);
+
+			hashResult = (List) sqlSession.selectList("SearchHash",keyword);
+
+			sqlSession.close();
+
+			return hashResult;
+		}
 }

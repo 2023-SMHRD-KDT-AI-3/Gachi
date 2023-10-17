@@ -7,8 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class HashtagDTO {
-	private int hashtag_id;
-	private int post_id;
-	private String hashtag_name;
+public class CountDTO {
+	private int LikeCnt;
+	private int RecCnt;
+	private int CommentCnt;
 }
