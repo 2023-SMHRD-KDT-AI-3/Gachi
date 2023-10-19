@@ -2,6 +2,10 @@
     <img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=120&text=Team%20Gachi의%20프로젝트%20입니다.&animation=&fontColor=000000&fontSize=60" />
 </div>
 
+## 📎선물팔레트(팀명: Gachi)
+![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/12344240-9a69-4f38-8231-3053733d50dc)
+
+
 ## 📎서비스 소개
 ![logo](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/f2933876-3aba-4b81-b48e-3aee460781eb)
 
