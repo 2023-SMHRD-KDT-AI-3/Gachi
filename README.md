@@ -132,50 +132,36 @@
 해시태그 기능 구현
 주제별 추천 기능 구현</pre>
     </td>
-    <td align="center"><strong>프로젝트 총괄</strong>
+    <td align="center"><strong>Backend</strong>
         <hr>
-        <pre>DB 설계 및 구축
-게시판 기능 구현
-좋아요, 추천, 댓글 기능 연결
-회원정보 수정 기능 구현
-게시글 작성 기능 구현
-게시글 검색 기능 구현
-파일 첨부 기능 구현
-해시태그 기능 구현
-주제별 추천 기능 구현</pre></td>
-    <td align="center"><strong>프로젝트 총괄</strong>
+        <pre>회원정보 기능 구현
+로그아웃 기능 구현
+게시글 수정/삭제 기능 구현
+소개글 기능 구현(마이페이지)
+상대 프로필 기능 구현</pre></td>
+    <td align="center"><strong>Backend</strong>
         <hr>
-        <pre>DB 설계 및 구축
-게시판 기능 구현
-좋아요, 추천, 댓글 기능 연결
-회원정보 수정 기능 구현
-게시글 작성 기능 구현
-게시글 검색 기능 구현
-파일 첨부 기능 구현
-해시태그 기능 구현
-주제별 추천 기능 구현</pre></td>
-    <td align="center"><strong>프로젝트 총괄</strong>
+        <pre>좋아요 및 추천 기능 구현
+상품 리스트 출력 기능 구현
+상대 프로필 기능 구현
+좋아요/추천 연결 기능 구현
+팔로우 기능 구현
+게시글 수정/삭제 기능 구현</pre></td>
+    <td align="center"><strong>Frontend</strong>
         <hr>
-        <pre>DB 설계 및 구축
-게시판 기능 구현
-좋아요, 추천, 댓글 기능 연결
-회원정보 수정 기능 구현
-게시글 작성 기능 구현
-게시글 검색 기능 구현
-파일 첨부 기능 구현
-해시태그 기능 구현
-주제별 추천 기능 구현</pre></td>
-    <td align="center"><strong>프로젝트 총괄</strong>
+        <pre>회원정보 페이지 구현
+메인 페이지 구현
+상품 리스트 및 이미지 크롤링
+댓글창 구성 구현</pre></td>
+    <td align="center"><strong>Frontend</strong>
         <hr>
-        <pre>DB 설계 및 구축
-게시판 기능 구현
-좋아요, 추천, 댓글 기능 연결
-회원정보 수정 기능 구현
-게시글 작성 기능 구현
-게시글 검색 기능 구현
-파일 첨부 기능 구현
-해시태그 기능 구현
-주제별 추천 기능 구현</pre></td>
+        <pre>메인 페이지 구현
+ 마이 페이지 구현
+게시글작성 페이지 구현
+회원정보 수정 페이지 구현
+피드 구성 구현
+상품리스트 페이지 구현
+검색 관련 페이지 구현</pre></td>
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/hw-Shin" target='_blank'>신현욱님의 github</a></td>
