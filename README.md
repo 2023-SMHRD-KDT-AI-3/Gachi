@@ -24,17 +24,17 @@
 ## ⭐ 주요 기능
 
 * 검색 기능
-- 사용자가 원하는 카테고리를 선택하고 검색바에 내용을 입력을 하면 사용자가 찾고 있는 카테고리를 검색 ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/a8f3fa35-59b9-43fd-9873-0bef23db8475)
+    - 사용자가 원하는 카테고리를 선택하고 검색바에 내용을 입력을 하면 사용자가 찾고 있는 카테고리를 검색 ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/a8f3fa35-59b9-43fd-9873-0bef23db8475)
 
 <hr>
 
 * 추천 기능
-  - 카테고리 중에 하나를 누르면 해당 카테고리 게시물들을 출력 ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/40bbb9c1-8651-4dc3-98a7-4ff541747c75)
+    - 카테고리 중에 하나를 누르면 해당 카테고리 게시물들을 출력 ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/40bbb9c1-8651-4dc3-98a7-4ff541747c75)
   
 <hr>
 
 * 스크랩 기능
-  - 사용자가 좋아요 누른 게시물들을 볼 수 있게 출력 ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/33dc56bd-0a73-41b1-a3e5-0542f0209bf7)
+    - 사용자가 좋아요 누른 게시물들을 볼 수 있게 출력 ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/33dc56bd-0a73-41b1-a3e5-0542f0209bf7)
 
 
 
