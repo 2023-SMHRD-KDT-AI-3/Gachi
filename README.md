@@ -103,8 +103,6 @@
 ## 🖥 화면구성
 
 ## 👨‍👩‍👦‍👦 팀원 역할
-![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/11b3ba3b-876a-4f7c-85af-31f96504ee77)
-
 <table>
   <tr>
     <td align="center"><img src="https://item.kakaocdn.net/do/fd49574de6581aa2a91d82ff6adb6c0115b3f4e3c2033bfd702a321ec6eda72c" width="100" height="100"/></td>
@@ -114,18 +112,18 @@
     <td align="center"><img src="https://pbs.twimg.com/media/B-n6uPYUUAAZSUx.png" width="100" height="100"/></td>
   </tr>
   <tr>
-    <td align="center"><strong>홍O동</strong></td>
-    <td align="center"><strong>홍O동</strong></td>
-    <td align="center"><strong>홍O동</strong></td>
-    <td align="center"><strong>홍O동</strong></td>
-    <td align="center"><strong>홍O동</strong></td>
+    <td align="center"><strong>신현욱</strong></td>
+    <td align="center"><strong>박주영</strong></td>
+    <td align="center"><strong>김주영</strong></td>
+    <td align="center"><strong>윤대호</strong></td>
+    <td align="center"><strong>박조시아</strong></td>
   </tr>
   <tr>
-    <td align="center"><b>Frontend</b></td>
-    <td align="center"><b>Frontend</b></td>
+    <td align="center"><b>프로젝트 총괄</b></td>
     <td align="center"><b>Backend</b></td>
     <td align="center"><b>Backend</b></td>
-    <td align="center"><b>Deep Learning</b></td>
+    <td align="center"><b>Frontend</b></td>
+    <td align="center"><b>Frontend</b></td>
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
