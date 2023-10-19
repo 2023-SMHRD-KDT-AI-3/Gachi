@@ -122,7 +122,7 @@
     <td align="center">
         <strong>프로젝트 총괄</strong>
         <hr>
-        <b rowspan="9">DB 설계 및 구축</b>
+        <b>DB 설계 및 구축</b>
         <b>게시판 기능 구현</b>
         <b>좋아요, 추천, 댓글 기능 연결</b>
         <b>회원정보 수정 기능 구현</b>
