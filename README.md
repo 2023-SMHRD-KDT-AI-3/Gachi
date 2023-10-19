@@ -101,6 +101,17 @@
 
 
 ## 🖥 화면구성
+-로그인 및 회원가입-<br>
+![화면 캡처 2023-10-19 131418](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/144747174/e9a4f864-0a33-47b1-90ad-3ebf5961fa00)
+![화면 캡처 2023-10-19 140440](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/144747174/68cd94d2-e2d2-45e2-bf76-0f6c9b8aeaec)<br>
+-홈페이지-<br>
+![화면 캡처 2023-10-19 140336](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/144747174/ea11c81f-68b3-4893-9118-0ca3fa43b9c0)
+-검색 페이지-<br>
+![화면 캡처 2023-10-19 134929](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/144747174/7978e968-6e4e-4f7e-bfb8-ca7c56226b27)
+-내가 쓴 게시글-<br>
+![화면 캡처 2023-10-19 135021](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/144747174/ae860b28-d0fd-4b0b-ae34-ee132f264112)
+-좋아요 한 게시글-<br>
+![화면 캡처 2023-10-19 135002](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/144747174/4340a1cc-189c-4c13-acf5-10ff85e4c7f3)
 
 ## 👨‍👩‍👦‍👦 팀원 역할
 <table>
