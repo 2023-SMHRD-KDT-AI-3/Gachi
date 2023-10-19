@@ -23,7 +23,7 @@
 ## ⭐ 주요 기능
 
 * 검색 기능
-  ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/ba026d7a-a394-4655-8d20-e956c1556e30) ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/d36cde85-d470-4284-bd8c-4fc7514e5789)
+  - ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/ba026d7a-a394-4655-8d20-e956c1556e30) ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/d36cde85-d470-4284-bd8c-4fc7514e5789)
 
 
 * 2. 추천 기능
