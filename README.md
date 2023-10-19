@@ -97,6 +97,8 @@
 
 
 ## 📌 ER다이어그램
+![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/a274926e-6ee4-4d13-b8e3-4240853c0781)
+
 
 ## 🖥 화면구성
 
