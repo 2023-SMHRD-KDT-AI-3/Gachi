@@ -21,23 +21,23 @@
 
 
 ## ⭐ 주요 기능
-<table>
-    <tr>
-        <td>검색 기능</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>사용자가 원하는 카테고리를 선택하고 찾고 있는 해당 카테고리를 입력 
-            ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/ba026d7a-a394-4655-8d20-e956c1556e30)
-        </td>
-        <td>사용자가 찾고 있는 카테고리를 검색 
-            ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/d36cde85-d470-4284-bd8c-4fc7514e5789)
-        </td>
-    </tr>
-    <tr>
+<div>
+    <div>
+        <div>검색 기능</div>
+        <div>사용자가 원하는 카테고리를 선택하고 찾고 있는 해당 카테고리를 입력 ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/ba026d7a-a394-4655-8d20-e956c1556e30)</div>
+    </div>
+
     
-    </tr>
-</table>
+</div>
+
+
+
+
+
+
+* 검색 기능
+  - 사용자가 원하는 카테고리를 선택하고 찾고 있는 해당 카테고리를 입력 ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/ba026d7a-a394-4655-8d20-e956c1556e30)
+  - 사용자가 찾고 있는 카테고리를 검색 ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/d36cde85-d470-4284-bd8c-4fc7514e5789)
 
 <hr>
 
