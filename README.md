@@ -119,7 +119,7 @@
     <td align="center"><strong>박조시아</strong></td>
   </tr>
   <tr>
-    <td align="center"><strong>프로젝트 총괄</strong><hr>
+    <td align="center" colspan="2"><strong>프로젝트 총괄</strong><hr>
         <b>
         DB 설계 및 구축
         게시판 기능 구현
