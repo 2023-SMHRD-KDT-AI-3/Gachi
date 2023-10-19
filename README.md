@@ -1,5 +1,5 @@
 <div align= "center">
-    <img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=120&text=Team%20Gachi의%20프로젝트%20입니다.&animation=&fontColor=fff&fontSize=60" />
+    <img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=120&text=Team%20Gachi의%20프로젝트%20입니다.&animation=&fontColor=eee&fontSize=60" />
 </div>
 
 ## 📎선물팔레트(팀명: Gachi)
