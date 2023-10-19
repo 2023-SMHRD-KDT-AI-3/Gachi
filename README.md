@@ -23,7 +23,8 @@
 ## ⭐ 주요 기능
 
 * 검색 기능
-- 사용자가 원하는 카테고리를 선택하고 검색바에 내용을 입력을 하면 사용자가 찾고 있는 카테고리를 검색 ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/809b6a83-c551-4168-9d39-e3e31f5b0e6e)
+- 사용자가 원하는 카테고리를 선택하고 검색바에 내용을 입력을 하면 사용자가 찾고 있는 카테고리를 검색 ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/a8f3fa35-59b9-43fd-9873-0bef23db8475)
+
 
 
 <hr>
