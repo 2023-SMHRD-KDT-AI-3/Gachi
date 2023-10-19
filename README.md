@@ -102,7 +102,6 @@
 
 ## 🖥 화면구성
 - 로그인 및 회원가입
-<br>
 ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/b861f1be-18e9-42cc-ba34-372a610b90ff)
 
 <br>
