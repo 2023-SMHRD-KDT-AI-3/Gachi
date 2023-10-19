@@ -32,8 +32,11 @@
   - 카테고리별로 나눔 ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/fce341d7-b577-4ba9-8ebc-da8895fe6e99)
   - 카테고리 중에 하나를 누르면 해당 카테고리 게시물들을 출력  ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/f5058c52-aa53-44b4-87b2-bc54c0a25875)
 
+<hr>
 
-* 3. 스크랩 기능
+* 스크랩 기능
+  - 사용자가 좋아요 누른 게시물들을 볼 수 있게 출력 ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/33dc56bd-0a73-41b1-a3e5-0542f0209bf7)
+
 
 
 
