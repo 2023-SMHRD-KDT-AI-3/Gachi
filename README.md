@@ -101,9 +101,11 @@
 
 
 ## 🖥 화면구성
--로그인 및 회원가입-<br>
-![화면 캡처 2023-10-19 131418](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/144747174/e9a4f864-0a33-47b1-90ad-3ebf5961fa00)
-![화면 캡처 2023-10-19 140440](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/144747174/68cd94d2-e2d2-45e2-bf76-0f6c9b8aeaec)<br>
+-로그인 및 회원가입-
+<br>
+![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/b861f1be-18e9-42cc-ba34-372a610b90ff)
+
+<br>
 -홈페이지-<br>
 ![화면 캡처 2023-10-19 141841](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/144747174/9514579d-0d2c-44d8-939f-13c910ac724c)
 
