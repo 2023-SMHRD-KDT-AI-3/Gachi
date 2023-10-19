@@ -27,7 +27,11 @@
   - 사용자가 찾고 있는 카테고리를 검색 ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/d36cde85-d470-4284-bd8c-4fc7514e5789)
 
 
-* 2. 추천 기능
+* 추천 기능
+  - 카테고리별로 나눔 ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/fce341d7-b577-4ba9-8ebc-da8895fe6e99)
+  - 카테고리 중에 하나를 누르면 해당 카테고리 게시물들을 출력  ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/f5058c52-aa53-44b4-87b2-bc54c0a25875)
+
+
 * 3. 스크랩 기능
 
 
