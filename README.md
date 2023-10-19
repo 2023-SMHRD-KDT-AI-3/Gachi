@@ -103,10 +103,10 @@
 ## 🖥 화면구성
 
 ## 👨‍👩‍👦‍👦 팀원 역할
-<table>![7294793](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/4a0bf94a-3f0c-49d9-92c8-97f6f95d525d)
+<table>
 
   <tr>
-    <td align="center"><img src="C:\Users\smhrd\Downloads\JPG 파일" width="100" height="100"/></td>
+    <td align="center"><img src="[C:\Users\smhrd\Downloads\JPG 파일" width="100" height="100](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/3df138e2-62a1-40f8-8021-d1c701f4e91a)"/></td>
     <td align="center"><img src="https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/4a0bf94a-3f0c-49d9-92c8-97f6f95d525d" width="100" height="100"/></td>
     <td align="center"><img src="https://mblogthumbphinf.pstatic.net/20160127_177/krazymouse_1453865104404DjQIi_PNG/%C4%AB%C4%AB%BF%C0%C7%C1%B7%BB%C1%EE_%B6%F3%C0%CC%BE%F0.png?type=w2"width="100" height="100"/></td>
     <td align="center"><img src="https://i.pinimg.com/236x/ed/bb/53/edbb53d4f6dd710431c1140551404af9.jpg" width="100" height="100"/></td>
