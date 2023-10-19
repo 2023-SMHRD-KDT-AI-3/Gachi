@@ -105,11 +105,11 @@
 ## 👨‍👩‍👦‍👦 팀원 역할
 <table>
   <tr>
-    <td align="center"><img src="https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/92845bdf-9ba5-4c84-b595-7067ec81da9d" width="160" height="160" padding="0"/></td>
-    <td align="center"><img src="https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/e701de6e-13f8-4daa-882c-be9c18b76b3e" width="190" height="160" padding="0"/></td>
-    <td align="center"><img src="https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/4a504695-c64c-42ba-a928-81de5bc1af17" width="190" height="160" padding="0"/></td>
-    <td align="center"><img src="https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/153c94a9-5007-417a-9705-21f1cabc34fd" width="160" height="160" padding="0"/></td>
-    <td align="center"><img src="https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/5a57f108-eb0b-43be-a190-80c51f8fce48" width="160" height="160" padding="0"/></td>
+    <td align="center"><img src="https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/92845bdf-9ba5-4c84-b595-7067ec81da9d" width="160" height="160" padding="0px"/></td>
+    <td align="center"><img src="https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/e701de6e-13f8-4daa-882c-be9c18b76b3e" width="190" height="160" padding="0px"/></td>
+    <td align="center"><img src="https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/4a504695-c64c-42ba-a928-81de5bc1af17" width="190" height="160" padding="0px"/></td>
+    <td align="center"><img src="https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/153c94a9-5007-417a-9705-21f1cabc34fd" width="160" height="160" padding="0px"/></td>
+    <td align="center"><img src="https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/5a57f108-eb0b-43be-a190-80c51f8fce48" width="160" height="160" padding="0px"/></td>
   </tr>
   <tr>
     <td align="center"><strong>신현욱</strong></td>
