@@ -93,6 +93,8 @@
 
 
 ## 📌 서비스 흐름도
+![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/f7975dd9-8f0c-49e1-93ce-7c6f1630249d)
+
 
 ## 📌 ER다이어그램
 
