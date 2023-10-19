@@ -105,7 +105,8 @@
 ![화면 캡처 2023-10-19 131418](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/144747174/e9a4f864-0a33-47b1-90ad-3ebf5961fa00)
 ![화면 캡처 2023-10-19 140440](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/144747174/68cd94d2-e2d2-45e2-bf76-0f6c9b8aeaec)<br>
 -홈페이지-<br>
-![화면 캡처 2023-10-19 140336](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/144747174/ea11c81f-68b3-4893-9118-0ca3fa43b9c0)
+![화면 캡처 2023-10-19 141841](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/144747174/9514579d-0d2c-44d8-939f-13c910ac724c)
+
 -검색 페이지-<br>
 ![화면 캡처 2023-10-19 134929](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/144747174/7978e968-6e4e-4f7e-bfb8-ca7c56226b27)
 -내가 쓴 게시글-<br>
