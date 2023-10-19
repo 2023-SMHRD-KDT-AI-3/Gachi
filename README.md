@@ -104,9 +104,11 @@
 - 로그인 및 회원가입
 ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/b861f1be-18e9-42cc-ba34-372a610b90ff)
 
-<br>
--홈페이지-<br>
-![화면 캡처 2023-10-19 141841](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/144747174/9514579d-0d2c-44d8-939f-13c910ac724c)
+<hr>
+
+- 메인페이지
+![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/f35f71ad-539e-4fb4-a2f8-444ca4adcd7e)
+
 
 -검색 페이지-<br>
 ![화면 캡처 2023-10-19 134929](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/144747174/7978e968-6e4e-4f7e-bfb8-ca7c56226b27)
