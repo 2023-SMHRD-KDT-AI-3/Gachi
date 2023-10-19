@@ -103,6 +103,8 @@
 ## 🖥 화면구성
 
 ## 👨‍👩‍👦‍👦 팀원 역할
+![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/11b3ba3b-876a-4f7c-85af-31f96504ee77)
+
 <table>
   <tr>
     <td align="center"><img src="https://item.kakaocdn.net/do/fd49574de6581aa2a91d82ff6adb6c0115b3f4e3c2033bfd702a321ec6eda72c" width="100" height="100"/></td>
