@@ -126,11 +126,11 @@
     <td align="center"><b>Frontend</b></td>
   </tr>
   <tr>
-    <td align="center"><a href="https://github.com/hw-Shin" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
+    <td align="center"><a href="https://github.com/hw-Shin" target='_blank'>신현욱님의 github</a></td>
+    <td align="center"><a href="https://github.com/Zuzzang" target='_blank'>박주영님의 github</a></td>
+    <td align="center"><a href="https://github.com/Kimz00" target='_blank'>김주영님의 github</a></td>
+    <td align="center"><a href="https://github.com/dao7179" target='_blank'>윤대호님의 github</a></td>
+    <td align="center"><a href="https://github.com/jrjosh1207" target='_blank'>박조시아님의 github</a></td>
   </tr>
 </table>
 
