@@ -3,7 +3,8 @@
 </div>
 
 ## 📎선물팔레트(팀명: Gachi)
-![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/437f6bde-2d13-4958-9dde-db1cade9c895)
+![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/afc4de62-49f1-40f9-bb45-de9a3465f2d9)
+
 
 ## 👀 서비스 소개
 * 서비스명:  선물팔레트
