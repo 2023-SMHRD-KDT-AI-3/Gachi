@@ -121,6 +121,7 @@
   <tr>
     <td align="center">
         <strong>프로젝트 총괄</strong>
+        <hr>
         <pre>DB 설계 및 구축
 게시판 기능 구현
 좋아요, 추천, 댓글 기능 연결
@@ -132,12 +133,14 @@
 주제별 추천 기능 구현</pre>
     </td>
     <td align="center"><strong>Backend</strong>
+        <hr>
         <pre>회원정보 기능 구현
 로그아웃 기능 구현
 게시글 수정/삭제 기능 구현
 소개글 기능 구현(마이페이지)
 상대 프로필 기능 구현</pre></td>
     <td align="center"><strong>Backend</strong>
+        <hr>
         <pre>좋아요 및 추천 기능 구현
 상품 리스트 출력 기능 구현
 상대 프로필 기능 구현
@@ -145,11 +148,13 @@
 팔로우 기능 구현
 게시글 수정/삭제 기능 구현</pre></td>
     <td align="center"><strong>Frontend</strong>
+        <hr>
         <pre>회원정보 페이지 구현
 메인 페이지 구현
 상품 리스트 및 이미지 크롤링
 댓글창 구성 구현</pre></td>
     <td align="center"><strong>Frontend</strong>
+        <hr>
         <pre>메인 페이지 구현
  마이 페이지 구현
 게시글작성 페이지 구현
