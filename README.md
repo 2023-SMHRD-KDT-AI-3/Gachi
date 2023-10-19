@@ -3,7 +3,7 @@
 </div>
 
 ## 📎서비스 소개
-    ![logo](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/f2933876-3aba-4b81-b48e-3aee460781eb)
+![logo](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/f2933876-3aba-4b81-b48e-3aee460781eb)
 **-  서비스명 : 선물팔레트**
 상품을 선물 및 추천하는 SNS 서비스
 
