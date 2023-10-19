@@ -109,13 +109,54 @@
 - 메인페이지
 ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/f35f71ad-539e-4fb4-a2f8-444ca4adcd7e)
 
+<hr>
 
--검색 페이지-<br>
-![화면 캡처 2023-10-19 134929](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/144747174/7978e968-6e4e-4f7e-bfb8-ca7c56226b27)
--내가 쓴 게시글-<br>
-![화면 캡처 2023-10-19 135021](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/144747174/ae860b28-d0fd-4b0b-ae34-ee132f264112)
--좋아요 한 게시글-<br>
-![화면 캡처 2023-10-19 135002](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/144747174/4340a1cc-189c-4c13-acf5-10ff85e4c7f3)
+- 검색 페이지
+![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/380c6f19-0623-47e0-9c0e-590b4a742381)
+
+<hr>
+
+- 게시글 작성 페이지
+![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/8b667a8d-205f-48e4-8e9e-4deb96e420db)
+
+<hr>
+
+- 마이페이지 및 자기 게시글
+![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/d86f5949-d3d3-446e-84df-e67be8a5620e)
+
+<hr>
+
+- 좋아요한 게시물
+![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/73c939b5-12fd-42e2-a75a-9e54486976d7)
+
+<hr>
+
+- 프로필 편집 페이지
+![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/da147042-a45d-4699-b368-fcf515e31af2)
+
+<hr>
+
+- 회원정보 수정 페이지
+![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/768883e4-9f7c-4cdf-95b5-d85264254349)
+
+
+<hr>
+
+- 팔로워 리스트
+![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/abc8df4f-c75e-4fcc-96eb-ef53d13887bb)
+
+<hr>
+ 
+- 팔로잉 리스트
+![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/97455717-1466-426d-9c36-cecf22ca7300)
+
+
+
+
+
+
+
+
 
 ## 👨‍👩‍👦‍👦 팀원 역할
 <table>
