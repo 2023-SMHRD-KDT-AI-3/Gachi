@@ -119,7 +119,7 @@
     <td align="center"><strong>박조시아</strong></td>
   </tr>
   <tr>
-    <td align="center"><b>프로젝트 총괄</b></td>
+    <td align="center"><b>프로젝트 총괄</b><b>프로젝트 총괄</b></td>
     <td align="center"><b>Backend</b></td>
     <td align="center"><b>Backend</b></td>
     <td align="center"><b>Frontend</b></td>
