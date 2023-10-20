@@ -23,17 +23,17 @@
 
 ## ⭐ 주요 기능
 
-* 검색 기능
+* ### 검색 기능
     - 사용자가 원하는 카테고리를 선택하고 검색바에 내용을 입력을 하면 사용자가 찾고 있는 카테고리를 검색 ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/a8f3fa35-59b9-43fd-9873-0bef23db8475)
 
 <hr>
 
-* 추천 기능
+* ### 추천 기능
     - 카테고리 중에 하나를 누르면 해당 카테고리 게시물들을 출력 ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/40bbb9c1-8651-4dc3-98a7-4ff541747c75)
   
 <hr>
 
-* 스크랩 기능
+* ### 스크랩 기능
     - 사용자가 좋아요 누른 게시물들을 볼 수 있게 출력 ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/33dc56bd-0a73-41b1-a3e5-0542f0209bf7)
   
 
@@ -93,7 +93,7 @@
 
 
 ## 📌 서비스 흐름도
-![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/f7975dd9-8f0c-49e1-93ce-7c6f1630249d)
+![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151823/b0131ec2-bd0c-4d73-a6ad-5aa915f8a798)
 
 
 ## 📌 ER다이어그램
@@ -101,53 +101,53 @@
 
 
 ## 🖥 화면구성
-- 로그인 및 회원가입 페이지
+- ### 로그인 및 회원가입 페이지
 ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/b861f1be-18e9-42cc-ba34-372a610b90ff)
 
 <hr>
 
-- 메인페이지
+- ### 메인페이지
 ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/f35f71ad-539e-4fb4-a2f8-444ca4adcd7e)
 
 <hr>
 
-- 검색 페이지
+- ### 검색 페이지
 ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/380c6f19-0623-47e0-9c0e-590b4a742381)
 
 <hr>
 
-- 게시글 작성 페이지
+- ### 게시글 작성 페이지
 ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/8b667a8d-205f-48e4-8e9e-4deb96e420db)
 
 <hr>
 
-- 마이페이지 및 자기 게시글 페이지
+- ### 마이페이지 및 자기 게시글 페이지
 ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/d86f5949-d3d3-446e-84df-e67be8a5620e)
 
 <hr>
 
-- 좋아요한 게시물 페이지
+- ### 좋아요한 게시물 페이지
 ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/73c939b5-12fd-42e2-a75a-9e54486976d7)
 
 <hr>
 
-- 프로필 편집 페이지
+- ### 프로필 편집 페이지
 ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/da147042-a45d-4699-b368-fcf515e31af2)
 
 <hr>
 
-- 회원정보 수정 페이지
+- ### 회원정보 수정 페이지
 ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/768883e4-9f7c-4cdf-95b5-d85264254349)
 
 
 <hr>
 
-- 팔로워 리스트 페이지
+- ### 팔로워 리스트 페이지
 ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/abc8df4f-c75e-4fcc-96eb-ef53d13887bb)
 
 <hr>
  
-- 팔로잉 리스트 페이지
+- ### 팔로잉 리스트 페이지
 ![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/97455717-1466-426d-9c36-cecf22ca7300)
 
 <hr>
@@ -173,9 +173,14 @@
     <td align="center"><strong>박조시아</strong></td>
   </tr>
   <tr>
+      <td align="center"><br><strong>프로젝트 총괄</strong><hr></td>
+      <td align="center"><br><strong>Backend</strong><hr></td>
+      <td align="center"><br><strong>Backend</strong><hr></td>
+      <td align="center"><br><strong>Frontend</strong><hr></td>
+      <td align="center"><br><strong>Frontend</strong><hr></td>
+  </tr>
+  <tr>
     <td align="center">
-        <strong>프로젝트 총괄</strong>
-        <hr>
         <pre>DB 설계 및 구축
 게시판 기능 구현
 좋아요, 추천, 댓글 기능 연결
@@ -186,29 +191,25 @@
 해시태그 기능 구현
 주제별 추천 기능 구현</pre>
     </td>
-    <td align="center"><strong>Backend</strong>
-        <hr>
+    <td align="center">
         <pre>회원정보 기능 구현
 로그아웃 기능 구현
 게시글 수정/삭제 기능 구현
 소개글 기능 구현(마이페이지)
 상대 프로필 기능 구현</pre></td>
-    <td align="center"><strong>Backend</strong>
-        <hr>
+    <td align="center">
         <pre>좋아요 및 추천 기능 구현
 상품 리스트 출력 기능 구현
 상대 프로필 기능 구현
 좋아요/추천 연결 기능 구현
 팔로우 기능 구현
 게시글 수정/삭제 기능 구현</pre></td>
-    <td align="center"><strong>Frontend</strong>
-        <hr>
+    <td align="center">
         <pre>회원정보 페이지 구현
 메인 페이지 구현
 상품 리스트 및 이미지 크롤링
 댓글창 구성 구현</pre></td>
-    <td align="center"><strong>Frontend</strong>
-        <hr>
+    <td align="center">
         <pre>메인 페이지 구현
  마이 페이지 구현
 게시글작성 페이지 구현
@@ -229,18 +230,18 @@
 </table>
 
 ## 🤾‍♂️ 트러블 슈팅
-* 문제1<br>
-- 문제점 : 내가 좋아요를 누른 게시물에 여러 사람이 좋아요를 누르면 그 갯수만큼 해당 게시물이 출력되는 문제
-- 해결 방안 : 좋아요를 누른 아이디가 내 아이디인 게시글들만 출력할 수 있도록 쿼리문을 작성해 해결
+* ### 문제1<br>
+- <strong>문제점</strong> : 내가 좋아요를 누른 게시물에 여러 사람이 좋아요를 누르면 그 갯수만큼 해당 게시물이 출력되는 문제
+- <strong>해결 방안</strong> : 좋아요를 누른 아이디가 내 아이디인 게시글들만 출력할 수 있도록 쿼리문을 작성해 해결
 
 <hr>
  
-* 문제2<br>
-- 문제점 : 팔로우 여부를 체크하는 기능을 만들던 중 mybatis mapper 안에 해당 기능을 위한 쿼리문을 추가하면서 서버오류가 발생하는 문제
-- 해결 방안 : 팀원이 비슷한 기능을 만들면서 중복된 쿼리문때문에 발생한 문제
+* ### 문제2<br>
+- <strong>문제점</strong> : 팔로우 여부를 체크하는 기능을 만들던 중 mybatis mapper 안에 해당 기능을 위한 쿼리문을 추가하면서 서버오류가 발생하는 문제
+- <strong>해결 방안</strong> : 팀원이 비슷한 기능을 만들면서 중복된 쿼리문때문에 발생한 문제
 
 <hr>
 
-* 문제3<br>
-- 문제점 : 게시글 ID 가지고 있지 않아서 DB에 추가할 수 없었던 문제
-- 해결 방안 : 해시태그를 추가할 때 해당 해시태그를 배열에 집어넣고 가장 마지막에 작성된 게시글 ID를 받아와서 해시태그의 배열 내용을 split을 이용해 반복문으로 하나씩 DB에 넣어줘서 해결 
+* ### 문제3<br>
+- <strong>문제점</strong> : 게시글 ID 가지고 있지 않아서 DB에 추가할 수 없었던 문제
+- <strong>해결 방안</strong> : 해시태그를 추가할 때 해당 해시태그를 배열에 집어넣고 가장 마지막에 작성된 게시글 ID를 받아와서 해시태그의 배열 내용을 split을 이용해 반복문으로 하나씩 DB에 넣어줘서 해결 
