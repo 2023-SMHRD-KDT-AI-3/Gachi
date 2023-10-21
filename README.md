@@ -89,7 +89,7 @@
 
 
 ## 📌 유스케이스
-![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151815/64c37ee1-c498-44e7-8ef7-a70105077975)
+![image](https://github.com/2023-SMHRD-KDT-AI-3/Gachi/assets/140151823/584ab2f1-a300-4b5f-a082-a0030d4dd651)
 
 
 ## 📌 서비스 흐름도
@@ -189,12 +189,13 @@
 게시글 검색 기능 구현
 파일 첨부 기능 구현
 해시태그 기능 구현
+상품별 게시글 목록 구현            
 주제별 추천 기능 구현</pre>
     </td>
     <td align="center">
         <pre>회원정보 기능 구현
 로그아웃 기능 구현
-게시글 수정/삭제 기능 구현
+추천 상품리스트 출력
 소개글 기능 구현(마이페이지)
 상대 프로필 기능 구현</pre></td>
     <td align="center">
